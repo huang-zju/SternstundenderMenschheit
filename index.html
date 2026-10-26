@@ -1,0 +1,2922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>人类群星闪耀时 · 星轨档案</title>
+<meta name="description" content="十四个人类历史的决定性瞬间，每章三轮抉择。你会成为谁？">
+<style>
+/* ============================================================
+   星轨档案 · 视觉系统
+   ============================================================ */
+:root{
+  --bg:#07070e;
+  --panel:#12101b;
+  --panel2:#1a1728;
+  --gold:#d4af37;
+  --gold2:#f6e9b0;
+  --gold-dim:#8a7326;
+  --ink:#e9e3d6;
+  --dim:#8d8570;
+  --line:rgba(212,175,55,.18);
+  --line2:rgba(255,255,255,.07);
+  --C:#d4574a;   /* 勇气 */
+  --R:#5a9ac8;   /* 理智 */
+  --F:#a87ac8;   /* 命运 */
+  --ok:#7fd490;
+  --no:#d47f7f;
+  --shadow:0 18px 50px -20px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:"Noto Serif SC","Songti SC","STSong","PingFang SC","Microsoft YaHei",Georgia,serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(212,175,55,.10), transparent 48%),
+    radial-gradient(ellipse at 85% 92%, rgba(90,60,140,.16), transparent 52%),
+    radial-gradient(ellipse at 50% 45%, rgba(30,26,48,.55), transparent 70%),
+    linear-gradient(165deg,#07070e 0%,#0e0c18 42%,#141020 100%);
+  background-attachment:fixed;
+  min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.7;
+}
+/* 星尘 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 8% 14%,rgba(255,235,170,.85),transparent),
+    radial-gradient(1px 1px at 24% 62%,rgba(255,235,170,.5),transparent),
+    radial-gradient(1.6px 1.6px at 42% 22%,rgba(255,235,170,.9),transparent),
+    radial-gradient(1px 1px at 63% 76%,rgba(255,235,170,.45),transparent),
+    radial-gradient(1.2px 1.2px at 78% 30%,rgba(255,235,170,.7),transparent),
+    radial-gradient(1px 1px at 90% 66%,rgba(255,235,170,.5),transparent),
+    radial-gradient(1px 1px at 34% 90%,rgba(255,235,170,.4),transparent),
+    radial-gradient(1.4px 1.4px at 95% 12%,rgba(255,235,170,.6),transparent),
+    radial-gradient(1px 1px at 55% 48%,rgba(255,235,170,.35),transparent);
+  animation:twk 7s ease-in-out infinite alternate;
+}
+@keyframes twk{from{opacity:.45}to{opacity:1}}
+/* 纸纹 */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 16px 72px}
+
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:10px;
+  padding:10px 4px;margin:0 -16px 18px;
+  padding-left:16px;padding-right:16px;
+  background:linear-gradient(180deg,rgba(9,8,16,.96),rgba(9,8,16,.72) 70%,rgba(9,8,16,0));
+  backdrop-filter:blur(10px);
+}
+.tb-title{
+  flex:1;text-align:center;font-size:12px;letter-spacing:.22em;color:var(--gold-dim);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tb-btn{
+  background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--dim);
+  font-family:inherit;font-size:11.5px;letter-spacing:.1em;
+  padding:6px 11px;border-radius:18px;cursor:pointer;transition:.22s;white-space:nowrap;
+}
+.tb-btn:hover{color:var(--gold2);border-color:var(--gold);background:rgba(212,175,55,.1)}
+.tb-btn .badge{
+  display:inline-block;margin-left:5px;padding:0 5px;border-radius:8px;
+  background:var(--gold);color:#0b0912;font-size:10px;font-weight:700;
+}
+.tb-right{display:flex;gap:7px}
+
+/* ---------- 封面 ---------- */
+.cover{padding-top:12px;text-align:center;animation:fadeUp .8s ease both}
+.cover-sigil{
+  width:132px;height:132px;margin:6px auto 20px;position:relative;
+  animation:breathe 6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1);filter:drop-shadow(0 0 14px rgba(212,175,55,.25))}50%{transform:scale(1.04);filter:drop-shadow(0 0 26px rgba(212,175,55,.5))}}
+h1.big{
+  font-size:clamp(28px,7.4vw,46px);font-weight:400;letter-spacing:.16em;
+  background:linear-gradient(180deg,#fff 0%,var(--gold2) 40%,var(--gold) 62%,#8a7326 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 4px 30px rgba(212,175,55,.18);
+}
+.cover-en{
+  font-family:Georgia,serif;font-size:10px;letter-spacing:.5em;
+  color:var(--gold-dim);text-transform:uppercase;margin-top:12px;
+}
+.cover-sub{color:var(--dim);font-size:13.5px;letter-spacing:.18em;margin-top:14px}
+.cover-body{
+  max-width:600px;margin:26px auto 0;font-size:14.5px;line-height:2.05;
+  color:#b8b2a4;text-align:left;
+}
+.cover-body p{margin-bottom:12px}
+.cover-body b{color:var(--gold2);font-weight:400}
+.q{
+  border-left:2px solid var(--gold);padding:8px 14px;margin:16px 0;
+  background:rgba(212,175,55,.05);color:var(--dim);font-style:italic;font-size:13.5px;
+}
+.cta{display:flex;flex-direction:column;gap:11px;max-width:400px;margin:30px auto 0}
+.btn-main{
+  background:linear-gradient(180deg,rgba(212,175,55,.24),rgba(212,175,55,.08));
+  border:1px solid rgba(212,175,55,.6);color:var(--gold2);
+  font-family:inherit;font-size:14.5px;letter-spacing:.2em;
+  padding:14px 26px;border-radius:32px;cursor:pointer;transition:.28s;
+}
+.btn-main:hover{background:var(--gold);color:#0b0912;box-shadow:0 0 34px rgba(212,175,55,.45)}
+.btn-sub{
+  background:none;border:1px solid var(--line);color:var(--dim);
+  font-family:inherit;font-size:13px;letter-spacing:.14em;
+  padding:11px 24px;border-radius:32px;cursor:pointer;transition:.24s;
+}
+.btn-sub:hover{color:var(--gold2);border-color:var(--gold)}
+.cover-foot{margin-top:26px;font-size:11.5px;color:#5f5a4c;letter-spacing:.1em}
+.hint-secret{
+  margin-top:20px;font-size:12px;color:var(--gold-dim);letter-spacing:.1em;
+  opacity:0;transition:.6s;
+}
+.hint-secret.show{opacity:1}
+
+/* ---------- HUD 属性 ---------- */
+.hud{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:9px;
+  margin-bottom:16px;
+}
+.hud-cell{
+  background:rgba(255,255,255,.025);border:1px solid var(--line2);
+  border-radius:10px;padding:8px 6px 9px;text-align:center;transition:.3s;
+}
+.hud-cell .nm{font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.hud-cell .vl{font-family:Georgia,serif;font-size:19px;margin-top:2px}
+.hud-cell .track{height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin:7px 8px 0;overflow:hidden}
+.hud-cell .track i{display:block;height:100%;width:50%;border-radius:3px;transition:width .6s cubic-bezier(.3,.9,.3,1)}
+.hud-cell[data-k="C"] .vl{color:var(--C)} .hud-cell[data-k="C"] .track i{background:var(--C);box-shadow:0 0 8px var(--C)}
+.hud-cell[data-k="R"] .vl{color:var(--R)} .hud-cell[data-k="R"] .track i{background:var(--R);box-shadow:0 0 8px var(--R)}
+.hud-cell[data-k="F"] .vl{color:var(--F)} .hud-cell[data-k="F"] .track i{background:var(--F);box-shadow:0 0 8px var(--F)}
+.hud-cell.sat .nm::after{content:' · 饱和';color:#c8a04a;letter-spacing:.06em}
+.hud-cell.up{animation:popIn .7s ease}
+.hud-cell.down{animation:shakeX .5s ease}
+@keyframes popIn{0%{transform:scale(1)}35%{transform:scale(1.14);box-shadow:0 0 22px rgba(127,212,144,.4)}100%{transform:scale(1)}}
+@keyframes shakeX{0%,100%{transform:translateX(0)}22%{transform:translateX(-5px)}66%{transform:translateX(5px)}}
+
+/* ---------- 章节页 ---------- */
+.chapter{animation:fadeUp .55s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ch-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+@media(max-width:600px){.ch-head{flex-direction:column;align-items:center;text-align:center}}
+.ch-sigil{
+  flex:0 0 112px;width:112px;height:112px;border-radius:14px;
+  border:1px solid var(--line);
+  background:radial-gradient(circle at 50% 35%,rgba(212,175,55,.14),rgba(0,0,0,.35));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 0 30px rgba(212,175,55,.06),0 10px 30px -14px #000;
+}
+.ch-sigil svg{width:66px;height:66px}
+.ch-info{flex:1;min-width:0}
+.ch-idx{font-size:10.5px;letter-spacing:.28em;color:var(--gold-dim)}
+.ch-title{font-size:22px;letter-spacing:.1em;color:var(--gold2);margin:5px 0 6px;font-weight:400}
+.ch-meta{font-size:12px;color:var(--dim);letter-spacing:.05em;line-height:1.9}
+.ch-meta b{color:var(--gold);font-weight:400}
+.round-pips{display:flex;gap:6px;margin-top:11px}
+.round-pips i{
+  width:26px;height:3px;border-radius:3px;background:rgba(255,255,255,.13);transition:.45s;
+}
+.round-pips i.on{background:var(--gold);box-shadow:0 0 9px rgba(212,175,55,.7)}
+.round-pips i.now{background:var(--gold2);animation:pipPulse 1.4s ease-in-out infinite}
+@keyframes pipPulse{0%,100%{opacity:1}50%{opacity:.42}}
+
+.story{
+  background:rgba(255,255,255,.022);border:1px solid var(--line2);
+  border-radius:13px;padding:20px 20px 18px;font-size:15px;line-height:2.05;
+  color:#cdc7ba;letter-spacing:.02em;
+}
+.story p{margin-bottom:12px}
+.story p:last-child{margin-bottom:0}
+.story b{color:var(--gold2);font-weight:400}
+.story .rhyme{
+  display:block;margin:14px 0 2px;padding:9px 13px;
+  border-left:2px solid var(--gold);background:rgba(212,175,55,.05);
+  color:var(--dim);font-style:italic;font-size:13.5px;
+}
+
+/* ---------- 计时 ---------- */
+.timer-line{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 7px;font-size:11.5px;color:var(--dim);letter-spacing:.08em}
+.timer-track{height:4px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:18px}
+.timer-fill{height:100%;width:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--C));transition:width .1s linear}
+.timer-fill.warn{background:linear-gradient(90deg,var(--C),#ff6b5a)}
+
+/* ---------- 选项 ---------- */
+.choices{display:flex;flex-direction:column;gap:11px}
+.choice{
+  position:relative;text-align:left;width:100%;cursor:pointer;
+  background:linear-gradient(180deg,rgba(255,255,255,.038),rgba(255,255,255,.012));
+  border:1px solid var(--line2);border-radius:11px;
+  padding:15px 17px;color:var(--ink);font-family:inherit;font-size:14.5px;
+  line-height:1.65;letter-spacing:.02em;transition:.22s;
+  animation:choiceIn .3s ease both;
+}
+@keyframes choiceIn{from{opacity:.35;transform:translateY(9px)}to{opacity:1;transform:none}}
+.choice:hover:not(:disabled){background:rgba(212,175,55,.09);border-color:rgba(212,175,55,.5);transform:translateX(5px)}
+.choice:disabled{cursor:default}
+.choice .eff{display:block;margin-top:6px;font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.choice .eff .up{color:var(--ok)} .choice .eff .dn{color:var(--no)}
+.choice.secret{
+  border-color:rgba(168,122,200,.45);
+  background:linear-gradient(180deg,rgba(168,122,200,.12),rgba(168,122,200,.03));
+}
+.choice.secret:hover{background:rgba(168,122,200,.18);border-color:var(--F);transform:translateX(5px)}
+.choice.secret .eff{color:var(--F)}
+.choice.secret::before{
+  content:"✦ 星 轨 裂 缝";position:absolute;top:-8px;left:14px;
+  font-size:9.5px;letter-spacing:.2em;color:var(--F);
+  background:#0d0b16;padding:0 7px;border-radius:6px;
+}
+
+/* ---------- 结果覆盖层 ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:60;display:none;
+  align-items:center;justify-content:center;padding:20px;
+  background:rgba(4,3,9,.82);backdrop-filter:blur(6px);
+}
+.overlay.on{display:flex;animation:fadeIn .3s ease both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.sheet{
+  width:100%;max-width:620px;max-height:88vh;overflow-y:auto;
+  background:linear-gradient(180deg,#191527,#100d19);
+  border:1px solid var(--line);border-radius:16px;
+  padding:26px 24px 22px;box-shadow:var(--shadow);
+  animation:sheetIn .45s cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes sheetIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.sheet::-webkit-scrollbar{width:6px}
+.sheet::-webkit-scrollbar-thumb{background:rgba(212,175,55,.3);border-radius:6px}
+.sheet-kicker{font-size:10.5px;letter-spacing:.3em;color:var(--gold-dim)}
+.sheet h3{font-size:18px;font-weight:400;letter-spacing:.09em;color:var(--gold2);margin:9px 0 15px}
+.sheet .res-text{font-size:14.5px;line-height:2.05;color:#c6c0b3}
+.sheet .res-text b{color:var(--gold2);font-weight:400}
+.gain{
+  display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px;
+}
+.gain span{
+  font-size:11.5px;letter-spacing:.08em;padding:5px 11px;border-radius:20px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--dim);
+}
+.gain span.up{color:var(--ok);border-color:rgba(127,212,144,.35);background:rgba(127,212,144,.08)}
+.gain span.dn{color:var(--no);border-color:rgba(212,127,127,.35);background:rgba(212,127,127,.08)}
+.starline{
+  margin:16px 0 4px;padding:13px 15px;border-radius:11px;
+  background:rgba(212,175,55,.07);border:1px solid rgba(212,175,55,.35);
+}
+.starline .sn{color:var(--gold2);font-size:15px;letter-spacing:.14em}
+.starline .sd{font-size:12px;color:var(--dim);margin-top:4px}
+.starline.secret{background:rgba(168,122,200,.1);border-color:rgba(168,122,200,.45)}
+.starline.secret .sn{color:var(--F)}
+.toast-ach{
+  margin:14px 0 0;padding:12px 15px;border-radius:11px;
+  background:linear-gradient(90deg,rgba(212,175,55,.16),rgba(212,175,55,.04));
+  border:1px solid var(--gold);
+  animation:glow 2.2s ease-in-out infinite alternate;
+}
+@keyframes glow{from{box-shadow:0 0 0 rgba(212,175,55,0)}to{box-shadow:0 0 26px rgba(212,175,55,.35)}}
+.toast-ach .t1{font-size:10.5px;letter-spacing:.26em;color:var(--gold-dim)}
+.toast-ach .t2{font-size:15px;color:var(--gold2);letter-spacing:.1em;margin-top:4px}
+.toast-ach .t3{font-size:12px;color:var(--dim);margin-top:5px;line-height:1.75}
+.sheet-btn{
+  display:block;width:100%;margin-top:20px;text-align:center;
+  background:linear-gradient(180deg,var(--gold),#a8842a);
+  color:#14101c;border:none;padding:14px;border-radius:11px;
+  font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.18em;cursor:pointer;
+  transition:.24s;
+}
+.sheet-btn:hover{filter:brightness(1.12)}
+
+/* ---------- 面板（成就 / 星图） ---------- */
+.panel{width:100%;max-width:660px}
+.panel h3{font-size:19px;font-weight:400;letter-spacing:.16em;color:var(--gold2);margin-bottom:4px}
+.panel .psum{font-size:12px;color:var(--dim);margin-bottom:18px;letter-spacing:.06em}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px}
+.ach{
+  padding:12px 13px;border-radius:11px;border:1px solid var(--line2);
+  background:rgba(255,255,255,.02);transition:.25s;
+}
+.ach .an{font-size:13.5px;color:#5d584b;letter-spacing:.06em;display:flex;align-items:center;gap:6px}
+.ach .ad{font-size:11.5px;color:#4a463c;line-height:1.65;margin-top:5px}
+.ach.got{border-color:rgba(212,175,55,.42);background:rgba(212,175,55,.07)}
+.ach.got .an{color:var(--gold2)}
+.ach.got .ad{color:var(--dim)}
+.ach .mark{font-size:12px}
+.starmap{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:9px}
+.sm{
+  padding:11px 9px;border-radius:10px;text-align:center;
+  border:1px dashed var(--line2);background:rgba(0,0,0,.22);
+}
+.sm.lit{border-style:solid;border-color:var(--gold);background:rgba(212,175,55,.08)}
+.sm .s1{font-size:10px;color:var(--dim);letter-spacing:.14em}
+.sm .s2{font-size:12.5px;color:#55503f;margin-top:4px}
+.sm.lit .s2{color:var(--gold2)}
+.sm .s3{font-size:10.5px;color:#4f4a3d;margin-top:3px}
+.sm.sec{border-color:var(--F);background:rgba(168,122,200,.1)}
+.sm.sec .s2{color:var(--F)}
+
+/* ---------- 现实回响 ---------- */
+.real-intro{
+  font-size:13.5px;line-height:2.1;color:#b8b2a4;
+  max-width:580px;margin:0 auto 18px;text-align:left;
+}
+.real-intro b{color:var(--gold2);font-weight:400}
+.real-grid{display:grid;grid-template-columns:1fr;gap:11px;text-align:left}
+.real-card{
+  position:relative;padding:15px 17px 16px 20px;border-radius:12px;
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  border:1px solid var(--line2);transition:.25s;
+}
+.real-card::before{
+  content:"";position:absolute;left:0;top:16px;bottom:16px;width:2px;
+  border-radius:2px;background:linear-gradient(180deg,var(--gold),rgba(212,175,55,0));
+}
+.real-card:hover{border-color:rgba(212,175,55,.38);background:rgba(212,175,55,.05)}
+.real-card .rc-no{font-size:10px;letter-spacing:.22em;color:var(--gold-dim)}
+.real-card .rc-ti{font-size:15.5px;color:var(--gold2);letter-spacing:.08em;margin:4px 0 8px}
+.real-card .rc-his{
+  font-size:12px;color:#7a7360;line-height:1.85;
+  padding-bottom:9px;margin-bottom:9px;
+  border-bottom:1px dashed rgba(255,255,255,.07);
+}
+.real-card .rc-now{font-size:13.5px;color:#c6c0b3;line-height:2}
+.real-card .rc-now b{color:var(--gold2);font-weight:400}
+.real-card .rc-q{
+  margin-top:11px;font-size:12.5px;color:#c8a04a;letter-spacing:.04em;line-height:1.8;
+}
+.real-card .rc-q::before{content:"↳ ";opacity:.65}
+.real-tail{
+  font-size:12.5px;color:var(--dim);line-height:2;max-width:580px;
+  margin:22px auto 0;text-align:center;letter-spacing:.05em;
+}
+
+/* ---------- 结局 ---------- */
+.ending{text-align:center;animation:fadeUp .9s ease both}
+.end-badge{font-size:10.5px;letter-spacing:.42em;color:var(--gold-dim)}
+.end-title{
+  font-size:clamp(24px,6.2vw,36px);font-weight:400;letter-spacing:.16em;margin:14px 0 18px;
+  background:linear-gradient(180deg,#fff,var(--gold2) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.end-text{font-size:14.5px;line-height:2.15;color:#c6c0b3;max-width:600px;margin:0 auto}
+.end-text b{color:var(--gold2);font-weight:400}
+.statline{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:24px 0 6px}
+.statline span{font-size:12px;letter-spacing:.08em;color:var(--dim);border:1px solid var(--line2);border-radius:20px;padding:6px 14px}
+.statline b{font-family:Georgia,serif;font-weight:400;margin-left:6px}
+.statline [data-k="C"] b{color:var(--C)} .statline [data-k="R"] b{color:var(--R)} .statline [data-k="F"] b{color:var(--F)}
+
+.sec-title{font-size:11px;letter-spacing:.34em;color:var(--gold-dim);margin:32px 0 14px}
+.end-btns{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.hr{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:26px 0;border:none}
+.small{font-size:12px;color:var(--dim);letter-spacing:.06em}
+.mt{margin-top:16px}
+
+/* 隐藏章节闪光 */
+@keyframes goldFlash{
+  0%{background-position:-300% 0}
+  100%{background-position:300% 0}
+}
+.secret-title{
+  background:linear-gradient(90deg,var(--gold) 0%,#fff 45%,var(--F) 55%,var(--gold) 100%);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:goldFlash 4s linear infinite;
+}
+/* ============================================================
+   档案架（可探索序章）
+   ============================================================ */
+.shelf-head{text-align:center;padding:6px 0 4px;animation:fadeUp .7s ease both}
+.shelf-sigil{width:100px;height:100px;margin:0 auto 14px;animation:breathe 6s ease-in-out infinite}
+.shelf h1{
+  font-size:clamp(24px,6vw,38px);font-weight:400;letter-spacing:.16em;
+  background:linear-gradient(180deg,#fff 0%,var(--gold2) 42%,var(--gold) 64%,#8a7326 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.shelf .lead{font-size:13.5px;color:var(--dim);line-height:2;max-width:580px;margin:14px auto 0;letter-spacing:.03em}
+.rack{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(164px,1fr));gap:12px;margin-top:26px;
+}
+.box{
+  position:relative;text-align:left;cursor:pointer;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  border:1px solid var(--line2);border-radius:12px;padding:14px 14px 13px;
+  color:var(--ink);font-family:inherit;transition:.26s cubic-bezier(.2,.7,.3,1);
+  animation:fadeUp .6s ease both;
+}
+.box::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--accent);opacity:.55;transition:.26s;
+}
+.box:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 14px 34px -18px var(--accent)}
+.box:hover::after{width:4px;opacity:1}
+.box .b-no{font-family:Georgia,serif;font-size:10px;letter-spacing:.28em;color:var(--accent)}
+.box .b-ti{font-size:16px;letter-spacing:.07em;margin:8px 0 3px;color:#efe9da}
+.box .b-ye{font-size:11px;color:var(--dim);letter-spacing:.08em}
+.box .b-st{
+  margin-top:10px;padding-top:9px;border-top:1px dashed rgba(255,255,255,.08);
+  font-size:11px;color:#635d4d;letter-spacing:.06em;
+}
+.box.lit{border-color:rgba(212,175,55,.42);background:linear-gradient(160deg,rgba(212,175,55,.1),rgba(212,175,55,.02))}
+.box.lit .b-st{color:var(--gold2)}
+.box.lit .b-ti{color:#fff}
+.box .pulse{position:absolute;right:11px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pipPulse 1.6s ease-in-out infinite}
+.shelf-actions{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:26px auto 0}
+.shelf-tip{margin-top:20px;text-align:center;font-size:11.5px;color:#5f5a4c;letter-spacing:.1em;line-height:1.9}
+
+/* 引力条 */
+.grav{margin:-6px 0 14px}
+.grav .gl{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.16em;color:var(--dim);margin-bottom:5px}
+.grav .gl b{font-weight:400;color:var(--gold2)}
+.grav .gt{height:3px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.grav .gt i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#3a3450,var(--gold));transition:width .6s cubic-bezier(.3,.9,.3,1)}
+.grav-note{font-size:11.5px;letter-spacing:.05em;margin:-8px 0 14px;color:var(--dim);min-height:0}
+.grav-note.tight{color:#c8a04a}
+.grav-note.loose{color:var(--F)}
+
+/* 深思按钮 */
+.timer-line .deep{
+  background:rgba(168,122,200,.12);border:1px solid rgba(168,122,200,.45);color:var(--F);
+  font-family:inherit;font-size:11px;letter-spacing:.1em;padding:4px 10px;border-radius:14px;
+  cursor:pointer;transition:.22s;
+}
+.timer-line .deep:hover:not(:disabled){background:rgba(168,122,200,.25)}
+.timer-line .deep:disabled{opacity:.32;cursor:not-allowed}
+
+/* 选项附加信息 */
+.choice .echo{
+  display:block;margin-top:7px;padding-left:9px;border-left:2px solid rgba(212,175,55,.5);
+  font-size:11.5px;color:var(--gold2);opacity:.85;font-style:italic;letter-spacing:.03em;
+}
+.choice .sealed-note{display:block;margin-top:6px;font-size:11px;color:#8a8270;letter-spacing:.05em}
+
+/* 上一世回响 */
+.echo-mem{
+  margin:0 0 14px;padding:10px 14px;border-radius:10px;
+  background:rgba(168,122,200,.07);border:1px dashed rgba(168,122,200,.35);
+  font-size:12.5px;color:#b39ad0;letter-spacing:.04em;
+}
+.echo-mem b{color:#d6c2ee;font-weight:400}
+
+/* 星图 SVG */
+.starsvg{width:100%;height:auto;display:block;border-radius:14px;background:radial-gradient(ellipse at 50% 40%,rgba(212,175,55,.07),rgba(0,0,0,.35));border:1px solid var(--line2)}
+.starsvg .sp{fill:#2a2740;stroke:#4a4460;stroke-width:1.5}
+.starsvg .sp.lit{fill:#f6e9b0;stroke:#d4af37;stroke-width:2}
+.starsvg .sl{stroke:rgba(212,175,55,.55);stroke-width:1.4;fill:none;
+  stroke-dasharray:620;stroke-dashoffset:620;animation:drawLine 1.5s ease forwards}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+.starsvg .st{fill:#6f6a58;font-size:11px;font-family:Georgia,serif}
+.starsvg .st.lit{fill:#d4af37}
+
+/* 另一方视角 */
+.viewbox{padding:18px 20px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid var(--line2)}
+.viewbox .vw{font-size:10.5px;letter-spacing:.26em;color:var(--gold-dim)}
+.viewbox .vt{font-size:16px;color:var(--gold2);letter-spacing:.09em;margin:7px 0 11px}
+.viewbox .vx{font-size:14px;line-height:2.05;color:#c6c0b3}
+.viewbox + .viewbox{margin-top:12px}
+
+.card-note{font-size:11.5px;color:var(--dim);letter-spacing:.06em;margin-top:12px;text-align:center}
+
+/* ---------- 星命 ---------- */
+.fate-card{
+  margin:18px 0 4px;padding:15px 17px;border-radius:12px;
+  background:linear-gradient(160deg,rgba(168,122,200,.10),rgba(212,175,55,.04));
+  border:1px solid rgba(168,122,200,.4);
+}
+.fate-card .f-k{font-size:10px;letter-spacing:.3em;color:#a87ac8}
+.fate-card .f-n{font-size:17px;color:var(--gold2);letter-spacing:.12em;margin-top:5px}
+.fate-card .f-p{font-size:12.5px;color:var(--dim);line-height:1.9;margin-top:6px}
+.fate-card .f-ops{display:flex;gap:9px;margin-top:11px}
+.fate-card .f-ops .btn-sub{flex:1;padding:9px;font-size:12px}
+
+/* ---------- 星间对话 ---------- */
+.dlg{
+  padding:14px 15px;border-radius:12px;border:1px solid var(--line2);
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  margin-bottom:10px;transition:.24s;
+}
+.dlg:hover{border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.05)}
+.dlg .dw{font-size:10.5px;letter-spacing:.22em;color:var(--gold-dim)}
+.dlg .dt{font-size:15.5px;color:var(--gold2);letter-spacing:.08em;margin:5px 0 4px}
+.dlg .dd{font-size:12px;color:var(--dim);line-height:1.8}
+.dlg-line{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.dlg-line .ln{
+  padding:11px 14px;border-radius:11px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line2);font-size:14px;line-height:1.95;color:#c6c0b3;
+}
+.dlg-line .ln .who{display:block;font-size:10.5px;letter-spacing:.2em;color:var(--gold);margin-bottom:4px}
+.dlg-line .ln.alt{background:rgba(90,154,200,.07);border-color:rgba(90,154,200,.25)}
+.dlg-line .ln.alt .who{color:#7fb8d4}
+.dlg-tail{
+  margin-top:14px;padding:11px 14px;border-radius:11px;
+  background:rgba(168,122,200,.08);border:1px dashed rgba(168,122,200,.4);
+  font-size:12.5px;color:#b39ad0;line-height:1.9;font-style:italic;
+}
+
+/* ---------- 结局收藏 ---------- */
+.endgal{
+  padding:12px 14px;border-radius:11px;border:1px solid var(--line2);
+  background:rgba(0,0,0,.22);margin-bottom:9px;
+}
+.endgal.got{border-color:var(--gold);background:rgba(212,175,55,.07)}
+.endgal .e1{font-size:14px;color:#5d584b;letter-spacing:.08em}
+.endgal.got .e1{color:var(--gold2)}
+.endgal .e2{font-size:11.5px;color:#4a463c;margin-top:4px;line-height:1.7}
+.endgal.got .e2{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar" id="topbar" style="display:none">
+    <button class="tb-btn" id="btnHome">⌂ 星轨</button>
+    <div class="tb-title" id="tbTitle">人类群星闪耀时 · 星轨档案</div>
+    <div class="tb-right">
+      <button class="tb-btn" id="btnMap">✧ 星图</button>
+      <button class="tb-btn" id="btnAch">✦ 成就<span class="badge" id="achBadge" style="display:none">0</span></button>
+    </div>
+  </header>
+  <main id="app"></main>
+</div>
+<div class="overlay" id="overlay"><div class="sheet" id="sheet"></div></div>
+
+<script>
+/* ============================================================
+   一、星徽 SVG（内联，离线可用）
+   ============================================================ */
+const G = 'fill="none" stroke="#d4af37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"';
+const GF = 'fill="#d4af37" opacity=".85"';
+const SIGILS = {
+  peak:    `<path d="M8 74 L34 26 L52 52 L66 34 L92 74" ${G}/><path d="M6 84 Q28 77 50 84 T94 84" ${G}/><circle cx="78" cy="20" r="5" ${GF}/>`,
+  gate:    `<path d="M22 88 V48 Q22 20 50 20 Q78 20 78 48 V88" ${G}/><path d="M50 20 V88" ${G}/><path d="M36 88 V60 Q36 46 50 46 Q64 46 64 60 V88" ${G}/><path d="M50 4 V14" ${G}/>`,
+  note:    `<circle cx="34" cy="74" r="10" ${G}/><circle cx="70" cy="66" r="10" ${G}/><path d="M44 74 V26 L80 18 V66" ${G}/>`,
+  flag:    `<path d="M26 90 V12" ${G}/><path d="M26 18 H76 L64 34 L76 50 H26" ${G}/><circle cx="26" cy="8" r="4" ${GF}/>`,
+  sword:   `<path d="M20 20 L74 74" ${G}/><path d="M78 78 L86 86" ${G}/><path d="M74 20 L20 74" ${G}/><path d="M14 14 L26 26" ${G}/>`,
+  quill:   `<path d="M78 12 C48 22 34 46 26 74" ${G}/><path d="M26 74 L18 86" ${G}/><path d="M78 12 C60 40 44 58 26 74" ${G}/><path d="M46 54 L58 62" ${G}/>`,
+  coin:    `<circle cx="50" cy="50" r="30" ${G}/><path d="M50 32 V68" ${G}/><path d="M60 40 Q50 34 42 41 Q34 48 44 52 Q56 56 58 63 Q54 70 42 64" ${G}/>`,
+  cross:   `<path d="M50 14 V86" ${G}/><path d="M28 42 H72" ${G}/><circle cx="50" cy="42" r="7" ${G}/>`,
+  cable:   `<path d="M8 40 Q28 26 50 40 T92 40" ${G}/><path d="M8 62 Q28 48 50 62 T92 62" ${G}/><circle cx="50" cy="51" r="4" ${GF}/>`,
+  train:   `<rect x="22" y="24" width="56" height="46" rx="8" ${G}/><path d="M22 46 H78" ${G}/><rect x="32" y="32" width="14" height="9" rx="2" ${G}/><rect x="54" y="32" width="14" height="9" rx="2" ${G}/><path d="M30 70 V82 M70 70 V82" ${G}/>`,
+  snow:    `<path d="M50 12 V88 M18 31 L82 69 M82 31 L18 69" ${G}/><path d="M50 30 L36 22 M50 30 L64 22 M50 70 L36 78 M50 70 L64 78" ${G}/>`,
+  wheel:   `<circle cx="50" cy="50" r="30" ${G}/><circle cx="50" cy="50" r="7" ${G}/><path d="M50 20 V80 M20 50 H80 M29 29 L71 71 M71 29 L29 71" ${G}/>`,
+  scroll:  `<path d="M30 20 H74 Q82 20 82 30 V74 Q82 84 74 84 H26" ${G}/><path d="M26 84 Q18 84 18 74 V30 Q18 20 26 20" ${G}/><path d="M36 38 H66 M36 52 H66 M36 66 H54" ${G}/>`,
+  scale:   `<path d="M50 16 V78" ${G}/><path d="M18 30 H82" ${G}/><path d="M18 30 L10 52 H26 Z" ${G}/><path d="M82 30 L74 52 H90 Z" ${G}/><path d="M34 84 H66" ${G}/><circle cx="50" cy="20" r="5" ${GF}/>`,
+  stars:   `<circle cx="50" cy="50" r="5" ${GF}/><circle cx="50" cy="50" r="16" ${G} stroke-dasharray="3 5"/><circle cx="50" cy="50" r="28" ${G} stroke-dasharray="2 7"/><circle cx="78" cy="26" r="3.4" ${GF}/><circle cx="22" cy="70" r="3.4" ${GF}/><circle cx="76" cy="74" r="2.6" ${GF}/><circle cx="24" cy="24" r="2.6" ${GF}/>`
+};
+
+/* ============================================================
+   二、成就系统
+   ============================================================ */
+const ACHIEVEMENTS = [
+  /* ---- 进度类 ---- */
+  {id:'first_light', name:'第一缕星辉', icon:'✦', desc:'点亮第一个历史瞬间。',
+   cond:s=>s.stars.length>=1},
+  {id:'quarter', name:'四分之一的天穹', icon:'✧', desc:'走过 4 个瞬间。',
+   cond:s=>seenChapters(s)>=4},
+  {id:'halfway', name:'行至中途', icon:'✧', desc:'走过 7 个瞬间。',
+   cond:s=>seenChapters(s)>=7},
+  {id:'all14', name:'星轨档案馆员', icon:'★', desc:'走完全部 14 个瞬间。',
+   cond:s=>seenChapters(s)>=14},
+  {id:'fourteen_stars', name:'十四星齐辉', icon:'★', desc:'集齐 14 颗正篇星辉。',
+   cond:s=>s.stars.filter(x=>!x.secret).length>=14},
+
+  /* ---- 属性类 ---- */
+  {id:'brave', name:'赤诚之心', icon:'◈', desc:'勇气达到 85 以上。',
+   cond:s=>s.attrs.C>=85},
+  {id:'reason', name:'冷峻之眼', icon:'◈', desc:'理智达到 85 以上。',
+   cond:s=>s.attrs.R>=85},
+  {id:'fate', name:'命运宠儿', icon:'◈', desc:'命运达到 85 以上。',
+   cond:s=>s.attrs.F>=85},
+  {id:'balance', name:'天平之上', icon:'⚖', desc:'旅程结束时三属性均落在 60–80。',
+   cond:s=>s.finished&&['C','R','F'].every(k=>s.attrs[k]>=60&&s.attrs[k]<=80)},
+  {id:'all_rounder', name:'三者兼备', icon:'⚖', desc:'三属性同时达到 65 以上。',
+   cond:s=>['C','R','F'].every(k=>s.attrs[k]>=65)},
+  {id:'burnout', name:'燃烧殆尽', icon:'▲', desc:'某一属性冲到 95 以上。',
+   cond:s=>['C','R','F'].some(k=>s.attrs[k]>=95)},
+
+  /* ---- 时间类 ---- */
+  {id:'timed_out', name:'命运的骰子', icon:'⚄', desc:'累计 3 次超时，让命运替你选择。',
+   cond:s=>s.timeouts>=3},
+  {id:'last_second', name:'与命运赛跑', icon:'⏱', desc:'在倒计时不足 1.5 秒时做出选择。',
+   cond:s=>s.lastSecond>=1},
+  {id:'speedrun', name:'迅断如刀', icon:'⚡', desc:'所有抉择的平均用时不足 4 秒。',
+   cond:s=>s.finished&&s.times.length>=40&&avg(s.times)<4},
+  {id:'contemplator', name:'深思者', icon:'☾', desc:'所有抉择的平均用时超过 11 秒。',
+   cond:s=>s.finished&&s.times.length>=40&&avg(s.times)>11},
+
+  /* ---- 倾向类 ---- */
+  {id:'streakC', name:'绝不后退', icon:'➤', desc:'连续 10 次以勇气为第一驱动。',
+   cond:s=>s.bestStreak.C>=10},
+  {id:'streakR', name:'谋定后动', icon:'➤', desc:'连续 10 次以理智为第一驱动。',
+   cond:s=>s.bestStreak.R>=10},
+  {id:'streakF', name:'交给命运', icon:'➤', desc:'连续 10 次以命运为第一驱动。',
+   cond:s=>s.bestStreak.F>=10},
+  {id:'wanderer', name:'不重复的路', icon:'↯', desc:'42 次抉择中从未连续三次选同一个位置。',
+   cond:s=>s.finished&&!s.tripledSamePos},
+
+  /* ---- 彩蛋类 ---- */
+  {id:'cipher', name:'密语者', icon:'✷', desc:'在封面听见了档案员的低语。',
+   cond:s=>s.eggs.includes('cipher')},
+  {id:'rift_one', name:'星轨裂缝', icon:'✷', desc:'发现任意 1 处隐藏选项。',
+   cond:s=>s.secrets.length>=1},
+  {id:'rift_all', name:'天机尽览', icon:'✷', desc:'发现全部 4 处隐藏选项。',
+   cond:s=>s.secrets.length>=4},
+  {id:'resonance', name:'星轨共鸣', icon:'✷', desc:'连续三章以同一种天性做出抉择。',
+   cond:s=>s.eggs.includes('resonance')},
+  {id:'beyond', name:'群星之外', icon:'✵', desc:'推开那扇茨威格从未写下的门。',
+   cond:s=>s.eggs.includes('beyond')},
+
+  /* ---- 新机制类：引力 / 视野 / 深思 ---- */
+  {id:'deep10', name:'静水深流', icon:'☾', desc:'使用「深思」，让时间为你停住 10 次。',
+   cond:s=>s.deepCount>=10},
+  {id:'balanced', name:'天平之主', icon:'⚖', desc:'累计 30 次抉择时，三属性都落在 55–80 之间。',
+   cond:s=>s.balanceCount>=30},
+  {id:'overloaded', name:'过载', icon:'▲', desc:'让某一属性冲到 95，被它自己灼伤一次。',
+   cond:s=>s.overloads.length>=1},
+  {id:'seer', name:'心眼', icon:'◉', desc:'累计 6 个选项，因为「你已经不是那种人」而从眼前消失。',
+   cond:s=>s.visionHid>=6},
+  {id:'grip', name:'历史的掌心', icon:'⊘', desc:'让史实引力回到 100 —— 你一步都没有偏离。',
+   cond:s=>s.gripMax>=100},
+  {id:'slip', name:'脱轨', icon:'↗', desc:'把史实引力压到 0 —— 你走出了自己的路。',
+   cond:s=>s.pullMin<=0},
+
+  /* ---- 扩展玩法类：星命 / 回溯 / 星间对话 / 结局收藏 ---- */
+  {id:'rewind', name:'逆着星轨走', icon:'↺', desc:'使用星轨回溯，重新站到一次已经落下的抉择面前。',
+   cond:s=>s.rewinds>=1},
+  {id:'dialog3', name:'星间回声', icon:'✧', desc:'听完 3 段星间对话。',
+   cond:s=>s.dialogs.length>=3},
+  {id:'endings4', name:'多次元旅人', icon:'◈', desc:'在结局收藏册中收下 4 种结局（跨周目累计）。',
+   cond:s=>META.endings.length>=4},
+  {id:'endings8', name:'万象归星', icon:'★', desc:'收齐全部 8 种结局（跨周目累计）。',
+   cond:s=>META.endings.length>=8}
+];
+
+/* ============================================================
+   三、章节数据（14 篇正篇 + 终章）
+   ============================================================ */
+const CHAPTERS = [
+{
+  id:1, key:'balboa', title:'不朽的逃亡者', year:'1513',
+  meta:'1513年9月25日 · 巴拿马达连地峡',
+  role:'巴尔沃亚', sigil:'peak', accent:'#c9a227',
+  rounds:[
+    {
+      time:'1513年9月25日 · 清晨', title:'山脊的最后一百步',
+      text:'你是巴尔沃亚。三年前你为了躲债，把自己装进一只木箱偷渡上船，来到这片叫「达连」的新大陆。今天，你带着一百九十个西班牙人和一群印第安脚夫，爬到了地峡上最后一道山脊。酋长说过：翻过这座山，南边是一片「从未被文明见过的海」。<br><br>队伍在山脊下停住了。所有人都在喘。你听见自己在数脚步。',
+      rhyme:'不朽，不在王座之上，而在第一个看见新世界的人眼里。',
+      choices:[
+        {text:'让队伍留在原地，独自走完最后一段', eff:{C:15,F:8}, flag:'alone',
+         res:'你让一百九十个人在山脊下等着，自己往上走。最后一百步，血在耳朵里响。当你拨开最后一片蕨叶——那片海静得像刀锋。<br><br>你是第一个看见它的欧洲人。这一刻没人能分走。<br><br>但你很快会为「独享」付出代价。'},
+        {text:'喝令全队一起登顶，共享这一刻', eff:{C:5,R:10},
+         res:'你挥手让所有人跟上。一百九十个人跪在同一道山脊上，哭喊、唱歌、举旗。场面宏大得足够写进奏章。<br><br>但「第一个」这个词，从此变成了一百九十份。史官花了三年，才勉强把主次重新分清。'},
+        {text:'先派三人侦察，确认后再动身', eff:{R:12,C:-8},
+         res:'你挑了三个最壮的印第安向导前出探路。三天后他们回来：确有大海。<br><br>等你亲自站上去时，雨季已经来了。热病在队伍里蔓延，死掉二十人。<br><br>谨慎保住了你的命，却把「第一」让给了时间。'}
+      ]
+    },
+    {
+      time:'1513年9月29日 · 海边', title:'战利品与眼睛',
+      text:'你站在没膝的潮水里，举着剑和旗，以西班牙国王的名义「占有」了这片南海。夜里，营地里的窃窃私语压不住了：酋长献上的珍珠该进谁的口袋？谁该分多少金子？<br><br>你的副手皮萨罗——那个日后征服印加的人——正靠在火堆边，一句话不说地看着你。',
+      rhyme:'分赃的那一刻，征服者就变成了掠夺者。',
+      choices:[
+        {text:'当场公开分配，自己只取一份', eff:{R:10,C:4},
+         res:'你让人把战利品摊在沙滩上，一件件过秤、记账、当众点清。士兵们服了。<br><br>皮萨罗却没服——因为账本上没有他的名字。你赢得了人心，也赢得了一个终身的敌人。'},
+        {text:'把最好的珍珠封存，遣船献给国王', eff:{R:6,F:8},
+         res:'你把最大的一颗珍珠装进锦盒，附上奏章，派最快的船送回马德里。<br><br>国王记住了你的名字，也同步记下了一笔：未经许可，擅自远征。<br><br>荣誉和罪名，搭乘同一条船抵达。'},
+        {text:'私下把最好的几颗留下，其余分给老兵', eff:{C:6,R:-8}, flag:'greedy',
+         res:'你悄悄把几颗最好的塞进怀里。当天没人吭声。<br><br>但皮萨罗看见了。三个月后，一份匿名控诉状摆上了达连总督的案头。<br><br>你留下的不是珍珠，是一张死罪的凭据。'}
+      ]
+    },
+    {
+      time:'1517年 · 达连', title:'信封里的刀',
+      text:'新总督佩德拉里亚斯到了。他带着国王的任命状，也带着对你的猜忌。他送来一封信，语气温和：请到阿克拉来，共商远征秘鲁之事。<br><br>老部下送你到渡口，压着嗓子说：那是陷阱。你手里还有一条船、两百个愿意跟你走的人。',
+      rhyme:'最锋利的刀，往往装在信封里。',
+      choices:[
+        {text:'应邀赴约，以身入局', eff:{F:15,C:-10}, flag:'went',
+         res:'你去了。佩德拉里亚斯穿着礼服在城门口迎你，握着你的手，笑得像个老朋友。<br><br>四天后，你被押上断头台，罪名是叛乱。你向行刑官讨来纸笔，想写最后一封信——没写完。'},
+        {text:'烧掉信，连夜带人出海自行远征', eff:{C:15,F:-8}, flag:'refused',
+         res:'你把信扔进火里，当晚扬帆。你在海上漂了几个月，被风浪逼回海岸，最后被自己的部下捆起来，送到了总督面前。<br><br>你死在自己人手里。但闭眼之前，你一直在看南边——那片海，你已经见过了。'},
+        {text:'赴约之前，把发现经过誊抄三份分送三方', eff:{R:14,C:2}, flag:'copies',
+         res:'你让三个抄写员同时落笔：一份面呈总督，一份随船送回马德里，一份交给教会。<br><br>你赴约，你被捕，你上了断头台——但送回马德里的那份报告活了下来。<br><br>四年后，皮萨罗沿着你写下的一百三十个地名，走进了印加。'}
+      ]
+    }
+  ],
+  otherSide:{who:'弗朗西斯科·皮萨罗', title:'跟在后面的人',
+    text:'他站在人群里，看着巴尔沃亚拨开蕨叶，成为那个「第一个」。他记住了这一幕，也记住了那一刻自己心里的滋味。十四年后，他在秘鲁把印加皇帝关进一间屋子，让人往里填满黄金。他一生都在做同一件事：跟在一个人的后面，然后超过他。'},
+  star:{name:'先见星', line:'你是第一个看见那片海的人。'},
+  ending:{
+    history:'真实历史：巴尔沃亚于 1513 年 9 月 25 日越过巴拿马地峡，成为第一个看见太平洋的欧洲人。1519 年，他被新任总督佩德拉里亚斯以叛乱罪处死，年约 44 岁。发现者死在通往自己发现的路上，至死没能走到秘鲁。',
+    voices:{
+      C:'你一生只相信冲上去——冲上山顶、冲进丛林、冲向那扇门。勇气让你看见了那片海，也让你看不见身后的刀。',
+      R:'你算得清潮汐、账目和航线，却算不清人。你把每份报告都写得滴水不漏，唯独漏掉一件事：有些人杀人，不需要证据。',
+      F:'你被时代随手捡起来，又被时代随手丢掉。你看见了新世界，却没走进它。你就是那个被历史借去用了一次的人。'
+    }
+  }
+},
+{
+  id:2, key:'byzantium', title:'拜占庭的陷落', year:'1453',
+  meta:'1453年5月29日 · 君士坦丁堡',
+  role:'守城的将军', sigil:'gate', accent:'#7c5cbf',
+  rounds:[
+    {
+      time:'1453年5月29日 · 凌晨两点', title:'一扇忘记关上的门',
+      text:'君士坦丁堡已被围五十三天。你是城中最后的守将之一。昨夜，圣索菲亚大教堂的钟声破天荒地响了——东西两教会联合的弥撒，全城人挤在一处祈祷。<br><br>黎明前，巡逻兵跌跌撞撞闯进指挥所，脸白得像纸：<b>凯尔卡门</b>——内城与外城之间那扇平时只走杂役的小边门——竟然大开着。奥斯曼人正从那里鱼贯而入。',
+      rhyme:'历史往往不是被大炮攻破的，而是被一扇忘记关上的小门。',
+      choices:[
+        {text:'亲自带卫队冲向凯尔卡门堵口', eff:{C:14,F:-5}, flag:'gate',
+         res:'你提着剑奔向那扇门。门堵住了——但敌军已经从侧翼翻上了主城墙。<br><br>你死在离那扇门三十步的地方。城破之后，没有人记得你的名字，只记得那扇忘了关的门。'},
+        {text:'放弃外城，把最后兵力集中到主城墙', eff:{R:9,C:5},
+         res:'你判断主城墙才是真正的要害，把最后一支卫队全部压了上去。<br><br>你判断对了方向，却漏掉了那扇门。黄昏，城破。你战死在圣索菲亚前的广场上。<br><br>一千一百二十三年的罗马，在这一夜熄灭。'},
+        {text:'换上平民长袍，从海路突围', eff:{C:-12,F:10}, flag:'escape',
+         res:'你脱下铠甲，换上希腊商人的长袍，趁乱登上一条热那亚商船。<br><br>你活了下来。在意大利某个小城里，你用余生一遍遍写你如何失去了君士坦丁堡。<br><br>活下来的人写历史，死去的人成为历史。'}
+      ]
+    },
+    {
+      time:'1453年5月29日 · 破晓', title:'圣索菲亚的最后一课',
+      text:'外城的喊杀声已经听得见。粮食见底，威尼斯与热那亚的援军始终没来。城里有人开始低声议论投降——用一座城，换几万条命。<br><br>皇帝脱下紫袍，站到圣索菲亚的中央。所有人都在看你。',
+      rhyme:'一座城的结局，常常写在一夜之间的几句话里。',
+      choices:[
+        {text:'颁布最后的演说：城可破，名不可辱', eff:{C:12,R:-4}, flag:'speech',
+         res:'你站上讲坛，说：我们不是在守卫一座城，我们在守卫一千一百年的东西。<br><br>全场跪下。第二天，没有一个人投降。他们只是全部战死了。<br><br>你给了他们尊严，也给了他们一具不用选择的尸体。'},
+        {text:'公开谈判，用赔款换取妇孺出城', eff:{R:12,C:-6}, flag:'treaty',
+         res:'你派人出城谈判，用城中最后的财富换一条通道。<br><br>苏丹同意了——但在最后关头，奥斯曼士兵还是冲进了队伍。<br><br>你救下了一部分人，也让守军最后的斗志塌了一半。'},
+        {text:'沉默，独自跪在圣像前祈祷', eff:{F:12,R:3},
+         res:'你一句话没说，跪在圣像前，直到天亮。<br><br>士兵们看着你跪着，也一个个跪下了。没有演说，没有号令。<br><br>那晚的静默，比任何演讲都更像一个时代的葬礼。'}
+      ]
+    },
+    {
+      time:'1453年5月29日 · 午后', title:'城墙之上',
+      text:'城墙已破。你脱下皇袍，拔出剑。身边只剩几十个亲兵，和一地碎砖。<br><br>有人在喊你的名字，有人在喊圣母。也有人已经转身，往城门的方向跑。',
+      rhyme:'一个罗马皇帝的最后一分钟，没有元老院，只有剑。',
+      choices:[
+        {text:'冲入敌阵，战死', eff:{C:16,F:4}, flag:'die',
+         res:'你冲进了人群。没有人看清你是怎么倒下的。<br><br>你的尸体从未被认出来。<br><br>但从那天起，你成了「最后一个罗马皇帝」——不是因为你的政绩，是因为你选择死在自己城门口。'},
+        {text:'组织残部撤退，图谋来日复国', eff:{R:12,F:-6}, flag:'retreat',
+         res:'你收拢残兵，从海路退往摩里亚。<br><br>你在那里又活了几年，一直在写信、求援、筹钱。没有人再应你的信。<br><br>复国的计划没有失败——它只是从来没有开始过。'},
+        {text:'放下剑，等待被俘后的命运', eff:{F:14,C:-8}, flag:'captive',
+         res:'你把剑插进土里，站直了身子。<br><br>奥斯曼士兵涌上来时，有人认出了你，有人没有。你被带走了，从此在史书里只剩一行注脚。<br><br>你活过了那一天。那一天之后，你就不再是皇帝了。'}
+      ]
+    }
+  ],
+  otherSide:{who:'苏丹穆罕默德二世', title:'另一边的帐篷',
+    text:'他二十一岁，在城外帐篷里已经等了五十三天。他的巨炮能轰塌城墙，但士兵一次次被城墙上的人打回来。那天凌晨，他听说内城有一扇小门没关。他没有立刻相信——这种运气从来不属于攻城的人。但他还是派了人去看。'},
+  star:{name:'孤城星', line:'你守住了一座必失的城。'},
+  ending:{
+    history:'真实历史：1453 年 5 月 29 日，奥斯曼军队攻陷君士坦丁堡。据传内城的小门凯尔卡门因疏忽未关，成为突破口。皇帝君士坦丁十一世脱下皇袍冲入敌阵战死，尸体未被辨认。延续 1123 年的东罗马帝国就此终结，这一天常被视为中世纪的终点。',
+    voices:{
+      C:'你选了最没有胜算的那条路，并且走完了它。城还是破了，但你让「破」这个字，有了重量。',
+      R:'你把每一块砖都算过了，也算出了结论：这是一场算不赢的仗。你只是把失败推迟了几个小时——而那几个小时，是几万人的命。',
+      F:'你站在一整段历史的末尾。那不是你的错，却是你的命。有些人被派来赢，有些人被派来送别。'
+    }
+  }
+},
+{
+  id:3, key:'handel', title:'亨德尔的复活', year:'1741',
+  meta:'1737—1742年 · 伦敦',
+  role:'乔治·弗里德里希·亨德尔', sigil:'note', accent:'#c9a227',
+  rounds:[
+    {
+      time:'1737年 · 深夜', title:'一只不能动的手',
+      text:'你是亨德尔。六周前的一次中风，让你的右半身彻底瘫痪。医生私下对人说：他也许还能说话，但永远不能再作曲了。<br><br>你的出版商破产，你的歌剧被观众抛弃，宫廷里的仇敌正在举杯。今天深夜，你坐在桌前，面前是一叠空白乐谱，窗外是阴雨绵绵的伦敦。',
+      rhyme:'人最强壮的时刻，不是他胜利时，而是他从废墟里站起来时。',
+      choices:[
+        {text:'每天逼自己练习，直到手指能动', eff:{C:14,F:-4}, flag:'force',
+         res:'你把右手按在琴键上，一遍、十遍、一百遍，直到痛得冒冷汗。仆人说你像在跟自己的身体打架。<br><br>六个月后，手指真的动了。<br><br>你不是被治好的，你是把自己打服的。'},
+        {text:'去亚琛泡温泉，等待身体自己恢复', eff:{F:10,R:4}, flag:'spa',
+         res:'你渡回莱茵河畔，在亚琛的温泉里泡了三个月。<br><br>手确实恢复了。你回到伦敦，重新开始作曲——但那股被死亡逼出来的、火山一样的力量，再也没有回来过。<br><br>痊愈和复活，不是一回事。'},
+        {text:'接受现实，靠退休金安静地活下去', eff:{R:10,C:-9}, flag:'rest',
+         res:'你放下了笔，开始种花、读诗、招待朋友。<br><br>你又活了十九年。十九年里，你没有再写下一个音符。<br><br>活着，和活着，是不一样的。'}
+      ]
+    },
+    {
+      time:'1741年8月22日 · 清晨', title:'一个陌生人寄来的包裹',
+      text:'一个包裹送到你手上，没有署名。里面是詹宁斯辑录的《圣经》经文，标题是两个字：<b>弥赛亚</b>。<br><br>你翻开第一页，读到：「Comfort ye, comfort ye my people.」（安慰你们，安慰我的百姓。）<br><br>你的手停在纸上。窗外的伦敦正在下雨。',
+      rhyme:'有些文字，是专门写给正在下沉的人的。',
+      choices:[
+        {text:'立刻动笔，不眠不休', eff:{C:14,R:-3}, flag:'instantly',
+         res:'你当天就坐到了谱纸前。你不知道哪里来的力气。<br><br>从八月二十二日到九月十四日，二十四天。你几乎没有离开那张桌子。'},
+        {text:'先读完所有经文，再决定写不写', eff:{R:12,C:3},
+         res:'你把整本册子从头读到尾，做了标记，排了次序。<br><br>你用了三天。三天后你才动笔，但每一个音符落地时，你都已经知道它要去哪里。<br><br>慢三天，快一生。'},
+        {text:'写信给朋友，问自己还配不配拿起笔', eff:{F:8,R:5},
+         res:'你写了一封长信给老友，问他：一个瘫痪过半的人，还有资格写神的音乐吗？<br><br>朋友回信只有一句：不是你有资格，是这件事需要你。<br><br>你把信折好，放进了谱纸的第一页里。'}
+      ]
+    },
+    {
+      time:'1741年9月 · 二十四天', title:'门缝里的光',
+      text:'你把自己关在房间里，二十四天。仆人说，他每天从门缝看进去，都看见你伏在谱纸上，一边写一边流泪。<br><br>你几乎不吃，也不睡。《哈利路亚》合唱写到最后一句时，你站起身，泪流满面地说：「我想我看见了天堂。」<br><br>现在是第二十三天的深夜。桌上有半块凉面包，和还没写完的第二部。',
+      rhyme:'伟大不是被灵感砸中的，是被一个人用二十四天熬出来的。',
+      choices:[
+        {text:'继续。天亮前必须写完', eff:{C:15,F:-5}, flag:'nosleep',
+         res:'你写到天亮。手指僵得握不住笔，就用左手按住右手。<br><br>九月十四日，全曲完成，共二百六十三页。<br><br>手稿上至今能看到被泪水晕开的墨迹。'},
+        {text:'停下来睡四小时，再继续', eff:{R:11,C:3},
+         res:'你放下笔，睡了过去。醒来时天已大亮。<br><br>你补完了剩下的部分，多用了五天。<br><br>没有人能说清，那五天里少掉的，是几个音符，还是别的什么。'},
+        {text:'让仆人念经文给你听，边听边写', eff:{R:8,F:6},
+         res:'你让仆人坐在旁边念。你闭着眼听，手指在桌上敲。<br><br>写到「他必将牧养自己的羊群」时，你突然睁眼，一口气写下整段。<br><br>你借了别人的声音，写成了自己的神。'}
+      ]
+    }
+  ],
+  otherSide:{who:'查尔斯·詹宁斯', title:'寄出歌词的人',
+    text:'他只是把《圣经》里关于弥赛亚的经文抄了一遍，按时寄给一个落魄的老作曲家。他做这件事时并不知道自己在做什么。很多年后有人问他：您怎么想起来编这本歌词的？他说：我只是把书里的句子，按顺序排了排。'},
+  star:{name:'复活星', line:'你从废墟里站了起来。'},
+  ending:{
+    history:'真实历史：亨德尔 1737 年中风偏瘫，后奇迹般恢复。1741 年 8 月 22 日至 9 月 14 日，他仅用 24 天完成清唱剧《弥赛亚》。1742 年都柏林首演大获成功，他把全部收入捐给慈善机构。此后每年指挥《弥赛亚》为孤儿院募捐，直到去世。1759 年葬于威斯敏斯特教堂。',
+    voices:{
+      C:'你没有等身体好起来，你是逼它好起来的。二十四天不是天赋的证明，是你跟自己打的最后一仗。',
+      R:'你先读完了全部经文，才落第一个音。你的伟大不来自闪电，来自图纸。',
+      F:'你在最不该被眷顾的时候被眷顾了。你以为是你在写，其实是那段文字，等了你很多年。'
+    }
+  }
+},
+{
+  id:4, key:'marseillaise', title:'一夜天才', year:'1792',
+  meta:'1792年4月25日 · 斯特拉斯堡',
+  role:'鲁日·德·李尔', sigil:'flag', accent:'#d4574a',
+  rounds:[
+    {
+      time:'1792年4月25日 · 凌晨三点', title:'被历史借用的笔',
+      text:'你是鲁日·德·李尔，一个普通的工兵上尉。会写点诗，会弹吉他，但从没被人叫作作曲家。<br><br>昨夜，市长迪特里希在宴席上叹气：法国正被奥地利和普鲁士围攻，我们缺一首能让新兵唱着走上前线的歌。<br><br>现在是凌晨三点。你面前有一瓶酒、一把吉他和一张白纸。窗外是斯特拉斯堡的夜。',
+      rhyme:'有些夜晚，普通人会被历史借去一次笔。',
+      choices:[
+        {text:'当夜就写，写出来为止', eff:{F:15,C:6}, flag:'write',
+         res:'你半醉半醒地在吉他上拨出几个和弦。词一句一句涌出来——「前进，祖国的儿女们！」<br><br>天亮时，《莱茵军战歌》写完了。两个月后，马赛的志愿兵唱着它一路走进巴黎。从此它叫<b>《马赛曲》</b>。<br><br>你本人此后一生默默无闻，1836 年在穷困中死去。那一夜借给你的笔，再也没还回来。'},
+        {text:'婉拒市长：我不是作曲家', eff:{R:10,C:-6}, flag:'decline',
+         res:'你第二天去找市长，坦白说自己写不出来。<br><br>那首歌没有诞生。革命军在前线唱着别的、更普通的歌。<br><br>历史少了一首国歌，多了一个诚实的人。'},
+        {text:'接下来，但先请朋友听一遍再定稿', eff:{R:9,F:6},
+         res:'你把初稿唱给两个朋友听。他们听得手抖，说：这就是我们要的。<br><br>歌流传了，但传抄的乐谱上，署名那一栏是空的。<br><br>你亲手把自己的名字，从这首歌里拿掉了。'}
+      ]
+    },
+    {
+      time:'1792年6月 · 马赛', title:'合唱里的人',
+      text:'歌火了。马赛的志愿兵唱着它进城，巴黎人跟着唱，街头巷尾都在唱。连敌人都知道这一首歌。<br><br>但没有人知道作者是谁——乐谱在传抄中被一次次抄丢。你有两个身份：一个默默无闻的军官，和一个写出了法国国歌的人。',
+      rhyme:'一首歌越响，写它的人就越容易被淹没在合唱里。',
+      choices:[
+        {text:'公开署名，要求世人知道是谁写的', eff:{R:8,F:-6}, flag:'claim',
+         res:'你向报社投书，附上初稿，证明自己是作者。<br><br>报上登了一小块。有人在酒馆里说：这人不配。<br><br>你争到了名字，也争到了一身麻烦。'},
+        {text:'保持沉默，让这首歌属于所有人', eff:{F:12,C:4}, flag:'silent',
+         res:'你什么也没说。你在军营里，看着士兵们唱着你写的词，一个个上了前线。<br><br>你写的东西变成了千万人的东西。这大概是诗人能拿到的最高报酬。<br><br>也是最沉默的一种。'},
+        {text:'给出版商写信，索要应得的稿费', eff:{R:10,C:-8}, flag:'money',
+         res:'你写信给出版商，要求结算。对方回信说：这种街头小调，没有稿费。<br><br>你把信收好，没再提。<br><br>事实证明，你确实没从中拿到过一个苏。'}
+      ]
+    },
+    {
+      time:'1820年代 · 巴黎的阁楼', title:'第二首马赛曲',
+      text:'你出狱了，也彻底被忘了。你的名字不在任何一张作曲家名单上。你住在阁楼里，靠写诗和零星的稿费活着。街上偶尔还能听见《马赛曲》——拿破仑的军队曾唱着它横扫欧洲，现在它变成了另一种东西。<br><br>有个出版商找上门，说愿意付钱，请你再写「另一首马赛曲」。',
+      rhyme:'历史只需要你一夜，剩下的日子，都得你自己过。',
+      choices:[
+        {text:'拒绝。一首就够了', eff:{C:11,F:6}, flag:'refuse2',
+         res:'你说：一首就够了。再写，只是在模仿自己。<br><br>你继续写诗、译诗、教书，没人读。1836 年 6 月，你死在巴黎近郊的穷困里。<br><br>一百年后，法国政府把你的遗骨迁进了荣军院。'},
+        {text:'答应，写了十几首，全都是石沉大海', eff:{R:-6,F:9}, flag:'again',
+         res:'你写了十几首。没有一首被记住。<br><br>你把它们钉成一册，扉页上写着：《马赛曲》作者的其他作品。<br><br>没有人翻开过。'},
+        {text:'搬到乡下，安静地老去', eff:{R:12,C:-4}, flag:'country',
+         res:'你搬到乡下，种一点地，给学生上音乐课。<br><br>你活得比很多革命者都久。<br><br>但每年 7 月 14 日街上响起那首歌时，你都会把窗户关上。'}
+      ]
+    }
+  ],
+  otherSide:{who:'一个马赛志愿兵', title:'走在队伍里的人',
+    text:'他不知道这首歌是谁写的。他只知道，从马赛走到巴黎的二十七天里，他们每天唱它。唱到后来歌词已经不重要了——重要的是唱着它的时候，人不怕死了。'},
+  star:{name:'诞生星', line:'你在一个通宵里，写出了一个国家的嗓子。'},
+  ending:{
+    history:'真实历史：1792 年 4 月 25 日夜，鲁日·德·李尔在斯特拉斯堡一夜写成《莱茵军战歌》，后更名《马赛曲》，1795 年被定为法国国歌。他本人因贵族出身与政治立场多次被捕、革职，长期贫困，1836 年 6 月 26 日死于巴黎近郊。1915 年，他的遗骨被迁入巴黎荣军院。',
+    voices:{
+      C:'你写下的那句「前进」，后来成了整个国家喊出来的话。而你自己，一句都没有多喊。',
+      R:'你懂得什么时候该退场。这让你活得比很多人久，也让你在史书里只剩下一个夜晚。',
+      F:'历史借你的笔用了一个通宵，然后再也没来找过你。你不是天才，你是天才的过路人。'
+    }
+  }
+},
+{
+  id:5, key:'waterloo', title:'滑铁卢的一分钟', year:'1815',
+  meta:'1815年6月18日 · 圣让山',
+  role:'格鲁希元帅', sigil:'sword', accent:'#8a6d3b',
+  rounds:[
+    {
+      time:'1815年6月18日 · 上午十一点', title:'像闷雷一样的炮声',
+      text:'你是格鲁希，拿破仑最后一任元帅。你奉命带三万三千人去追击「正在溃逃」的普鲁士人。<br><br>上午十一点，圣让山方向传来第一声炮响。起初零星，后来连成一片——像闷雷贴着地面滚过来。副将热拉尔跳下马：「将军，那是皇帝在决战！」<br><br>你手里攥着拿破仑四小时前给你的命令书：追击普鲁士人。',
+      rhyme:'在历史的关键一分钟，服从和违抗，都会改变世界。',
+      choices:[
+        {text:'服从书面命令，继续东进', eff:{R:13,C:-11,F:-4}, flag:'obey',
+         res:'你说：没有命令，我不能把部队带离战场。<br><br>你继续向东。傍晚，信使奔来：拿破仑在圣让山全线崩溃。<br><br>你离主战场只有三小时行军——但你一分钟都没回头。'},
+        {text:'当场违令，全军转向炮声', eff:{C:16,R:-6}, flag:'rebel',
+         res:'你一咬牙：「全体右转，向炮声前进！」<br><br>你的纵队像一把尖刀插进英军侧翼。滑铁卢的结局可能就此改写——但你，将以「违令」被送上军事法庭。<br><br>历史没有如果。但那一分钟，确实曾有过另一种欧洲。'},
+        {text:'派侦察骑兵前出，同时等待新命令', eff:{R:9,F:5},
+         res:'你派人前出探查，自己按住不动，等皇帝的新命令。<br><br>侦察兵回来时，天已经黑了。新命令始终没有来。<br><br>你做了最稳妥的事，也做了最没用的事。'},
+        {text:'登上教堂钟楼，用望远镜看清那片山坡',
+         eff:{R:10,C:7},
+         rift:{id:1, name:'钟楼星', cond:s=>s.attrs.R>=62,
+               note:'镜筒里看得见的东西，命令书上是没有的。'},
+         res:'你爬上村口教堂的钟楼，借来一副望远镜。<br><br>镜筒里，英军和法军的军旗缠在同一面斜坡上，炮烟一层一层往上叠——那不是追击，那是会战。<br><br>你合上望远镜，第一次开始怀疑手里这张纸。<br><br><span style="color:#a87ac8">（星轨裂缝 · 你看见了茨威格没有写下的那一眼。）</span>'}
+      ]
+    },
+    {
+      time:'1815年6月18日 · 下午一点', title:'一个师的请求',
+      text:'侦察兵带回消息：圣让山一线，法军正与英军死战，双方都到了极限。<br><br>热拉尔再次跳下马，几乎是吼出来的：「至少让我带一个师去！将军，这是命令之外的命令！」<br><br>参谋们围成一圈。有人低头，有人握拳。有人小声说：如果我们不去，明天我们就都是历史的罪人。',
+      rhyme:'一支军队的命运，有时取决于一个人说不说「不」。',
+      choices:[
+        {text:'严令全军，不得擅动', eff:{R:13,C:-10}, flag:'strict',
+         res:'你把命令重复了一遍：任何人不许离队。<br><br>热拉尔摔了帽子，转身走了。<br><br>你保住了部队的完整，也保住了自己「从不犯错」的名声——直到第二天。'},
+        {text:'批准热拉尔带一个师回援', eff:{C:9,R:2,F:2}, flag:'onepiece',
+         res:'你沉默了很久，说：带一个师，去。<br><br>那个师赶到时，拿破仑已经在撤退。他们没能逆转战局，但救下了几万溃兵。<br><br>你只派出了三分之一的人，却替自己留下了一条后路。'},
+        {text:'召开军议，让参谋们集体表决', eff:{R:7,C:-6,F:9}, flag:'council',
+         res:'你把所有旅长叫来，围坐一圈，让每个人说。<br><br>会开了四十分钟。最后决议是：再等等。<br><br>等到什么时候？没人说。<br><br>你把决定权分给了所有人，也就是把责任分给了所有人。'}
+      ]
+    },
+    {
+      time:'1815年6月18日 · 傍晚七点', title:'突然的安静',
+      text:'炮声突然停了。<br><br>四点半的时候，它还密得像暴雨；五点以后渐渐稀了；到七点，整片原野安静得能听见虫叫。没有人知道圣让山上发生了什么。你派出的传令兵，一个都没回来。<br><br>三万三千人站在暮色里，看着你。',
+      rhyme:'世界上有些沉默，是一个时代正在翻页的声音。',
+      choices:[
+        {text:'赌一把，全军急行军回援', eff:{C:16,F:-6}, flag:'rush',
+         res:'你下令全军掉头，放弃辎重，急行军。<br><br>你们走到半夜，遇上了溃退的人潮。<br><br>战争已经结束了七个小时。你赶到时，只赶上了收拾残局。'},
+        {text:'原地扎营，稳住阵脚', eff:{R:11,C:-8}, flag:'camp',
+         res:'你下令就地扎营，加强警戒。<br><br>第二天早上，你才知道皇帝已经不在了。<br><br>你的三万三千人，成了法国最后一支完整的部队——也成了一支没有主人的部队。'},
+        {text:'继续执行原命令，追击普军', eff:{R:13,C:-10,F:-5}, flag:'chase',
+         res:'你说：命令没有取消，任务继续。<br><br>你追上了几股掉队的普鲁士人，打了一场小胜仗。<br><br>战报写得很漂亮：击退敌军一部。<br><br>同一天，欧洲换了主人。'}
+      ]
+    }
+  ],
+  otherSide:{who:'拿破仑·波拿巴', title:'圣让山上的一分钟',
+    text:'下午四点，他站在圣让山的斜坡上，用望远镜一遍遍扫向东北方。那里本应出现三万个法国人。他等了整整一个下午。天黑时有人问：陛下，格鲁希在哪里？他没有回答。他知道这个问题的答案，会比这场失败活得更久。'},
+  star:{name:'忠诚星', line:'你把服从执行到了最后一秒。'},
+  ending:{
+    history:'真实历史：1815 年 6 月 18 日，格鲁希率 33000 人追击普军，始终未向滑铁卢炮声方向靠拢。当天傍晚拿破仑战败，法军主力覆灭，格鲁希所部一枪未发。战后他被缺席判处死刑，流亡美国，1832 年病逝于巴黎。茨威格在文中称他为「被一纸命令困住的人」。',
+    voices:{
+      C:'你违抗了命令。历史没有如果，但那一分钟，确实曾经存在过另一种欧洲。',
+      R:'你把「服从」执行得无懈可击，把整场战争交给了程序——而程序不会打仗。',
+      F:'你被放在了一个你承受不起的位置上。历史选中你，不是因为你行，是因为那一刻必须有个人站在那里。'
+    }
+  }
+},
+{
+  id:6, key:'goethe', title:'玛丽恩巴德哀歌', year:'1823',
+  meta:'1823年 · 波希米亚玛丽恩巴德',
+  role:'约翰·沃尔夫冈·冯·歌德', sigil:'quill', accent:'#a87ac8',
+  rounds:[
+    {
+      time:'1823年7月 · 玛丽恩巴德', title:'一枚递出去的戒指',
+      text:'你是七十四岁的歌德。欧洲最伟大的诗人，魏玛公国的枢密顾问，一生写下了这个民族几乎全部的青春期。<br><br>这个夏天，你在波希米亚的玛丽恩巴德疗养，遇见了十九岁的乌尔丽克·冯·莱维佐夫。十年前你见过她，那时她还是个孩子。现在她跳舞、大笑、把手臂递给你，唤你「歌德先生」。<br><br>昨天，你把一枚戒指交给宫廷侍从，托他向她的母亲提亲。',
+      rhyme:'一个七十四岁的人若还相信爱，他要么是个傻瓜，要么是个神。',
+      choices:[
+        {text:'追上去，亲自把戒指递出去', eff:{C:14,F:6}, flag:'ring',
+         res:'你亲自去了。你穿着礼服，把话说得很慢，很郑重。<br><br>她的母亲听完，沉默了一下，说：她太年轻了。<br><br>你鞠了一躬，退了出来。<br><br>你一生被无数人拒绝过——只有这一次，你觉得自己是真的老了。'},
+        {text:'收回戒指，承认这是妄想', eff:{R:13,C:-8}, flag:'withdraw',
+         res:'你连夜派人取回了戒指，附了一封短信，说自己一时糊涂。<br><br>第二天舞会上，你照常微笑、照常谈诗。<br><br>没有人看出破绽。只有你自己知道，那天晚上你在花园里站了多久。'},
+        {text:'写信给老友，问自己是不是疯了', eff:{R:8,F:7},
+         res:'你给策尔特写了一封长信，说你七十四岁了，还会为一个人失眠，是不是已经疯了。<br><br>他回信说：你写《浮士德》写了六十年，还差这一封信吗？<br><br>你把信读了三遍，然后继续写你的求婚信。'}
+      ]
+    },
+    {
+      time:'1823年8月 · 被婉拒之后', title:'她依然把手递给你',
+      text:'答复来了。客气、体面、滴水不漏：乌尔丽克还太年轻，不适合这样的婚姻。<br><br>舞会上，她仍然把手递给你，仍然笑着叫你「歌德先生」，仿佛什么都没发生过。她的母亲站在不远处，看着你们。<br><br>门口的马车已经备好，随时可以送你回魏玛。',
+      rhyme:'最残酷的拒绝，不是说不，而是让你继续留在原地。',
+      choices:[
+        {text:'立刻离开玛丽恩巴德，不再回头', eff:{C:13,R:3}, flag:'leave',
+         res:'你第二天一早就走了。行李收拾得极快，几乎没有告别。<br><br>后来你终身再未返回波希米亚。<br><br>有些人活到七十四岁才学会一件事：走。<br><br>你的马车离开时，天还没亮。'},
+        {text:'再留三天，把想说的话说完', eff:{F:13,C:-4}, flag:'stay',
+         res:'你又留了三天。你陪她散步、听她弹琴、看她跳舞。<br><br>第三天傍晚，她说：先生，您要走了吗？<br><br>你说：是。<br><br>那三天你没有说出任何想说的话。你把它们全部带走了。'},
+        {text:'当夜就走，一句话都不留', eff:{R:11,C:5,F:-4}, flag:'vanish',
+         res:'你当夜就走了，不留字条，不再见任何人。<br><br>第二天她问起，所有人都说：歌德先生回魏玛了。<br><br>你像从没来过一样离开。这大概是你一生中最不像诗人的一次退场。'}
+      ]
+    },
+    {
+      time:'1823年9月5日 · 马车里', title:'在颠簸中写下的那一首',
+      text:'马车沿着乡间道路往北走。清晨离开卡尔斯巴德，中午经过哈勒，傍晚停在一座小驿站。<br><br>你坐在车里，脑子里全是她跳舞的样子。你向车夫要来纸笔——你写了六十年的诗，但从来没有像此刻这样，非写不可。<br><br>笔在手里。马车在颠簸。',
+      rhyme:'命运把一个人推进极致的痛里，往往是为了让他写出最后那首诗。',
+      choices:[
+        {text:'一口气写完，一字不改', eff:{C:14,F:7}, flag:'poem',
+         res:'马蹄声一下一下敲着，你一句一句写下去。<br><br>从卡尔斯巴德一直写到魏玛，二十三节，一气呵成。<br><br>《玛丽恩巴德哀歌》完成了。你说：这是我内心状态的直接记录。<br><br>此后再没有波希米亚，只有《浮士德》第二部。'},
+        {text:'写了几行，又撕掉', eff:{R:9,F:-5}, flag:'tear',
+         res:'你写了几行，看了半天，撕掉了。又写，又撕。<br><br>到魏玛时，纸篓里全是碎片。<br><br>那些句子后来在别人的回忆录里出现，被记成「一位老诗人晚年的一段心事」。'},
+        {text:'不写诗，写一封平静的信给自己', eff:{R:12,C:2}, flag:'letter',
+         res:'你给自己写了一封信，落款是「一个人，在九月」<br><br>信里没有一句难过，只是把这三个月的天气、路况、她穿的衣服，一件一件记下来。<br><br>三年后重读，你才发现：这封信本身就是一首诗，只是当时你不肯承认。'},
+        {text:'让车夫掉头，再回卡尔斯巴德看一眼',
+         eff:{F:11,C:7},
+         rift:{id:2, name:'回望星', cond:s=>s.attrs.F>=62,
+               note:'那扇还亮着灯的窗户，是你自己推开的第二条星轨。'},
+         res:'你让车夫掉头。马车在夜色里逆着灯走，蹄声一下一下敲在石板上。<br><br>天快亮时你们到了卡尔斯巴德。你没有下车，只是坐在车里，看着那扇还亮着灯的窗户。<br><br>很久以后你说：走吧。<br><br><span style="color:#a87ac8">（星轨裂缝 · 你走完了那趟车，茨威格只写了一半。）</span>'}
+      ]
+    }
+  ],
+  otherSide:{who:'乌尔丽克·冯·莱维佐夫', title:'十九岁的那个夏天',
+    text:'她记得他讲故事的语调，记得他跳舞时有点吃力，记得母亲说「不可以」。很多年后她老了，有人问她：歌德先生真的向您求过婚吗？她只是笑，说：那是很久以前的事了，先生。'},
+  star:{name:'哀歌星', line:'你在七十四岁，写出了二十岁才敢写的东西。'},
+  ending:{
+    history:'真实历史：1823 年，74 岁的歌德在玛丽恩巴德爱上 19 岁的乌尔丽克·冯·莱维佐夫，托人求婚被婉拒。同年 9 月 5 日，他在从卡尔斯巴德返回魏玛的马车上写下《玛丽恩巴德哀歌》，共 23 节。此后他终身未再返回波希米亚，转向完成《浮士德》第二部。他称这首诗是「内心状态的直接记录」。',
+    voices:{
+      C:'你七十多岁了，还敢去爱一个人，还敢承认被拒绝。你的伟大不在诗里，在这份不肯体面的倔强里。',
+      R:'你及时放开了手。你算清了年纪、身份和将来，然后把它们写成一首诗，让所有算不清的人读了都疼。',
+      F:'不是爱情找到了你，是命运需要一个老人被爱击中的样子——好让后来的人知道，这件事没有年纪。'
+    }
+  }
+},
+{
+  id:7, key:'sutter', title:'黄金国的发现', year:'1848',
+  meta:'1848年1月 · 加利福尼亚萨克拉门托河谷',
+  role:'约翰·苏特尔', sigil:'coin', accent:'#d4af37',
+  rounds:[
+    {
+      time:'1848年1月24日 · 清晨', title:'水渠里的几粒金屑',
+      text:'你是瑞士移民约翰·苏特尔。你在刚割让给美国的这片荒原上建起了自己的农场，叫新赫尔维西亚。你雇了一个叫马歇尔的木匠，正在盖一座锯木厂。<br><br>今天清晨，马歇尔把你拉到一边，手在抖：「昨天夜里，我在水渠里发现了这个。」他摊开手掌——<b>几粒金色的碎屑</b>。<br><br>你心里咯噔一下：如果你公开这件事，你的农场、你的工人、你花四年建起来的一切，都会在几周内被踏平。',
+      rhyme:'命运给你的礼物，有时是带刺的。',
+      choices:[
+        {text:'严密封锁消息，继续经营农场', eff:{R:13,F:-8}, flag:'lock',
+         res:'你命令所有工人闭嘴，把那几粒金子锁进抽屉。<br><br>消息还是漏了。六周后，整个加州陷入疯狂。<br><br>你发现了黄金，但黄金没有发现你。'},
+        {text:'立刻公开，向全世界宣布这里有金矿', eff:{C:9,F:11}, flag:'announce',
+         res:'你向全世界的报纸宣布了这个发现。<br><br>三个月内，十万人涌进加州。旧金山从一个村庄变成一座城市，铁路、银行、股市围绕着你的农场爆炸式生长。<br><br>而你本人，在这场爆炸里一贫如洗。你成了黄金国的教父，不是它的富翁。'},
+        {text:'先自己小规模开采，看看成色', eff:{R:7,C:6},
+         res:'你让马歇尔带几个人在水渠里悄悄筛金子。<br><br>一个月后你手里有了三十磅金块。但工人开始偷偷跑出去自己采。<br><br>秘密像金粉，攥得越紧，漏得越快。'}
+      ]
+    },
+    {
+      time:'1848年3月 · 新赫尔维西亚', title:'被踩平的四年',
+      text:'消息漏了。先是你的工人夜里偷偷跑去水渠，然后是一传十、十传百。<br><br>三个月里，十万人涌进加利福尼亚。你的麦田被踩成泥地，你的牛被牵走，你的工人跑得一个不剩。你站在自己盖起来的房子前，看着陌生人从你家门口搬走东西。',
+      rhyme:'一场淘金热里，最先被掏空的，是发现者的家。',
+      choices:[
+        {text:'留在原地，守住地契，打官司讨回土地', eff:{R:13,C:3}, flag:'sue',
+         res:'你把地契缝进内衣，走进法院。<br><br>你没有拿起过一粒金子。你拿起的是笔。<br><br>从此你要用二十年时间，证明这片土地是你的。'},
+        {text:'也去淘金，把损失赚回来', eff:{C:11,R:-6}, flag:'dig',
+         res:'你扛起铲子加入了人群。<br><br>你挖了半年，赚到的钱还不到你农场一年的收成。<br><br>你是个会种地的人，不是个会淘金的人。你把这一点搞清楚，用了半年。'},
+        {text:'远走他乡，重新开始', eff:{F:11,C:-8}, flag:'away',
+         res:'你卖掉能卖的一切，往东走。<br><br>你在密苏里买了一块地，重新盖房、重新开垦。<br><br>十年后你收到一封信：加州法院判你胜诉了，你可以回去要回你的土地。<br><br>你把这封信读了整整一夜。'}
+      ]
+    },
+    {
+      time:'1855—1880年 · 旧金山的破屋', title:'一份发黄的判决书',
+      text:'1855 年，加州法院终于判给你一块相当于旧金山全城的土地，价值上亿美元。<br><br>判决下达的第二天，一万七千名居民上街暴动，烧了法院，把你赶出旧金山。案件一路拖到最高法院，最后不了了之。<br><br>你现在住在一间破屋里，靠邻居接济。桌上还剩一份发黄的判决书。',
+      rhyme:'你发现了黄金，但黄金没有发现你。',
+      choices:[
+        {text:'继续上诉，到最后一口气为止', eff:{C:13,F:-4}, flag:'appeal',
+         res:'你写了一份又一份申诉，寄给州议会、国会、总统。<br><br>没有一封被回复。<br><br>1880 年，你死在国会大厦的台阶上，怀里揣着一份写着「请求」的纸。<br><br>你一生只要求过一件东西：把你自己的东西还给你。'},
+        {text:'承认结束，把判决书烧掉', eff:{R:13,C:-4}, flag:'burn',
+         res:'你把那份判决书扔进壁炉。<br><br>火苗窜起来的时候，你想起了 1848 年那个清晨马歇尔颤抖的手。<br><br>你终于承认：那几粒金子，从头到尾都不是给你的。'},
+        {text:'把这段经历写下来，寄给报社', eff:{F:11,R:4}, flag:'write',
+         res:'你花了三年，一笔一画写了三百页。<br><br>报纸没有登，但手稿留了下来。<br><br>半个世纪以后，一个维也纳作家读到了它，把它写进了一本书里。<br><br>你成了那本书里的一章。'}
+      ]
+    }
+  ],
+  otherSide:{who:'詹姆斯·马歇尔', title:'第二个人',
+    text:'金砂是他先看见的。他把这件事告诉了老板，从此所有人都说是苏特尔发现了黄金。他后来穷困潦倒，死在一间小屋里。他一遍遍对人说：是我先捡起来的。人们点头，然后走开。'},
+  star:{name:'守业星', line:'你在黄金里，失去了一切。'},
+  ending:{
+    history:'真实历史：1848 年 1 月，苏特尔的木匠马歇尔在萨克拉门托河谷水渠中发现金砂，引发加州淘金热。苏特尔的农场被淘金者踏平，此后二十余年持续诉讼，1855 年一度胜诉获判大片土地，但判决被暴动与上诉推翻，最终贫病而死。茨威格称他为「世界上最富有的人，也是最穷的人」。',
+    voices:{
+      C:'你一步都没有退——不锁消息、不逃走、不认输。你的失败不是因为你不够狠，是因为时代比任何人都狠。',
+      R:'你做了所有正确的判断，然后被一百万不讲道理的人踩了过去。',
+      F:'你是那个先拆开命运礼物看了一眼的人，代价是余生。'
+    }
+  }
+},
+{
+  id:8, key:'dostoevsky', title:'英雄的瞬间', year:'1849',
+  meta:'1849年12月22日 · 圣彼得堡谢苗诺夫校场',
+  role:'陀思妥耶夫斯基', sigil:'cross', accent:'#5a9ac8',
+  rounds:[
+    {
+      time:'1849年12月22日 · 清晨八点', title:'还有几秒',
+      text:'你是二十八岁的陀思妥耶夫斯基。因为参加一个讨论空想社会主义的读书小组，你被沙皇判了死刑。<br><br>今天早晨，你和二十一个难友被押到谢苗诺夫校场。你们的眼睛被蒙上。你听见士兵举枪、拉栓的声音。前一排的人已经被绑到了柱子上。<br><br>你在心里飞快地数：还有几秒？',
+      rhyme:'在死亡面前，一个人会在十秒里过完一生。',
+      choices:[
+        {text:'睁着眼，把这十秒看成一整本书', eff:{F:15,C:5}, flag:'openeyes',
+         res:'你没有闭眼。你看着冬天的雪、灰色的天空、旁边发抖的难友。<br><br>在枪响前的最后一分钟，一名军官骑马奔来——沙皇的「特赦」到了。<br><br>你被改判流放西伯利亚四年。后来你把这十秒写进了《白痴》。'},
+        {text:'闭上眼睛，祈祷', eff:{R:9,F:6}, flag:'pray',
+         res:'你闭上眼，念主祷文。<br><br>你听见枪响——那是前一排的人。<br><br>马蹄声由远及近。缓刑。<br><br>你瘫在雪地里。<br><br>你没有看见死亡，但死亡看见了你。'},
+        {text:'冲士兵大喊，让他们快点动手', eff:{C:13,F:-5}, flag:'shout',
+         res:'你大喊：「动手！别磨蹭！」<br><br>士兵愣住了，军官也愣住了。<br><br>缓刑令到了。你被拖下去时，还在骂骂咧咧。<br><br>后来你写出的每一本书，都带着这种在枪口下练出来的、对一切的轻蔑。'}
+      ]
+    },
+    {
+      time:'1850年1月 · 通往西伯利亚的雪橇', title:'赦免之后',
+      text:'死刑改为流放四年。你被押上雪橇。同行的还有一整个冬天、几千俄里，和一条你不知道通向哪里的路。<br><br>你身上只剩一本福音书，和一双被铁镣磨出血的手腕。<br><br>同行的人里，有人第一天就开始哭，有人开始骂，有人一句话不说。',
+      rhyme:'被赦免的人，往往比被判死的人更需要活下去的理由。',
+      choices:[
+        {text:'观察每一个人，把他们的样子记下来', eff:{R:14,C:4}, flag:'observe',
+         res:'你记住了所有人的绰号、口音、骂人的用词、挥手时的姿势。<br><br>你在苦役营里没有写一个字，但你脑子里已经写了一本书。<br><br>十年后它叫《死屋手记》。'},
+        {text:'放下一切，专心祈祷，只求活着', eff:{F:14,R:-4}, flag:'devout',
+         res:'你把福音书翻烂了。<br><br>你在雪地里跪过、在牢房里跪过、在被鞭打之后跪过。<br><br>你活了下来。<br><br>你后来说：如果没有那四年，我不会知道人到底是什么。'},
+        {text:'拒绝再想文学，学着做一个普通人', eff:{R:9,C:-8}, flag:'ordinary',
+         res:'你试着不再想那些句子。<br><br>你和苦役犯一起搬石头、烧石灰、吃发霉的面包。<br><br>你确实变成了一个更普通的人——但正因如此，你后来才能写出那些最不普通的人。'}
+      ]
+    },
+    {
+      time:'1859年 · 彼得堡的编辑部', title:'你打算写什么',
+      text:'四年苦役，四年兵营，十年之后，你才获准回到彼得堡。<br><br>你带回一个写满字的小本子，里面是囚犯的绰号、口头禅、咳血的声音。你身上有癫痫，有债，还有一种压不住的冲动。<br><br>编辑部的人问你：你打算写什么？',
+      rhyme:'你死过一次，从那以后，你写的每个字都带着死亡的重量。',
+      choices:[
+        {text:'写那十秒——把它写成一整本书', eff:{F:14,C:7}, flag:'tenseconds',
+         res:'你没有写英雄，你写了一个在枪口前数秒的人。<br><br>后来你把这种「知道自己随时会死」的感觉，写进了《白痴》《群魔》《卡拉马佐夫兄弟》。<br><br>整个现代文学，都从你校场上的那十秒里长了出来。'},
+        {text:'先写能赚钱的，把债还清', eff:{R:12,C:-7}, flag:'debt',
+         res:'你签了合同，赶着交稿。为了还债，你把《赌徒》二十六天口述完。<br><br>稿子卖得不错，债没有还完。<br><br>你的一生都在赶稿和还债之间，把命当纸烧。'},
+        {text:'什么也不写，先好好活几年', eff:{R:9,F:-6}, flag:'live',
+         res:'你确实安静了几年。你结婚、旅行、治病。<br><br>然后癫痫发作了，债主上门了，你重新坐到桌前。<br><br>你发现：你不写，才是真的会死。'}
+      ]
+    }
+  ],
+  otherSide:{who:'同刑场的一个难友', title:'站在旁边的人',
+    text:'他站在他旁边，也被蒙着眼睛。他后来活了下来，从西伯利亚回到俄国，做一个普通的公务员。他一生写过很多信，每封都提到那一天：我旁边站着一个人，他一直在看天。我当时想，这个人是不是疯了。'},
+  star:{name:'洞见星', line:'你在枪口前，看见了全部人生。'},
+  ending:{
+    history:'真实历史：1849 年 12 月 22 日，陀思妥耶夫斯基等二十一人被押赴谢苗诺夫校场执行死刑，在行刑前一刻改判苦役。他在西伯利亚服苦役四年、兵役四年，1859 年重返文坛，此后《死屋手记》《罪与罚》《白痴》《卡拉马佐夫兄弟》相继问世，被视为现代小说的重要奠基者。',
+    voices:{
+      C:'你在枪口前没有闭眼。你把这十秒活成了一辈子的素材，也活成了对所有顺从的轻蔑。',
+      R:'你从流放地带回了一整本活人的档案。你的伟大不是想象力，是观察力——你记住了所有人。',
+      F:'你在枪响前的一分钟被换掉了命运。从此你的每一个字，都是捡回来的。'
+    }
+  }
+},
+{
+  id:9, key:'field', title:'越过大洋的第一次通话', year:'1858',
+  meta:'1857—1866年 · 大西洋海底',
+  role:'赛勒斯·菲尔德', sigil:'cable', accent:'#4a9ec9',
+  rounds:[
+    {
+      time:'1857年8月 · 「尼亚加拉号」甲板', title:'沉进两千米海底的希望',
+      text:'你是赛勒斯·菲尔德，美国富商。你押上全部身家，要把一根电缆铺到三千公里外的大洋底部，让欧洲和美洲能在几分钟内对话。<br><br>这是第二次尝试。第一次，电缆在铺到一半时断了，沉进两千米深的海里，找了七天也没找到。<br><br>董事会在等你表态。账上还剩的钱，只够再试一次。',
+      rhyme:'所有的「不可能」，最后都被另一个不认输的人做成了。',
+      choices:[
+        {text:'再筹钱，再下水', eff:{C:15,F:8}, flag:'again',
+         res:'你把房子抵押了，又说服了几个不信的人。<br><br>你说：如果这次也断，我就再试一次。<br><br>有人问你凭什么这么肯定。你说：我不肯定，我只是不允许它停在这里。'},
+        {text:'承认技术不成熟，暂停项目', eff:{R:12,C:-8}, flag:'pause',
+         res:'你把项目挂起，把设备封存。<br><br>五年后，别的人做成了这件事。你在报纸上读到消息，在窗边坐了一整夜。<br><br>你曾离它只有一个决定那么远。'},
+        {text:'先做深海实验，验证电缆可靠性', eff:{R:10,C:4},
+         res:'你花了一年做实验，把电缆放进深海测试拉力、绝缘、信号衰减。<br><br>数据出来了：现有材料在深海撑不过三天。<br><br>你救了两百万英镑，也推迟了历史七年。'}
+      ]
+    },
+    {
+      time:'1858年8月5日 · 纽芬兰', title:'九十九个字母',
+      text:'成功了。电缆两端——爱尔兰和纽芬兰——接通了。<br><br>维多利亚女王给美国总统发出第一份电报，九十九个字母，用了十七个小时才传完。纽约万人空巷，焰火照亮了整个港口。<br><br>三周后，电缆突然烧断。舆论瞬间反转：你成了骗子。有人在街上对你吐口水。<br><br>公司里有人提议：宣布破产，各走各路。',
+      rhyme:'世人只记得你成功的那一次，没人记得你失败的十一次。',
+      choices:[
+        {text:'站出来向公众道歉，承认失败', eff:{R:9,F:7}, flag:'apology',
+         res:'你在报纸上刊了长文，把技术细节一条条列出来，说：是我错了。<br><br>公众的怒气反而消了。<br><br>几年后你再去筹资，有人主动找上门。<br><br>敢于认错的人，最后反而能拿到下一笔钱。'},
+        {text:'再赌一次，公开宣布重建', eff:{C:16,F:5}, flag:'rebuild',
+         res:'你在废墟上开了一场发布会，说：我们明年再来。<br><br>全场先是安静，然后有人鼓掌。<br><br>你的名声还是坏的，但从那天起，人们不再叫你骗子，叫你疯子。'},
+        {text:'沉默退出，把余生交给别的事', eff:{R:12,C:-8}, flag:'quit',
+         res:'你退出了公司，去做别的生意。<br><br>很多年后，有人在你书房里看到一卷电缆的样品，问你那是什么。<br><br>你说：一件我差点做成的事。'},
+        {text:'跳上打捞船，亲手盯住最后一段接续',
+         eff:{C:11,R:6},
+         rift:{id:3, name:'同缆星', cond:s=>s.attrs.C>=68,
+               note:'有些人不是站在岸上等结果，他们把自己也铺进去。'},
+         res:'你跳上甲板，连续四十天没有离开绞盘。你亲手摸过每一米电缆。<br><br>工程师说：先生，您不该待在这里。<br><br>你说：我不是待在这里，我是待在这根线上。<br><br><span style="color:#a87ac8">（星轨裂缝 · 你把自己也铺进了海底。）</span>'}
+      ]
+    },
+    {
+      time:'1866年7月 · 「大东方号」出港', title:'第十一次',
+      text:'八年过去了。你破产三次，被报纸骂过无数次，鬓角全白了。<br><br>今天，新的巨轮「大东方号」载着新的电缆驶出港口。这是第十一次尝试。海面上有风，船员们都在看你。<br><br>你手上攥着最后一批筹来的钱。这次再失败，就真的没有下一次了。',
+      rhyme:'你失败了十一次，世界只允许你成功一次。',
+      choices:[
+        {text:'全程随船，亲手完成对接', eff:{C:16,F:6}, flag:'aboard',
+         res:'你和船员一起在甲板上熬了三十天。<br><br>1866 年 7 月 27 日，电缆在纽芬兰上岸，信号清晰。<br><br>这一次它再没断过。<br><br>同年，你还把 1858 年沉掉的那一段，从两千米海底捞了上来。'},
+        {text:'留在岸上等结果，避免干扰工程师', eff:{R:12,C:-4}, flag:'shore',
+         res:'你在岸上等了三十天，每天守在电报房。<br><br>信号到了。<br><br>你还算克制，只是把手里的杯子放下来，说了句：好。<br><br>那年你五十岁，已经学会不跳起来了。'},
+        {text:'把最后一笔钱全押上去，不留后路', eff:{C:13,F:9}, flag:'allin',
+         res:'你把最后一分钱都投了进去，连房子都卖了。<br><br>成功了。<br><br>记者问你当时怕不怕。你说：怕，但我不需要留后路——因为如果这次失败，我也不打算再过别的日子了。'}
+      ]
+    }
+  ],
+  otherSide:{who:'船上的电缆工程师', title:'甲板下的三十天',
+    text:'他不关心历史。他只关心绞盘转速、绝缘层有没有被划伤、海水的温度和电缆张力。船每沉下一米线，他的心跳就慢一点。后来人们把这件事称作「人类第一次跨洋通话」，他一直不太习惯这个说法。'},
+  star:{name:'执着星', line:'你把自己也铺进了海底。'},
+  ending:{
+    history:'真实历史：赛勒斯·菲尔德自 1854 年起推动跨大西洋电报电缆。1857 年首次铺设失败，1858 年成功，维多利亚女王与美国总统互通电报，三周后电缆烧断。此后他持续筹资，1866 年新电缆成功铺通并长期运行，同年还打捞回 1858 年失落的那一段。电报从此把世界连成一体。',
+    voices:{
+      C:'你不是技术专家，你是那个不允许这件事失败的人。别人计算概率，你计算意志。',
+      R:'你懂得暂停、道歉和重启。你的坚持里没有一次是盲目的。',
+      F:'你被安排去撞一堵墙，撞了十一次，然后墙倒了。世界记住的是墙倒下的声音。'
+    }
+  }
+},
+{
+  id:10, key:'tolstoy', title:'逃向苍天', year:'1910',
+  meta:'1910年10月 · 亚斯纳亚·波良纳',
+  role:'列夫·托尔斯泰', sigil:'train', accent:'#b0b0b0',
+  rounds:[
+    {
+      time:'1910年10月28日 · 凌晨', title:'一只小皮箱',
+      text:'你是八十二岁的托尔斯泰。你拥有全世界的名声、亚斯纳亚·波良纳的庄园、无数追随者。但你的妻子索尼娅每天翻你的日记、偷听你的每一句话，你们已经这样过了四十八年。<br><br>今夜，你从床上坐起来，点亮灯，收拾了一只小皮箱，叫醒了医生。<br><br>你写了一封给妻子的信，放在桌上。',
+      rhyme:'八十二岁了，他还在出走。',
+      choices:[
+        {text:'出门，上马车，不再回头', eff:{C:15,F:5}, flag:'flee',
+         res:'你摸黑穿过屋子，绕开会响的那块地板。<br><br>马车在夜色里走出去很远，你才允许自己回头看了一眼。<br><br>你后来说：那天晚上，我像小偷一样离开了自己的家。'},
+        {text:'把信烧掉，回床上继续睡', eff:{R:13,C:-8}, flag:'stay',
+         res:'你站在桌前很久，最后把信投进炉子。<br><br>第二天早上，索尼娅照常来问你睡得好不好。<br><br>你说很好。<br><br>三年里你每天都想走，三年里你每天都留下了——直到最后那一天。'},
+        {text:'先叫醒女儿，让她陪你一起走', eff:{R:7,F:8}, flag:'daughter',
+         res:'你叫醒了小女儿萨莎。她一句话没问，十五分钟内穿好衣服，收拾好东西。<br><br>两个人一起上了马车。<br><br>天亮时，亚斯纳亚·波良纳已经在十几俄里之外。'}
+      ]
+    },
+    {
+      time:'1910年10月31日 · 三等车厢', title:'没人认出他',
+      text:'你坐在三等车厢里。没有头等包厢，没有随从，你和农民挤在一起，裹着毯子咳嗽。<br><br>邻座的人在讨论托尔斯泰写的小说。一个说：那个人虚伪，住着庄园写穷人。另一个说：不，那个人是我们这里唯一说真话的人。<br><br>他们没有认出你。车窗外是俄罗斯的原野，天黑得像泼了墨。',
+      rhyme:'一个人可以逃出庄园，逃不出他写下的那些字。',
+      choices:[
+        {text:'继续走，去高加索，找一个真正的修道院', eff:{C:14,F:6}, flag:'caucasus',
+         res:'你决定往南走。你想在那里租一间小屋，种菜、看云、等死。<br><br>你甚至已经想好了要写的那本书的名字。<br><br>你没走到高加索。你只走到了阿斯塔波沃。'},
+        {text:'在下一站下车，先找个地方养病', eff:{R:11,C:-4}, flag:'rest',
+         res:'你在阿斯塔波沃下了车。<br><br>站长认出了你，把那间小屋让给你，自己搬去了走廊。<br><br>你躺下来，接过一杯热茶，说：谢谢。<br><br>这是你一生中最后一句普通的客气话。'},
+        {text:'掉头回去，去跟索尼娅把话说完', eff:{R:8,C:-9}, flag:'return',
+         res:'你让萨莎去买返程的票。<br><br>车站在下雪，售票窗口关着。<br><br>你在站台上站了很久，然后蹲下来咳血。<br><br>命运替你取消了这趟车。'}
+      ]
+    },
+    {
+      time:'1910年11月7日 · 阿斯塔波沃小站', title:'门外的敲门声',
+      text:'你发高烧，在阿斯塔波沃这个小站下了车。站长把自己那间小屋让给了你。<br><br>消息传出去了。全世界的记者正在赶来的路上。你的妻子索尼娅也上了火车。你的子女们在为「谁能见你最后一面」争吵。<br><br>你躺在窄床上，只剩医生在。门外有人在敲门。',
+      rhyme:'他写了一辈子家庭，最后却在一个陌生人的屋顶下，一个人死去。',
+      choices:[
+        {text:'谁也不见，独自走完最后一段', eff:{C:12,R:6}, flag:'alone',
+         res:'你让人把门守住。你说了最后几句话，都是关于该怎么活下去，不是关于怎么死。<br><br>索尼娅被拦在窗外。她隔着玻璃看了你很久。<br><br>你死于 11 月 7 日清晨六点零五分。<br><br>你的坟上，没有墓碑。'},
+        {text:'让索尼娅进来', eff:{R:10,F:-5}, flag:'sonya',
+         res:'她进来了。她跪在床边，握着你的手，一直哭。<br><br>你看着她，什么都没说，也没有把手抽回来。<br><br>四十八年的争吵，就这样结束了。<br><br>你想逃的那个人，最后陪你到了终点。'},
+        {text:'让所有孩子和记者都进来，把话说清楚', eff:{C:10,F:8}, flag:'everyone',
+         res:'你让人开了门。小屋里挤满了人，闪光灯亮个不停。<br><br>你用尽力气说了几句关于「不要暴力」的话。<br><br>第二天，全世界报纸的头版都是你在病床上的照片。<br><br>你连死，都没能安静地死。'}
+      ]
+    }
+  ],
+  otherSide:{who:'索菲亚·托尔斯泰', title:'窗外的那场雪',
+    text:'她半夜醒来，发现身边是凉的，桌上少了一双靴子。她坐在那儿，直到天亮才开始发抖。四十八年里她抄了他所有的稿子，其中《战争与和平》抄了七遍。她后来对女儿说：他要的不是自由，他要的是让我成为那个「拦住他的人」。'},
+  star:{name:'出走星', line:'你在八十二岁那年，还是走了。'},
+  ending:{
+    history:'真实历史：1910 年 10 月 28 日深夜，82 岁的托尔斯泰瞒着妻子离家出走。11 月 3 日他在阿斯塔波沃车站（今列夫·托尔斯泰站）因肺炎下车，11 月 7 日死于该站站长的小屋中。临终前他拒绝妻子索尼娅探视。他被葬在亚斯纳亚·波良纳的林中，没有墓碑，没有十字架。',
+    voices:{
+      C:'你在八十二岁那年，做了一件十八岁才敢做的事——把一切都丢下，只为不再撒谎。',
+      R:'你走到一半就停下了。你算得出身体撑不住，也算得出她一定在找你。',
+      F:'你想死在路上，命运让你死在半路。这大概是你一生中，最像你自己结局的结局。'
+    }
+  }
+},
+{
+  id:11, key:'scott', title:'南极争夺战', year:'1912',
+  meta:'1912年1月—3月 · 南极冰原',
+  role:'罗伯特·斯科特', sigil:'snow', accent:'#7fb8d4',
+  rounds:[
+    {
+      time:'1912年1月18日 · 南极点', title:'猎猎作响的挪威旗',
+      text:'你是斯科特，英国皇家海军上校。你带着四个同伴，在冰原上走了七十一天。<br><br>今天，你们终于爬上最后一道冰脊——一面挪威国旗正在风里猎猎作响。阿蒙森比你们早到了三十五天。<br><br>你站在世界的尽头，手里攥着英国国旗。气温零下四十度。返程还有八百英里。',
+      rhyme:'历史只给胜利者写传记，但失败者留下了最动人的日记。',
+      choices:[
+        {text:'插旗、拍照，坚持完成科学观测再走', eff:{R:12,F:6}, flag:'science',
+         res:'你们插上英国国旗，在挪威旗旁边拍了一张照片，然后按计划完成气象和地质观测。<br><br>你们多花了三天，背回了十六公斤岩石标本。<br><br>那批标本后来证明南极洲曾与大陆相连。'},
+        {text:'立刻掉头返程，一分钟也不多待', eff:{R:9,C:-6}, flag:'turnback',
+         res:'你们拍完照就走。<br><br>你省下了三天。<br><br>三年后人们才知道：你省下的那三天，不够抵上后来的一场暴风雪。'},
+        {text:'在极点停留一整天，把记录写完整', eff:{C:11,F:7}, flag:'record',
+         res:'你在极点待了一整天，写完了日记的最后几页。<br><br>你写道：「上帝啊，这是一个可怕的地方。我们付出了这么大的代价，却得不到第一名的安慰。」<br><br>这句话后来印在了无数本书里。'}
+      ]
+    },
+    {
+      time:'1912年2月 · 罗斯冰架', title:'沉下去的日记本',
+      text:'返程路上，你们发现预定的补给点位置偏了。煤油不足，食物不足。埃文斯在 2 月 17 日倒下，再也没有站起来。<br><br>剩下四个人，每天只能前进九英里。风速每小时七十公里。你们的手已经握不住笔了。<br><br>雪橇上还剩：十六公斤岩石标本，几本日记，和只够十天的煤油。',
+      rhyme:'在南极，每多带一克纸，就少带一克煤油。',
+      choices:[
+        {text:'丢掉一切非必需品：标本、日记、多余的衣服', eff:{R:13,C:-6}, flag:'dump',
+         res:'你们把标本一件件搬下雪橇，摆在雪地上，做上标记。<br><br>轻装之后你们确实走得快了些。<br><br>但没有快到能跑赢三月。'},
+        {text:'把标本和日记都带上，哪怕因此慢下来', eff:{C:13,R:-5}, flag:'keep',
+         res:'你们一件都没丢。<br><br>十六公斤岩石，压在已经快走不动的四个人身上。<br><br>八个月后，搜救队找到了它们——连同你们一起。'},
+        {text:'抄近道，走那条没勘测过的路线', eff:{R:9,F:5}, flag:'shortcut',
+         res:'你们偏离了原路线。三天后，你们在冰裂缝区前被迫停下，只能原路返回。<br><br>你损失了四天。<br><br>你在日记里写：我不该赌。'}
+      ]
+    },
+    {
+      time:'1912年3月17日 · 帐篷里', title:'我出去走走',
+      text:'队员奥茨的双脚严重冻伤，已经走不动了。他一直在拖累队伍。<br><br>今天早晨，外面在刮暴风雪。奥茨从睡袋里坐起来，说：<br><br>「我出去走走，可能要多待一会儿。」<br><br>他爬出了帐篷，走进了风雪。没有人拦他。',
+      rhyme:'有些人不是被风雪带走的，是自己走出去的。',
+      choices:[
+        {text:'追出去，把他背回来', eff:{C:14,F:-4}, flag:'catch',
+         res:'你追了出去。你在二十米外追上他，把他背回帐篷。<br><br>你的手在那一刻冻伤了。<br><br>他多活了九天。你们三个，少活了几天。<br><br>你说：我从来没有后悔过那二十米。'},
+        {text:'尊重他的选择，目送他离开', eff:{F:13,R:-4}, flag:'letgo',
+         res:'你没有动。帐篷里安静了很久。<br><br>你在日记里写道：那是一个勇敢的人，一个英国绅士，他自愿走向死亡。<br><br>我们打算就这样走到终点——离补给站只有十一英里了。'},
+        {text:'把最后的药和口粮分给剩下的人，继续前进', eff:{R:12,C:3}, flag:'moveon',
+         res:'你们在帐篷里坐了一会儿，然后开始收拾。<br><br>没有人说话。<br><br>你们又往前走了二十英里，然后被一场持续十一天的暴风雪按住。<br><br>你们离下一个补给站，只有十一英里。'},
+        {text:'翻开奥茨留在睡袋里的那一页日记',
+         eff:{F:11,R:6},
+         rift:{id:4, name:'同雪星', cond:s=>s.attrs.F>=66,
+               note:'有些话没有人读，就永远不会被写进历史。'},
+         res:'你翻开他留在睡袋里的笔记本。<br><br>最后一页写着：「我很高兴能这样结束。我希望我母亲知道，我走的时候是个英国人。」<br><br>你把那一页折好，塞进自己胸口的衣服里。<br><br><span style="color:#a87ac8">（星轨裂缝 · 你读到了历史没有保存下来的那句话。）</span>'}
+      ]
+    }
+  ],
+  otherSide:{who:'劳伦斯·奥茨', title:'走出去的那个人',
+    text:'他知道自己拖慢了所有人。他没有告诉任何人他要走，因为那样他们一定会拦他。三十几岁，上尉，腿已经烂了。他在睡袋里写下最后那行字，然后拉开门帘——外面是零下四十度的风。他做得非常安静，像一个绅士离开一场聚会。'},
+  star:{name:'尊严星', line:'你们输了比赛，赢了别的东西。'},
+  ending:{
+    history:'真实历史：1912 年 1 月 17 日，斯科特一行五人抵达南极点，发现阿蒙森已先到 35 天。返程中埃文斯于 2 月 17 日死去，奥茨于 3 月 17 日在暴风雪中走出帐篷，斯科特与威尔逊、鲍尔斯于 3 月 29 日死在帐篷里，距下一个补给站仅 11 英里。八个月后，搜救队找到遗体、日记和 16 公斤地质标本。',
+    voices:{
+      C:'你明知回不去，还是把标本和日记都背上了。你不是输给了南极，你是赢给了自己。',
+      R:'你做了每一个正确的决定，然后每一个正确的决定都被天气否定了。',
+      F:'你被选中去当那个第二名。没有你，阿蒙森的胜利不会显得那么完整。'
+    }
+  }
+},
+{
+  id:12, key:'lenin', title:'封闭的列车', year:'1917',
+  meta:'1917年4月 · 苏黎世—彼得格勒',
+  role:'流亡者', sigil:'wheel', accent:'#c0392b',
+  rounds:[
+    {
+      time:'1917年4月9日 · 苏黎世车站', title:'一列铅封的车厢',
+      text:'你是一个流亡瑞士多年的俄国革命者。二月革命爆发了，沙皇倒台，但你回不去——俄国正被德国围着。<br><br>德国外交部递来一个提议：给你一列「封闭列车」，穿过德国、瑞典、芬兰，回俄国。条件是：你要在俄国鼓动士兵「单独媾和」，让德国从东线抽身。<br><br>这是一场交易。你心里非常清楚。瑞士的同志们站在站台门口，想劝你别上车。',
+      rhyme:'有些人改变世界的方式，是冒一次最脏的险。',
+      choices:[
+        {text:'上车', eff:{C:16,F:9}, flag:'board',
+         res:'你没有回头。<br><br>三天后你到达彼得格勒芬兰车站，站在装甲车上对人群发表演说。<br><br>七个月后，十月革命。<br><br>你做了德国人想让你做的事——但你做的，比他们做梦梦到的，大一万倍。'},
+        {text:'拒绝，继续留在苏黎世的图书馆', eff:{R:13,C:-10}, flag:'refuse',
+         res:'你留下了。你在图书馆里继续写作，把《国家与革命》写完。<br><br>俄国革命在没有你的情况下继续。几个月后，临时政府上台，然后倒台。<br><br>你写的那些书，成了别人手里的地图。'},
+        {text:'先让中间人出面，把条件谈干净', eff:{R:8,F:-4}, flag:'broker',
+         res:'你找了瑞士的社会党人普拉腾，和德国人反复谈了三天。<br><br>你最后还是上了车。<br><br>但这三天，让「革命者接受敌国资助」成了政敌手里最锋利的一张牌。<br><br>你想把交易洗干净——交易永远是交易。'}
+      ]
+    },
+    {
+      time:'1917年4月 · 封闭车厢内', title:'铅封的窗外',
+      text:'列车开动了。车厢门被铅封，你和三十多个同志挤在里面。窗外是德国。你只能看见风景，不能下车，不能与德国人交谈。<br><br>同行的人开始争论：回国之后到底该主张什么。有人主张支持临时政府继续打仗，有人主张立刻推翻它。<br><br>纸在桌上，笔在手里。距离彼得格勒还有几天。',
+      rhyme:'一列封闭的火车里，装着二十世纪最危险也最有力的人。',
+      choices:[
+        {text:'在车上写完提纲，一到站就发表', eff:{C:14,R:6}, flag:'thesis',
+         res:'你在一张又一张纸上写下去，写完给每个人看，让他们反驳你。<br><br>到站那天，你已经准备好了那份文件。<br><br>第二天它叫《四月提纲》。'},
+        {text:'先不下结论，到了地方看过再说', eff:{R:13,C:-5}, flag:'observe',
+         res:'你把笔收起来，说：我还没见过现在的俄国。<br><br>你用了两周时间走工厂、跑兵营、听工人说话。<br><br>等你开口时，每句话都落在了实处。'},
+        {text:'在车上组织反复辩论，先把队伍统一', eff:{R:8,F:8}, flag:'debate',
+         res:'你们在车厢里吵了三天，吵到有人拍桌子、有人摔杯子。<br><br>到站时，三十几个人变成了三十几把刀，刀刃都朝着同一个方向。<br><br>这是你一生中最重要的一次吵架。'}
+      ]
+    },
+    {
+      time:'1917年4月16日 · 芬兰车站', title:'装甲车上',
+      text:'火车进站。站外挤满了人，有人举红旗，有人高喊，有人往车上扔花。<br><br>你走出车厢，被人扶上一辆装甲车。人群安静下来，等你说话。<br><br>你手里没有讲稿。身后是三十多个刚下车的同志，前面是整个俄国。',
+      rhyme:'有些人的一句话，能让一个帝国开始倒计时。',
+      choices:[
+        {text:'立刻喊出「全部权力归苏维埃」', eff:{C:16,F:6}, flag:'allsoviet',
+         res:'你站在装甲车上，把这句话喊了出来。<br><br>现场一半人欢呼，一半人皱眉。<br><br>半年后，这句话变成了国策。<br><br>你一生只喊过这一次口号，然后它缔造了一个国家。'},
+        {text:'先同党内同志闭门商议，再公开表态', eff:{R:13,C:-6}, flag:'closedoor',
+         res:'你压住了现场，先去开会。<br><br>会开了整整一夜。<br><br>第二天你的表态更完整，也少了几分锐气。<br><br>历史记住了那句话，没有记住那一夜。'},
+        {text:'保持沉默，先观察各方反应', eff:{R:9,F:-4}, flag:'silent',
+         res:'你只是挥手，什么也没说。<br><br>人群有些失望。<br><br>你在接下来的两周里，一直在看、在听、在等。<br><br>你等到了那个必须开口的时刻。'}
+      ]
+    }
+  ],
+  otherSide:{who:'同车厢的一名流亡者', title:'被铅封的三十天',
+    text:'他后来与列宁决裂了，但一生都记得那节车厢。他说：那三十天里，我们谁都不敢睡得太沉。不是因为怕德国人，是因为我们都在想——如果这条路走下去，将来会不会由我们来杀我们自己的同志。'},
+  star:{name:'革命星', line:'那列车的门一开，世纪就换了方向。'},
+  ending:{
+    history:'真实历史：1917 年 4 月 16 日，列宁乘坐德国安排的「封闭列车」经德国、瑞典、芬兰抵达彼得格勒芬兰车站，站在装甲车上发表演说，次日提出《四月提纲》，主张「全部权力归苏维埃」。同年 10 月（俄历）十月革命爆发，布尔什维克夺取政权。茨威格在文中称这列火车「载着二十世纪最危险也最有力的人」。',
+    voices:{
+      C:'你赌上了全部，包括清白。历史给了你回报，但账单留给了下一个世纪。',
+      R:'你把每一步都写在纸上，连革命都做了提纲。你的力量不在于激情，在于结构。',
+      F:'那列火车的门一开，二十世纪就换了个方向。你不是被历史选中的，你是被历史雇用的。'
+    }
+  }
+},
+{
+  id:13, key:'cicero', title:'西塞罗', year:'前43',
+  meta:'公元前44—43年 · 罗马',
+  role:'马库斯·图利乌斯·西塞罗', sigil:'scroll', accent:'#c9b483',
+  rounds:[
+    {
+      time:'公元前44年3月 · 乡间别墅', title:'凯撒的血还没干',
+      text:'你是西塞罗，六十三岁，罗马最伟大的演说家。凯撒刚在元老院被刺死，血还没干，共和制摇摇欲坠。<br><br>你本来已经退隐，在乡下的别墅里写哲学，打算就这样过完余生。现在朋友们一封封信催你回罗马：元老院需要你的声音。<br><br>回去，你可能死。不回去，你只是一个写书的老人。',
+      rhyme:'有些人的武器是剑，有些人的武器是嗓子。',
+      choices:[
+        {text:'回罗马，重新站上演讲台', eff:{C:14,F:5}, flag:'return',
+         res:'你回罗马了。你重新走进元老院，所有人都站起来看你。<br><br>你开口的那一刻就知道：你这一生，原来都是为了这个房间准备的。'},
+        {text:'留在别墅，继续写哲学', eff:{R:14,C:-9}, flag:'retire',
+         res:'你把信一封封折好，放回抽屉。<br><br>你完成了《论义务》，那是你一生最好的著作。<br><br>但元老院那个位置空了之后，再没有人能坐上去。'},
+        {text:'先写信给屋大维，试探他的立场', eff:{R:8,F:7}, flag:'probe',
+         res:'你给年轻的屋大维写了一封长信，措辞极其讲究。<br><br>他回信了，语气比信纸还客气。<br><br>你以为你看懂了这个十九岁的年轻人。三年后你才明白，他比你想的清楚一万倍。'}
+      ]
+    },
+    {
+      time:'公元前44年9月—前43年4月 · 元老院', title:'十四篇',
+      text:'你回到了罗马。你连续发表了十四篇《反腓力演说》，一篇比一篇锋利，把安东尼骂得体无完肤。全城都在传诵你的句子，孩子们在学校里背。<br><br>但屋大维正在暗中与安东尼谈条件。元老院里有人低声说：西塞罗太响了。<br><br>朋友劝你：收手吧，你已经赢下了嘴上的一切。',
+      rhyme:'说得越对，越容易成为被合谋除掉的那个人。',
+      choices:[
+        {text:'继续发表，把安东尼钉死在文字上', eff:{C:16,R:-5}, flag:'keepon',
+         res:'你把第十四篇读完了。<br><br>元老院投票，宣布安东尼为公敌。<br><br>这是你一生中最辉煌的一刻。也是最后一次有人在那个台上为你鼓掌。'},
+        {text:'转向调和，撮合屋大维与元老院', eff:{R:14,C:-4}, flag:'mediate',
+         res:'你开始做中间人。<br><br>你请屋大维吃饭，替他在元老院说话，甚至为他争取了执政官的权力。<br><br>你以为你收服了一个年轻人。<br><br>实际上，你只是替他解决了一个麻烦。'},
+        {text:'停笔，退回乡间别墅', eff:{R:10,C:-9}, flag:'stop',
+         res:'你搬回了别墅，重新写书、种树、给朋友写信。<br><br>罗马在身后继续吵、继续杀。<br><br>你活得比很多人久，但你的声音从这里开始，就不再是罗马的声音了。'}
+      ]
+    },
+    {
+      time:'公元前43年12月7日 · 逃亡途中', title:'公敌名单第十七位',
+      text:'三巨头结盟了。公敌名单公布，你的名字排在第十七位。<br><br>你坐着轿子往海边逃。路上听说，赏金已经贴出来了：一双手，一颗头，重赏。<br><br>仆人劝你换路，或者躲进树林。抬轿的人已经慌得站不稳了。',
+      rhyme:'你用语言对抗暴力，最后暴力只用了一张纸。',
+      choices:[
+        {text:'停下轿子，伸出手，不逃了', eff:{C:13,F:7}, flag:'stoprun',
+         res:'你说：让他们来吧。<br><br>你从轿子里探出身子，把脖子伸出去，像你一生中每一次站上讲台那样平静。<br><br>你的头和双手被带回罗马，钉在广场的演讲台上。<br><br>那是你说了四十年话的地方。'},
+        {text:'继续逃，上船去希腊', eff:{R:12,C:-6}, flag:'sail',
+         res:'你上了船，但风暴把你吹回了意大利海岸。<br><br>换船，又被吹回来。第三次你站在岸边，看着海浪。<br><br>最后你让仆人把你抬上岸，说：我在这里等他们。'},
+        {text:'派人去找安东尼，写信求和', eff:{R:6,F:-6}, flag:'beg',
+         res:'你写了一封措辞极为谦卑的信。<br><br>安东尼看完，对身边的人说：名单不改。<br><br>你用了六十三年练出来的语言，最后没能换回你自己的命。'}
+      ]
+    }
+  ],
+  otherSide:{who:'盖乌斯·屋大维', title:'十九岁的那个傍晚',
+    text:'他称他「父亲」，在元老院里替他说过好话。名单出来时，他犹豫了两天——他毕竟还年轻。第三天他下令的时候，对安东尼只说了一句：这个人不能再活了。后来他成了奥古斯都，罗马的第一位皇帝。他一生很少提起西塞罗。'},
+  star:{name:'共和星', line:'你的头被砍下来了，句子还在动。'},
+  ending:{
+    history:'真实历史：公元前 44 年凯撒遇刺后，西塞罗重返罗马政坛，自前 44 年 9 月起连续发表十四篇《反腓力演说》抨击安东尼。前 43 年 11 月，屋大维、安东尼、雷必达结成后三头同盟并公布公敌名单，西塞罗名列其中。他在逃亡途中被截杀，头颅与双手被钉在罗马广场的演讲台上——正是他多年来发表演说的地方。',
+    voices:{
+      C:'你选择了站在广场上，而不是躲在书斋里。你的头被砍下来了，但你写下的句子还在动。',
+      R:'你把修辞用到了极致，最后才发现那场谈判的桌子底下，早就有另一份名单。',
+      F:'你被列上名单，不是因为你错了，而是因为你太对了。共和制需要一个有名的人替它死一次。'
+    }
+  }
+},
+{
+  id:14, key:'wilson', title:'威尔逊的失败', year:'1919',
+  meta:'1919年 · 巴黎凡尔赛',
+  role:'伍德罗·威尔逊', sigil:'scale', accent:'#5a8ac8',
+  rounds:[
+    {
+      time:'1918年12月 · 大西洋上', title:'十四点',
+      text:'你是美国总统威尔逊。第一次世界大战刚刚结束。你带着「十四点原则」横渡大西洋，梦想建立一个国际联盟——让所有国家从此不再靠战争解决问题。<br><br>欧洲人在码头夹道欢迎你，把你叫作「救世主」。<br><br>同行的顾问提醒你：克里孟梭要的是德国的殖民地，劳合·乔治要的是赔款和舰队。他们想要的和平，和你想要的不一样。',
+      rhyme:'理想主义者的悲剧，不是被打败，而是必须亲手在自己的理想上签字。',
+      choices:[
+        {text:'坚持十四点，一寸不让', eff:{C:14,R:-5}, flag:'firm',
+         res:'你在船上就对记者宣布：我不会拿原则做交易。<br><br>欧洲的报纸说你天真。<br><br>你抵达巴黎时，码头上的欢呼少了一半。'},
+        {text:'先争取国际联盟，其他条款可以谈', eff:{R:14,C:-5}, flag:'trade',
+         res:'你把顺序重新排了一遍：联盟第一，其他可以让。<br><br>顾问说这是务实。<br><br>你自己心里清楚，从这一刻起，你已经开始用理想换东西了。'},
+        {text:'亲赴各国演讲，用民意给对手施压', eff:{C:9,F:8}, flag:'speech',
+         res:'你在伦敦、米兰、巴黎连着演讲，每场几十万人。<br><br>人群高喊你的名字，举着你的画像。<br><br>克里孟梭在报纸上冷冷地说了一句：人潮会散，边界不会。'}
+      ]
+    },
+    {
+      time:'1919年4月 · 凡尔赛镜厅', title:'镜子里的那个人',
+      text:'谈判拖了四个月。德国被强加了巨额赔款、萨尔煤矿和殖民地瓜分。你手里那份盟约草案，已经被你自己改了十几遍。<br><br>克里孟梭说：如果你不签这份条约，国际联盟就不用谈了。<br><br>你看着镜厅里那面巨大的镜子。镜子里的那个人，正在被问一个他准备了二十年、却没有准备过的问题。',
+      rhyme:'你必须在理想，和理想的孩子之间，选一个。',
+      choices:[
+        {text:'拒绝签字，直接回国', eff:{C:15,R:-6}, flag:'refuse',
+         res:'你收拾行李，登船回国。<br><br>国际联盟成了一个没有成立的空壳。<br><br>你守住了原则，也亲手杀死了你唯一的孩子。<br><br>后来有人说：如果当年欧洲的和平少了点什么，那大概就是你那份不签的条约。'},
+        {text:'签字，为国际联盟换一次机会', eff:{R:14,C:-8}, flag:'sign',
+         res:'你在条约上签了字。<br><br>你拿到了国际联盟。但你的参议院随后拒绝批准《凡尔赛和约》——美国还是没进去。<br><br>你成了那个「既出卖了理想，又没换来结果」的人。<br><br>二十年后，所有你妥协掉的东西，变成了另一场战争。'},
+        {text:'中途离场，回国推动参议院表决', eff:{F:11,C:-5}, flag:'leave',
+         res:'你中途离开和会，回美国去说服参议院。<br><br>你没能说服任何人。<br><br>你的名字从此出现在历史教科书里，只和「理想主义」这个词连在一起。'}
+      ]
+    },
+    {
+      time:'1919年9月 · 巡回演讲的第八千英里', title:'普韦布洛的讲台',
+      text:'条约签了。但美国参议院拒绝批准——他们不想被一个「国际组织」管住。<br><br>你决定绕美国巡回演讲，直接向人民陈情。第八千英里，科罗拉多州的普韦布洛。你站在讲台上，讲到一半，倒了下去。<br><br>医生说你中风了。剩下的行程还在等你，参议院也在等你。',
+      rhyme:'你用身体去推一扇门，门没有开，身体先碎了。',
+      choices:[
+        {text:'继续演讲，直到最后一站', eff:{C:13,F:6}, flag:'continue',
+         res:'你让人把你抬上下一班火车。你在车厢里躺着写讲稿。<br><br>你没能讲完剩下的行程。<br><br>此后三年，你半身瘫痪，在白宫里坐着轮椅，看着参议院一次一次否决你的条约。'},
+        {text:'停下来养病，把剩下的事交给副手', eff:{R:13,C:-5}, flag:'rest',
+         res:'你停下了。你在床上躺了几个月，身体没有回到从前。<br><br>副手们替你跑完了行程，也替你签掉了不少东西。<br><br>你保住了命，却失去了最后那段能说话的时间。'},
+        {text:'退一步，接受参议院提出的修正案', eff:{R:11,C:-7}, flag:'amend',
+         res:'你同意了保留条款的修正案。<br><br>但参议院还是否决了。<br><br>你的第一次让步，换来了第二次否决。<br><br>你终于明白：有些人不是要修改你的条约，是要它不存在。'}
+      ]
+    }
+  ],
+  otherSide:{who:'乔治·克里孟梭', title:'镜子对面的那个人',
+    text:'他七十七岁，亲眼见过两次法国被德国踏平。他不信任何理想主义的措辞——他见过的措辞太多了，每一次之后，法国都要死人。他对身边人说：那个美国人太想留下好名声了。而好名声，不能防守边界。'},
+  star:{name:'理想星', line:'你守住了原则，却没守住你的孩子。'},
+  ending:{
+    history:'真实历史：1919 年，威尔逊带着「十四点原则」参加巴黎和会，力主建立国际联盟。最终《凡尔赛条约》包含大量对战败国的严苛条款。威尔逊签署条约后回国，参议院拒绝批准；他于 1919 年 9 月展开全国巡回演讲，在科罗拉多州普韦布洛中风，此后半身瘫痪。美国最终未加入国际联盟。1939 年，第二次世界大战爆发。',
+    voices:{
+      C:'你守住了原则。你一生的力气，都花在了一扇始终没能推开的门上。',
+      R:'你签了字，换回了国际联盟，然后被自己的参议院否决。你既丢了理想，也没拿到结果。',
+      F:'你被选中去做那个说「应该更好」的人，然后被世界用中风和否决票回答了一次。'
+    }
+  }
+}
+
+];
+
+/* ============================================================
+   三·五、规则表（外挂，不影响正文数据）
+   ============================================================ */
+
+/* 每章三轮各自的「史实选项」下标 —— 其余为偏离历史的抉择 */
+const REAL_MAP = {
+  1:[0,1,0],  2:[1,0,0],  3:[1,0,0],  4:[0,1,0],  5:[0,0,2],  6:[0,0,0],  7:[0,0,0],
+  8:[0,0,0],  9:[0,2,0], 10:[0,1,0], 11:[0,1,1], 12:[0,0,0], 13:[0,0,0], 14:[1,1,0]
+};
+
+/* 属性即视野：make 时属性不满足，某些选项就从你眼前消失 —— 你成为谁，决定你能看见什么 */
+const VISION = {
+  '1-2-2': {attr:'R', mode:'require', v:70, note:'只有足够冷静的人，才会想到留下三份副本。'},
+  '2-0-2': {attr:'C', mode:'forbid',  v:80, note:'勇气到这个地步的人，做不出换袍逃走的事。'},
+  '5-0-2': {attr:'R', mode:'require', v:65, note:'你必须先学会不下判断。'},
+  '8-2-1': {attr:'F', mode:'forbid',  v:80, note:'被命运挑中的人，不屑于写能赚钱的东西。'},
+  '11-1-0':{attr:'C', mode:'forbid',  v:80, note:'你做不出丢掉标本的决定。'},
+  '13-2-2':{attr:'C', mode:'forbid',  v:85, note:'走到这一步，你已经不会求和了。'}
+};
+
+/* 跨章回声：前面某一次抉择，会在很久之后的一个路口重新响起 */
+const ECHOES = {
+  '7-0-0': {need:['alone'],  text:'你太知道独享一样东西的代价了。'},
+  '13-1-0':{need:['claim'],  text:'你已经尝过被自己的名字害到的滋味。'},
+  '12-2-0':{need:['rebel'],  text:'在滑铁卢，你已经违抗过一次命令。'},
+  '11-2-1':{need:['die'],    text:'你见过一个人如何替自己挑选死法。'},
+  '10-0-0':{need:['poem'],   text:'你写过一首关于离开的诗。'}
+};
+
+/* 另一种可能：那一处分岔若真被推开，世界会怎样 */
+const BUTTERFLY = {
+  1:'如果巴尔沃亚没被处死，秘鲁的征服或许由他完成——那么南美的殖民史会少一场背叛。',
+  2:'如果那扇小门被关上，君士坦丁堡也许能再守一个月。但拜占庭的血已经流干了，它只是会晚一点熄灭。',
+  3:'如果亨德尔没有写下《弥赛亚》，英国清唱剧的传统不会存在，每年为孤儿院募捐的那笔钱也不会存在。',
+  4:'如果《马赛曲》没有在那个通宵诞生，法国依然会有国歌——只是不会是这一首。',
+  5:'如果格鲁希回援，滑铁卢可能变成拿破仑的胜利。没有圣赫勒拿，没有维也纳体系，德意志不会在 1871 年统一，也就不会有 1914 年。',
+  6:'如果歌德娶了乌尔丽克，《玛丽恩巴德哀歌》不会存在，《浮士德》第二部大概也写不完。',
+  7:'如果苏特尔封住了消息，加州金矿会晚几年被发现，旧金山不会一夜长大，太平洋铁路要推迟。',
+  8:'如果那天特赦没有到，俄罗斯会失去《罪与罚》——十九世纪的文学地图会缺掉一整块大陆。',
+  9:'如果菲尔德放弃了，跨洋电报会推迟十年，世界市场、时区、新闻业的形态都会不同。',
+  10:'如果托尔斯泰没有出走，他会死在亚斯纳亚·波良纳。葬礼上会有两万人，而不是一列火车在无名小站停下。',
+  11:'如果斯科特活着回来，他只是一个「失败的探险家」。正因为没有回来，他才成了一个民族的神话。',
+  12:'如果那列车没有开动，十月革命是否会到来，至今仍是历史学家争论的问题。',
+  13:'如果西塞罗活到老年，他会继续做一个元老——而罗马，已经不需要元老了。',
+  14:'如果威尔逊寸步不让，国际联盟不会存在，美国也不会缺席。但《凡尔赛和约》的严苛条款，依然会被写进去。'
+};
+
+/* ============================================================
+   星命：每开一局抽一枚，决定你带着什么天性走进档案
+   ============================================================ */
+const FATES = [
+  {id:'dare',   name:'亡命者', icon:'☄', attrs:{C:14,R:-8,F:2},
+   perk:'勇气的正向增益提升三成。你天生往险处走——像当年把自己装进木箱的那个人。'},
+  {id:'scribe', name:'史官', icon:'✎', attrs:{R:14,C:-8},
+   perk:'理智的正向增益提升三成；偏离史实时，引力损耗减半。你总给自己留一份副本。'},
+  {id:'oracle', name:'问星者', icon:'☾', attrs:{F:14,R:-6},
+   perk:'「深思」不再消耗命运，且每次多停 6 秒。你和时间有私交。'},
+  {id:'wander', name:'漂泊者', icon:'➶', attrs:{F:8,C:4,R:-4},
+   perk:'偏离史实的抉择，不再被引力削弱增益。史书拦不住你。'},
+  {id:'scale',  name:'执秤人', icon:'⚖', attrs:{C:4,R:4,F:4},
+   perk:'均衡判定放宽为 50–85。你在所有刻度之间，走得比别人稳。'},
+  {id:'shadow', name:'影子', icon:'◌', attrs:{},
+   perk:'星轨裂缝在你眼中更亮——隐藏选项的显现门槛降低 8 点。'}
+];
+function fateOf(id){ return FATES.find(f=>f.id===id) || null; }
+/* 引力倍率统一入口：漂泊者不受引力削弱 */
+function effMul(isReal, isRift){
+  if(isReal || isRift) return 1;
+  if(S.fate === 'wander') return 1;
+  return gravMul(false);
+}
+function fateDeepCost(){ return S.fate==='oracle' ? 0 : DEEP_COST; }
+function fateDeepSeconds(){ return DEEP_SECONDS + (S.fate==='oracle' ? 6 : 0); }
+function applyFateDeltas(oldId, newId){
+  const o = fateOf(oldId), n = fateOf(newId);
+  if(o) for(const k of ['C','R','F']) S.attrs[k] = clamp(S.attrs[k] - (o.attrs[k]||0));
+  if(n) for(const k of ['C','R','F']) S.attrs[k] = clamp(S.attrs[k] + (n.attrs[k]||0));
+}
+
+/* ============================================================
+   星间对话：两个都被点亮过的瞬间，会在档案架的深夜里彼此说话
+   ============================================================ */
+const DIALOGUES = [
+  {id:'d59', pair:[5,9], title:'等命令的人',
+   lines:[
+    ['格鲁希','我收到了命令。命令上没有提到炮声。'],
+    ['菲尔德','我收到的是账单、嘲笑和十一次失败。没有任何一张纸允许我继续。'],
+    ['格鲁希','那你凭什么继续？'],
+    ['菲尔德','凭一件事——炮声比命令书响。我只是选了听更响的那个。'],
+    ['格鲁希','……那天下午，我也听见了。'],
+    ['菲尔德','我知道。所以茨威格把你写进去了，而不是把我。']
+   ],
+   tail:'服从是最安全的失败方式——安全到连失败，都轮不到你自己签名。'},
+
+  {id:'d17', pair:[1,7], title:'发现者的账单',
+   lines:[
+    ['巴尔沃亚','我第一个看见了那片海。他们砍了我的头。'],
+    ['苏特尔','我第一个摸到了那些金子。他们踩平了我的农场。'],
+    ['巴尔沃亚','所以「发现」到底是什么？'],
+    ['苏特尔','是把东西指给别人看。然后看着它，变成别人的。'],
+    ['巴尔沃亚','那你还指吗？'],
+    ['苏特尔','指。总得有人先看见。这是发现者唯一拿得到的部分。']
+   ],
+   tail:'世界会记住「那里有什么」，然后忘掉「是谁指的」。'},
+
+  {id:'d811', pair:[8,11], title:'死亡摆在桌面上',
+   lines:[
+    ['陀思妥耶夫斯基','枪顶着后脑的时候，我这辈子第一次看清了每一片雪花。'],
+    ['斯科特','我们在帐篷里等风雪停。等死和等风雪，用的是同一种坐法。'],
+    ['陀思妥耶夫斯基','后来呢？'],
+    ['斯科特','后来我写日记。写清楚谁先走不动的，遗书留给谁。'],
+    ['陀思妥耶夫斯基','我也是。人知道自己要死了，才开始记下一切。'],
+    ['斯科特','那么死亡，也许是唯一诚实的记者。']
+   ],
+   tail:'他们一个被赦免了，一个没有被。两个人都把那次「没有」，写成了书。'},
+
+  {id:'d34', pair:[3,4], title:'借来的那一夜',
+   lines:[
+    ['亨德尔','我写了二十四天。手稿上有被泪水晕开的墨迹。'],
+    ['鲁日·德·李尔','我用了一个通宵。天亮时，连我自己都不信那是我写的。'],
+    ['亨德尔','后来呢？'],
+    ['鲁日·德·李尔','后来我写了十几年，一首也没被记住。'],
+    ['亨德尔','我瘫了半年，被全世界抛弃，然后才轮到那二十四天。'],
+    ['鲁日·德·李尔','所以灵感不是债主，是劫匪——它只来一次，还不挑时间。']
+   ],
+   tail:'天才和平庸之间隔的不是才华，是历史来敲门的那一晚，你在不在家。'},
+
+  {id:'d610', pair:[6,10], title:'老年的出走',
+   lines:[
+    ['歌德','七十四岁，我向一个十九岁的姑娘求婚。全欧洲都在笑。'],
+    ['托尔斯泰','八十二岁，我从自己家里逃出来。全俄国都在追。'],
+    ['歌德','你逃出来了什么？'],
+    ['托尔斯泰','一个身份。你呢？'],
+    ['歌德','一个「不该」。人到了某个年纪，所有人都在替你决定，你还能感受什么。'],
+    ['托尔斯泰','所以我们都在同一个晚上，收拾了行李。']
+   ],
+   tail:'年轻的出走叫叛逆，老年的出走叫清算——跟自己的一生清算。'},
+
+  {id:'d1214', pair:[12,14], title:'两张桌子',
+   lines:[
+    ['威尔逊','我带着十四点原则去巴黎。他们让理想坐在桌子最边上。'],
+    ['列宁','我坐着德国人给的铅封车厢回去。没人给我桌子——我就自己搬一张。'],
+    ['威尔逊','你不怕和你做交易的东西，反过来吃掉你吗？'],
+    ['列宁','怕。但桌上的位置，从来不是靠干净换来的。'],
+    ['威尔逊','我守住了干净。然后我的参议院，把我否决了。'],
+    ['列宁','这就是区别——历史结算的从来不是姿态，是筹码。']
+   ],
+   tail:'他们都想要同一个东西：一个不再靠战争结算的世界。区别只在，谁先坐上了桌子。'},
+
+  {id:'d213', pair:[2,13], title:'门和讲坛',
+   lines:[
+    ['西塞罗','我一生相信：话说到极致，就能挡住刀。'],
+    ['君士坦丁堡守将','我们城墙上有一扇没人管的小门。大炮轰了五十三天，它自己开了。'],
+    ['西塞罗','你的意思是——决定结局的，从来不是正面？'],
+    ['君士坦丁堡守将','决定结局的，是那个所有人都以为「别人会去管」的角落。'],
+    ['西塞罗','……公敌名单贴出来的时候，我的名字排在第十七位。纸而已。'],
+    ['君士坦丁堡守将','纸就够了。我和你，都输给了纸。']
+   ],
+   tail:'堡垒从内部被攻破，讲坛从名单上被抹掉——历史偏爱走小路。'},
+
+  {id:'d113', pair:[1,13], title:'名字的重量',
+   lines:[
+    ['西塞罗','他们把我的头钉在讲坛上——我讲了四十年话的地方。'],
+    ['巴尔沃亚','我死的时候，正写信给国王，想让他记住我看见了那片海。'],
+    ['西塞罗','你想被记住什么？'],
+    ['巴尔沃亚','「第一个」。哪怕只是第一个看见，不算拥有。'],
+    ['西塞罗','我要的更多：我想让我的句子，在我死后继续说话。'],
+    ['巴尔沃亚','那我们谁赢了？'],
+    ['西塞罗','都赢了。这才是最奇怪的地方——他们杀得了人，杀不掉「被记住」这件事。']
+   ],
+   tail:'历史拿走一切之后，唯一退回来的东西，是名字。'}
+];
+
+/* ============================================================
+   现实回响：十四瞬与今天
+   ============================================================ */
+const REALITY = [
+{ id:1, ti:'第一个抵达的人',
+  his:'1513 年，一个逃债的人翻过巴拿马地峡，成了第一个看见太平洋的欧洲人；六年后，他死在自己人的断头台上。',
+  now:'每个「第一个」都很短命。第一个做出某个功能的人，第一个进入某个市场的人，第一个在饭桌上说出真话的人——领先的窗口只有几个月，剩下的是被模仿、被超越、被清算。今天我们把「先发优势」当护城河，巴尔沃亚的账本却是：先到只买到了<b>看见的权利</b>，没买到拥有的权利。',
+  q:'你想当第一个看见的人，还是最后一个留下的人？' },
+
+{ id:2, ti:'那扇没关的小门',
+  his:'一座守了一千一百二十三年的城，被内城一扇忘了关的小边门断送。',
+  now:'今天没有城墙，但有同样的小门：一个没改的默认密码、一条没人认领的告警、一份没人复核的合同、一个「大家都知道但没人说」的流程。所有大事故的通报里都找不到大原因，只有一扇小门，和一串「我以为别人会管」。',
+  q:'你所在的地方，那扇门是谁在管？如果答案是「没人」，它迟早会开。' },
+
+{ id:3, ti:'二十四天，和那之前的两年',
+  his:'中风后半身瘫痪的亨德尔去亚琛泡了三个月温泉，把自己泡了回来；然后用二十四天写完《弥赛亚》，手稿上留着被泪水晕开的墨迹。',
+  now:'今天的内容工业告诉你：三天一个爆款，一周一个赛道，一个月不更新就会被忘掉。亨德尔反着来——他先在黑暗里躺了两年，才有力气坐下二十四天。我们缺的从来不是二十四天，是那两年<b>不产出、也不放弃</b>的日子。',
+  q:'你上一次为一件事连续投入二十四天，是什么时候？' },
+
+{ id:4, ti:'一夜天才之后',
+  his:'1792 年，一个平庸的工兵上尉在一夜之间写出《马赛曲》；此后一生，他再没写出任何重要的东西。',
+  now:'流量时代批量生产「一夜天才」：一条视频、一篇爆文、一个梗。问题不在那一夜，在第二天——作品一旦交出去就不再属于作者：它会被合唱、被改编、被贴到它反对的东西上。鲁日晚年穷困潦倒，还因为这首歌被当成危险分子。',
+  q:'如果你的作品明天被一百万人误读，你还写吗？' },
+
+{ id:5, ti:'等指令的人',
+  his:'滑铁卢的炮声就在几英里外，格鲁希握着一万七千人和一纸旧命令，一直等到帝国结束。',
+  now:'每个组织里都有格鲁希：流程正确、汇报及时、从不越权。他不是不认真，他是在等一个不会来的指令。今天的版本更隐蔽——KPI 完成了，项目死了；周报写满了，方向错了。系统奖励「不犯错」，于是没人敢在炮声响起时改道。',
+  q:'如果命令永远不来，你会不会自己走？' },
+
+{ id:6, ti:'不合时宜的深情',
+  his:'七十四岁的歌德向十九岁的乌尔丽克求婚，被婉拒；他在马车里写下《玛丽恩巴德哀歌》，从此告别抒情诗。',
+  now:'我们把「什么年龄该做什么事」写成了社会默认值：三十五岁不该转行，四十岁不该重新恋爱，五十岁不该发朋友圈。歌德七十四岁还在为一次拒绝痛哭，然后把那场痛哭写成了德语文学里最好的诗。<b>体面是别人给的，哀歌是自己写的。</b>',
+  q:'你上一次「不合时宜」，是几岁？' },
+
+{ id:7, ti:'发现者拿不到金子',
+  his:'苏特尔在自己的农场里挖出黄金，消息走漏，农场被踏平；他打了一辈子官司，最后死在国会大厦的台阶上。',
+  now:'发现价值的人，往往拿不到价值。挖金子的没赚钱，卖铲子的赚了；写代码的没赚钱，收租的赚了；做出爆款 IP 的作者，版权在平台手里。这不是运气，是结构——<b>谁掌握「登记」和「通道」，谁拿走金子。</b>',
+  q:'你手里那点金子，登记在谁名下？' },
+
+{ id:8, ti:'多出来的那五分钟',
+  his:'1849 年，陀思妥耶夫斯基被押上刑场，蒙眼、举枪；最后一刻改判流放。那几分钟把他变成了后来的陀思妥耶夫斯基。',
+  now:'现代人的「刑场时刻」来得更日常：一张体检报告、一封裁员邮件、一次急刹。多数人第二天照常上班，把那五分钟折叠起来；少数人从此换了一种活法。区别不在遭遇，在你有没有允许自己<b>真正害怕一次</b>。',
+  q:'如果明天你被「改判」，你会拿它去做什么？' },
+
+{ id:9, ti:'十一次失败',
+  his:'菲尔德失败十一次、破产三次，第十二次才把电缆铺过大西洋；电缆通了，几周后又断了。',
+  now:'我们习惯把长期主义当口号，菲尔德的账本是：八年、三次破产、被报纸嘲笑了无数次。今天的基础设施——芯片、航天、疫苗、基础软件——都是这种账本。它们共同的一点是：<b>在成功之前，没有人相信它值得。</b>',
+  q:'你愿意为一个可能被别人摘走的果子，等八年吗？' },
+
+{ id:10, ti:'八十二岁的出走',
+  his:'1910 年，八十二岁的托尔斯泰在深夜离开家，几天后死在一个小火车站。',
+  now:'今天的版本没那么戏剧：退休那天突然不知道去哪；把孩子送进大学后，在车里坐了一个小时；在家庭群里打了一段话，又删掉。托尔斯泰不是不爱他的家，他是没法再同时做「伯爵」和「信徒」。<b>有些出走不是为了自由，是为了不再撒谎。</b>',
+  q:'你身上有没有两个不能同时成立的身份？' },
+
+{ id:11, ti:'第二名',
+  his:'斯科特比阿蒙森晚到三十五天，返程全队冻死；他的日记比那场胜利更有名。',
+  now:'我们活在一个只记得第一名的评分系统里：排名、榜单、上岸。斯科特留下的却是另一样东西——他把失败完整地记了下来：哪天断粮，谁先走不动，遗书写给谁。历史记住的不是他输了，是他<b>输得诚实</b>。在一个所有人都修饰结果的时代，如实记录失败是一种稀缺能力。',
+  q:'如果注定拿不到第一，你还愿意把过程写清楚吗？' },
+
+{ id:12, ti:'谁放行了这列车',
+  his:'1917 年，德国人把列宁装进一节铅封车厢，从瑞士送回俄国；为了让东线安静，他们放行了一个会改变世界的人。',
+  now:'改变历史的往往不是力量，是通道。今天的通道是算法推荐、跨境物流、开源模型、一条被允许的航线。放行的人以为自己在下棋，其实是在给未来开门。每一代人都会遇到一次「铅封车厢」——<b>被允许通过的东西，最后重新定义了放行者的世界。</b>',
+  q:'你今天放行了什么？你确定它还听你的吗？' },
+
+{ id:13, ti:'说真话的价钱',
+  his:'恺撒死后，西塞罗用十四篇演说攻击安东尼，被列入公敌名单；他的头颅和手，被钉在他讲过话的讲坛上。',
+  now:'说真话的成本从来不平均：有人丢的是工作，有人丢的是朋友，有人丢的是命。所以多数人选择了更便宜的方式——在群里不说话，在饭桌上附和，在朋友圈分组。西塞罗的悲剧不在于他说错了，而在于<b>他以为讲坛还在</b>。',
+  q:'你上一次为一句真话付账，付了多少？' },
+
+{ id:14, ti:'理想主义者的桌子',
+  his:'威尔逊带着「十四点」去巴黎，最后在山东问题上让步；消息传回中国，成了五四运动的导火索。',
+  now:'每一代人都会上一次「巴黎和会」：你带着原则去谈判，发现桌上真正结算的是实力和筹码。这不是让你放弃原则，是提醒你——<b>原则需要筹码，才坐得上桌。</b>威尔逊的失败不在理想，在他以为道理可以替代力量。',
+  q:'你的原则，手里有几张牌？' }
+];
+
+function realityOf(id){ return REALITY.find(r=>r.id===id); }
+
+function realityCardHTML(r, tag){
+  if(!r) return '';
+  const ch = CHAPTERS[r.id-1];
+  return `<div class="real-card">
+    <div class="rc-no">第 ${r.id} 瞬 · ${ch.title}${tag ? ' · ' + tag : ''}</div>
+    <div class="rc-ti">${r.ti}</div>
+    <div class="rc-his">${r.his}</div>
+    <div class="rc-now">${r.now}</div>
+    <div class="rc-q">${r.q}</div>
+  </div>`;
+}
+
+/* 按玩家星图挑三面镜子：偏离最深的一瞬 + 主导天性的两瞬 */
+function realityPicks(){
+  const {C,R,F} = S.attrs;
+  const set = (C>=R && C>=F) ? [1,13,11]
+            : (R>=C && R>=F) ? [5,9,14]
+            : [8,10,12];
+  const top = deviationTop();
+  const out = [];
+  if(top) out.push(top.id);
+  set.forEach(id=>{ if(!out.includes(id)) out.push(id); });
+  REALITY.forEach(r=>{ if(out.length < 3 && !out.includes(r.id)) out.push(r.id); });
+  return out.slice(0,3);
+}
+
+function openReality(){
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>现 实 回 响</h3>
+      <div class="psum">十四瞬 · 十四种今天还在发生的事</div>
+      <div class="real-intro">
+        这十四瞬没有一瞬停在它发生的年份。<br>
+        巴尔沃亚的山脊，现在是融资路演的会议室；凯尔卡门是一条没人认领的告警；格鲁希等的那纸命令，现在叫「等老板拍板」。<br>
+        <b>茨威格写的不是历史，是十四种人在关键时刻的姿势。</b>而每一种姿势，你今天至少会摆出一次。
+      </div>
+      <div class="real-grid">${REALITY.map(r=>realityCardHTML(r)).join('')}</div>
+      <div class="real-tail">十四瞬读完了，时代还在写第十五瞬。<br>它现在的位置，大概就在你的手机屏幕上。</div>
+      <button class="sheet-btn" id="rClose">合 上</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('rClose').onclick = ()=> $('overlay').classList.remove('on');
+}
+
+/* ============================================================
+   四、游戏引擎
+   ============================================================ */
+
+/* ============================================================
+   工具
+   ============================================================ */
+const $   = id => document.getElementById(id);
+const avg = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : 0;
+const seenChapters = s => s.seen.length;
+const clamp = (v,lo=0,hi=100) => Math.max(lo, Math.min(hi, v));
+const ANAME = {C:'勇气', R:'理智', F:'命运'};
+const FULL_ROUNDS = 15;      // 每轮倒计时秒数
+const DEEP_SECONDS = 6;      // 深思暂停秒数
+const DEEP_COST = 3;         // 深思代价（命运）
+const RIFT_TOTAL = 4;
+const REWIND_COST = 6;       // 星轨回溯代价（命运）
+const REWIND_MIN   = 10;     // 至少需要这么多命运才可回溯
+
+/* 结局收藏册（跨周目累计） */
+const ENDING_SET = [
+  {title:'群星之外的记录员', hint:'集齐全部 4 处星轨裂缝后抵达。'},
+  {title:'天平之主', hint:'均衡抉择满 30 次，且三属性均值不低于 58。'},
+  {title:'亡命之徒的星', hint:'勇气 ≥ 82，且理智 < 52。'},
+  {title:'书记员的星', hint:'理智 ≥ 82，且勇气 < 52。'},
+  {title:'被命运选中的星', hint:'命运 ≥ 82。'},
+  {title:'群星之王', hint:'三属性均值 ≥ 72。'},
+  {title:'普通而伟大的星', hint:'三属性均值 ≥ 52。'},
+  {title:'暗星', hint:'三属性均值低于 52 —— 但茨威格会原谅你。'}
+];
+
+const SAVE_KEY = 'stars_archive_v2';
+const META_KEY = 'stars_archive_meta_v1';
+
+function blank(){
+  return {
+    screen:'shelf', started:false,
+    ci:0, ri:0,
+    attrs:{C:50,R:50,F:50},
+    pull:50, gripMax:50, pullMin:50,
+    stars:[], seen:[], order:[], secrets:[], eggs:[], achs:[], views:[], flags:[],
+    times:[], timeouts:0, lastSecond:0,
+    deepCount:0, balanceCount:0, visionHid:0,
+    overloads:[], deviations:[],
+    bestStreak:{C:0,R:0,F:0}, curStreak:{C:0,R:0,F:0},
+    posHist:[], tripledSamePos:false,
+    fate:null, fateReroll:0,
+    rewinds:0, rewindChapters:[],
+    dialogs:[],
+    finished:false
+  };
+}
+let S = blank();
+let META = { memory:{}, clears:0, endings:[] };
+let VIS = [];
+let timer=null, tLeft=0, deepTimer=null, deepLeft=0, deepUsed=false;
+
+function save(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(S)); }catch(e){} }
+function saveMeta(){ try{ localStorage.setItem(META_KEY, JSON.stringify(META)); }catch(e){} }
+function loadSaved(){
+  try{
+    const t = localStorage.getItem(SAVE_KEY);
+    if(!t) return null;
+    const p = JSON.parse(t);
+    return (p && p.started) ? p : null;
+  }catch(e){ return null; }
+}
+function loadMeta(){
+  try{
+    const t = localStorage.getItem(META_KEY);
+    if(!t) return { memory:{}, clears:0, endings:[] };
+    const p = JSON.parse(t);
+    return Object.assign({ memory:{}, clears:0, endings:[] }, p);
+  }catch(e){ return { memory:{}, clears:0, endings:[] }; }
+}
+
+/* ============================================================
+   成就
+   ============================================================ */
+function checkAch(){
+  const got = [];
+  ACHIEVEMENTS.forEach(a=>{
+    if(!S.achs.includes(a.id)){
+      let ok=false;
+      try{ ok = !!a.cond(S); }catch(e){ ok=false; }
+      if(ok){ S.achs.push(a.id); got.push(a); }
+    }
+  });
+  if(got.length){ save(); paintAchBadge(); }
+  return got;
+}
+function paintAchBadge(){
+  const b = $('achBadge');
+  if(!b) return;
+  b.textContent = S.achs.length;
+  b.style.display = S.achs.length ? 'inline-block' : 'none';
+}
+
+/* ============================================================
+   彩蛋
+   ============================================================ */
+function egg(id){
+  if(S.eggs.includes(id)) return false;
+  S.eggs.push(id); save();
+  return true;
+}
+function checkResonance(){
+  for(const k of ['C','R','F']){
+    if(S.curStreak[k] >= 9){ egg('resonance'); return true; }
+  }
+  return false;
+}
+function unlockBeyond(){
+  if(S.secrets.length >= RIFT_TOTAL) return egg('beyond');
+  return false;
+}
+
+/* ============================================================
+   史实引力 · 属性视野
+   ============================================================ */
+const realIdx = (chId, ri) => (REAL_MAP[chId] && REAL_MAP[chId][ri] !== undefined) ? REAL_MAP[chId][ri] : -1;
+
+function gravMul(isReal){
+  if(isReal) return 1;
+  if(S.pull >= 75) return 0.5;    // 历史收紧：偏离的代价更大
+  if(S.pull <= 30) return 1.5;    // 历史松开：偏离更容易
+  return 1;
+}
+function gravNote(){
+  if(S.pull >= 88) return {cls:'tight', t:'历史在这个路口收紧了 —— 你想偏离，要付双倍的代价。'};
+  if(S.pull >= 75) return {cls:'tight', t:'历史正在收紧，偏离的路越来越窄。'};
+  if(S.pull <= 22) return {cls:'loose', t:'历史在这里松开了手 —— 你做什么，它都不再拦你。'};
+  if(S.pull <= 30) return {cls:'loose', t:'你已经走出了史书的边界。'};
+  return null;
+}
+/* 返回本轮真正「看得见」的选项 */
+function visibleOf(){
+  const ch = cur(), rd = ch.rounds[S.ri];
+  const ri = realIdx(ch.id, S.ri);
+  const out = []; let hid = 0;
+  rd.choices.forEach((c,i)=>{
+    if(c.rift){
+      const probe = (S.fate==='shadow')
+        ? {attrs:{C:S.attrs.C+8, R:S.attrs.R+8, F:S.attrs.F+8}} : S;
+      if(!c.rift.cond(probe)) return;
+      out.push({c, i, real:false});
+      return;
+    }
+    const v = VISION[`${ch.id}-${S.ri}-${i}`];
+    if(v){
+      const val = S.attrs[v.attr];
+      if(v.mode === 'require' && val <  v.v){ hid++; return; }
+      if(v.mode === 'forbid'  && val >= v.v){ hid++; return; }
+    }
+    out.push({c, i, real: i === ri});
+  });
+  return {out, hid};
+}
+
+/* ============================================================
+   档案架（序章 / 主界面）
+   ============================================================ */
+function renderShelf(){
+  stopTimer();
+  S.screen = 'shelf'; S.started = true;
+  $('sheet').innerHTML = '';
+  $('overlay').classList.remove('on');
+  document.querySelector('.topbar').style.display = 'flex';
+  $('tbTitle').textContent = '人类群星闪耀时 · 星轨档案';
+  paintAchBadge();
+  save();
+
+  const lit = S.seen.length;
+  const allDone = lit >= CHAPTERS.length;
+  const nextCh = CHAPTERS.find(c => !S.seen.includes(c.id));
+  const dlgAvail = DIALOGUES.filter(d=>d.pair.every(id=>S.seen.includes(id))).length;
+
+  $('app').innerHTML = `
+    <div class="shelf">
+      <div class="shelf-head">
+        <div class="shelf-sigil"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">${SIGILS.stars}</svg></div>
+        <h1>星 轨 档 案 馆</h1>
+        <div class="lead">
+          十四个牛皮纸文件盒，摆在你面前的架子上。<br>
+          随便打开哪一个 —— 顺序不重要，因为你已经知道结局。<br>
+          但你不知道的是，<b style="color:#f6e9b0">站在那里的人，会做出什么选择</b>。
+        </div>
+      </div>
+
+      <div class="grav" style="margin-top:22px">
+        <div class="gl"><span>史 实 引 力</span><b>${S.pull}</b></div>
+        <div class="gt"><i style="width:${S.pull}%"></i></div>
+      </div>
+      ${(()=>{const g=gravNote(); return g?`<div class="grav-note ${g.cls}">${g.t}</div>`:'';})()}
+
+      ${fateCardHTML()}
+
+      <div class="rack">
+        ${CHAPTERS.map((ch,i)=>{
+          const on = S.seen.includes(ch.id);
+          const st = S.stars.find(x=>x.chapter===ch.id && !x.secret);
+          return `<button class="box ${on?'lit':''}" data-i="${i}" style="--accent:${ch.accent};animation-delay:${i*45}ms">
+            <div class="b-no">第 ${ch.id} 瞬 · ${ch.year}</div>
+            <div class="b-ti">${ch.title}</div>
+            <div class="b-ye">${ch.role}</div>
+            <div class="b-st">${(on && st) ? '✦ ' + st.name : '· 盒盖未启'}</div>
+            ${(!on && nextCh && nextCh.id===ch.id) ? '<span class="pulse"></span>' : ''}
+          </button>`;
+        }).join('')}
+      </div>
+
+      <div class="shelf-actions">
+        ${allDone ? `<button class="btn-main" id="sEnd">走 进 群 星 终 章</button>` : ''}
+        ${nextCh ? `<button class="btn-sub" id="sNext">继 续 读 第 ${nextCh.id} 瞬 · ${nextCh.title}</button>` : ''}
+        ${(!allDone && lit>0) ? `<button class="btn-sub" id="sEnd2">合 上 档 案 · 查 看 结 局（${lit}/${CHAPTERS.length}）</button>` : ''}
+        <button class="btn-sub" id="sMap">✧ 星 图 与 视 角</button>
+        <button class="btn-sub" id="sReal">◈ 现 实 回 响 · 十四瞬与今天</button>
+        <button class="btn-sub" id="sAch">✦ 成 就 墙（${S.achs.length}/${ACHIEVEMENTS.length}）</button>
+        ${dlgAvail ? `<button class="btn-sub" id="sDlg">✧ 星 间 对 话（${dlgAvail}/${DIALOGUES.length} 段可听）</button>` : ''}
+        <button class="btn-sub" id="sEndGal">◈ 结 局 收 藏（${META.endings.length}/${ENDING_SET.length}）</button>
+      </div>
+
+      <div class="shelf-tip">
+        ${lit} / ${CHAPTERS.length} 瞬已点亮　·　星轨裂缝 ${S.secrets.length} / ${RIFT_TOTAL}　·　另一方视角 ${S.views.length} / ${CHAPTERS.length}　·　结局收藏 ${META.endings.length} / ${ENDING_SET.length}<br>
+        ${S.fate ? '本世星命 · ' + fateOf(S.fate).name + '　·　' : ''}深思 ${S.deepCount} 次　·　均衡抉择 ${S.balanceCount} 次　·　回溯 ${S.rewinds} 次　·　过载 ${S.overloads.length} 次
+      </div>
+    </div>`;
+
+  $('app').querySelectorAll('.box').forEach(b=>{
+    b.onclick = ()=> enterChapter(Number(b.dataset.i));
+  });
+  if($('sEnd'))  $('sEnd').onclick  = ()=> { S.finished = true; save(); checkAch();
+    S.secrets.length >= RIFT_TOTAL ? renderBeyond() : renderEnding(); };
+  if($('sEnd2')) $('sEnd2').onclick = ()=> { S.finished = true; save(); checkAch();
+    S.secrets.length >= RIFT_TOTAL ? renderBeyond() : renderEnding(); };
+  if($('sNext')) $('sNext').onclick = ()=> enterChapter(CHAPTERS.indexOf(nextCh));
+  $('sMap').onclick = ()=> openMap();
+  $('sReal').onclick = ()=> openReality();
+  $('sAch').onclick = ()=> openAch();
+  if($('sDlg')) $('sDlg').onclick = ()=> openDialogues();
+  $('sEndGal').onclick = ()=> openEndings();
+  const fd = $('fDraw');   if(fd) fd.onclick = ()=> drawFate(false);
+  const fr = $('fReroll'); if(fr) fr.onclick = ()=> drawFate(true);
+}
+
+/* ============================================================
+   星命抽取
+   ============================================================ */
+function fateCardHTML(){
+  const f = fateOf(S.fate);
+  if(!f){
+    return `<div class="fate-card">
+      <div class="f-k">星 命</div>
+      <div class="f-n">每开一局，先抽一枚星命</div>
+      <div class="f-p">它决定你带着什么天性走进这十四扇门——加成与弱点，会在整个一局里生效。属性会被星命重新分配，之后由你的抉择决定走向。</div>
+      <div class="f-ops"><button class="btn-sub" id="fDraw">✧ 抽 取 星 命</button></div>
+    </div>`;
+  }
+  const canReroll = S.fateReroll > 0 && S.seen.length === 0;
+  return `<div class="fate-card">
+    <div class="f-k">本 世 星 命</div>
+    <div class="f-n">${f.icon} ${f.name}${canReroll ? '　<span style="font-size:11px;color:var(--dim)">（尚未点亮任何一瞬，可重抽一次）</span>' : ''}</div>
+    <div class="f-p">${f.perk}</div>
+    <div class="f-ops">${canReroll ? '<button class="btn-sub" id="fReroll">↻ 重 抽 星 命</button>' : ''}</div>
+  </div>`;
+}
+function drawFate(isReroll){
+  if(isReroll){
+    if(S.fateReroll <= 0 || S.seen.length > 0 || !S.fate) return;
+    const pool = FATES.filter(f=>f.id!==S.fate);
+    const nf = pool[Math.floor(Math.random()*pool.length)];
+    applyFateDeltas(S.fate, nf.id);
+    S.fate = nf.id; S.fateReroll = 0;
+  } else {
+    if(S.fate) return;
+    const nf = FATES[Math.floor(Math.random()*FATES.length)];
+    applyFateDeltas(null, nf.id);
+    S.fate = nf.id; S.fateReroll = 1;
+  }
+  checkAch(); save(); renderShelf();
+}
+
+function enterChapter(i){
+  S.ci = i; S.ri = 0;
+  save();
+  renderRound();
+}
+
+/* ============================================================
+   章节轮次
+   ============================================================ */
+function cur(){ return CHAPTERS[S.ci]; }
+
+function starPoints(){
+  const pts = [];
+  for(let i=0;i<14;i++){
+    pts.push({ x: 50 + i*32.3, y: 182 + 70*Math.sin(i*0.85) });
+  }
+  return pts;
+}
+function starMapSVG(){
+  const pts = starPoints();
+  let lines = '';
+  for(let i=1;i<S.order.length;i++){
+    const a = pts[S.order[i-1]-1], b = pts[S.order[i]-1];
+    if(!a || !b) continue;
+    lines += `<line class="sl" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}"/>`;
+  }
+  let dots = '';
+  pts.forEach((p,i)=>{
+    const id = i+1, on = S.seen.includes(id);
+    dots += `<circle class="sp ${on?'lit':''}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${on?5:3.4}"/>`
+         +  `<text class="st ${on?'lit':''}" x="${p.x.toFixed(1)}" y="${(p.y-12).toFixed(1)}" text-anchor="middle">${id}</text>`;
+  });
+  return `<svg class="starsvg" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">${lines}${dots}</svg>`;
+}
+
+function renderRound(){
+  S.screen = 'round';
+  $('sheet').innerHTML = '';
+  $('overlay').classList.remove('on');
+  const ch = cur(), rd = ch.rounds[S.ri];
+  const v = visibleOf();
+  VIS = v.out;
+  S.visionHid += v.hid;
+  deepUsed = false;
+  save();
+
+  document.querySelector('.topbar').style.display = 'flex';
+  $('tbTitle').textContent = `第 ${ch.id} 瞬 · ${ch.title}`;
+  paintAchBadge();
+
+  const total = ch.rounds.length;
+  const gn = gravNote();
+  const mem = META.memory[`${ch.id}-${S.ri}`];
+  const riftHere = rd.choices.some(c=>c.rift);
+  let cipherLine = '';
+  if(S.eggs.includes('cipher')){
+    if(riftHere && !VIS.some(x=>x.c.rift)) cipherLine = `<div class="small" style="margin-top:12px;color:#a87ac8">✧ 档案员：这一轮有裂缝，但你还没站到能看见它的位置。</div>`;
+    else if(VIS.some(x=>x.c.rift)) cipherLine = `<div class="small" style="margin-top:12px;color:#a87ac8">✧ 档案员：裂缝已经出现了，就在上面。</div>`;
+  }
+
+  $('app').innerHTML = `
+    <div class="hud">
+      ${['C','R','F'].map(k=>`
+        <div class="hud-cell ${S.attrs[k]>=92?'sat':''}" data-k="${k}">
+          <div class="nm">${ANAME[k]}</div>
+          <div class="vl">${S.attrs[k]}</div>
+          <div class="track"><i style="width:${S.attrs[k]}%"></i></div>
+        </div>`).join('')}
+    </div>
+
+    <div class="grav">
+      <div class="gl"><span>史 实 引 力</span><b>${S.pull}</b></div>
+      <div class="gt"><i style="width:${S.pull}%"></i></div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-head">
+        <div class="ch-sigil"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">${SIGILS[ch.sigil]}</svg></div>
+        <div class="ch-info">
+          <div class="ch-idx">第 ${ch.id} / ${CHAPTERS.length} 瞬 · ${ch.year}</div>
+          <div class="ch-title">${ch.title}</div>
+          <div class="ch-meta">${ch.meta}<br>你将扮演：<b>${ch.role}</b></div>
+          <div class="round-pips">
+            ${Array.from({length:total},(_,i)=>`<i class="${i<S.ri?'on':(i===S.ri?'now':'')}"></i>`).join('')}
+          </div>
+        </div>
+      </div>
+
+      ${mem ? `<div class="echo-mem">⟲ 上一世，你在这一轮选择了「<b>${mem.text}</b>」。这一次，你已经知道后面会发生什么。</div>` : ''}
+
+      <div class="story">
+        <div class="small" style="margin-bottom:10px;color:#8a7326">${rd.time}</div>
+        <p style="color:#f6e9b0;font-size:16px;letter-spacing:.06em;margin-bottom:12px">${rd.title}</p>
+        <p>${rd.text}</p>
+        ${rd.rhyme ? `<span class="rhyme">${rd.rhyme}</span>` : ''}
+      </div>
+
+      <div class="timer-line">
+        <span>第 ${S.ri+1} / ${total} 次抉择</span>
+        <button class="deep" id="deepBtn" ${S.attrs.F < fateDeepCost()+3 ? 'disabled' : ''}>☾ 深思${fateDeepCost()>0 ? `（−${fateDeepCost()} 命运）` : '（命运默许）'}</button>
+        <span id="tLab">剩余 15.0 秒</span>
+      </div>
+      <div class="timer-track"><div class="timer-fill" id="tFill"></div></div>
+
+      <div class="choices" id="choices">
+        ${VIS.map((o,i)=>{
+          const c = o.c;
+          let eff = '';
+          if(c.eff){
+            const mul = effMul(o.real, !!c.rift);
+            const p = [];
+            for(const k of ['C','R','F']){
+              const raw = c.eff[k]||0;
+              if(!raw) continue;
+              let vv = raw;
+              if(!o.real && raw > 0 && mul !== 1) vv = Math.max(1, Math.round(raw*mul));
+              p.push(`<span class="${vv>0?'up':'dn'}">${ANAME[k]} ${vv>0?'+':''}${vv}</span>`);
+            }
+            if(p.length) eff = `<span class="eff">${p.join(' · ')}</span>`;
+          }
+          const ec = ECHOES[`${ch.id}-${S.ri}-${o.i}`];
+          const echo = (ec && ec.need.every(f=>S.flags.includes(f)))
+            ? `<span class="echo">${ec.text}</span>` : '';
+          return `<button class="choice ${c.rift?'secret':''}" data-i="${i}" style="animation-delay:${i*45}ms">${c.text}${eff}${echo}</button>`;
+        }).join('')}
+      </div>
+      ${gn ? `<div class="grav-note ${gn.cls}" style="margin-top:14px">${gn.t}</div>` : ''}
+      ${cipherLine}
+    </div>`;
+
+  $('app').querySelectorAll('.choice').forEach(b=>{
+    b.onclick = ()=> choose(Number(b.dataset.i), false);
+  });
+  $('deepBtn').onclick = ()=> deepThink();
+  startTimer(false);
+}
+
+function startTimer(from){
+  if(timer){ clearInterval(timer); timer = null; }
+  const fill = $('tFill'), lab = $('tLab');
+  if(!from){
+    tLeft = FULL_ROUNDS;
+    if(fill){ fill.style.width = '100%'; fill.classList.remove('warn'); }
+  }
+  timer = setInterval(()=>{
+    tLeft -= 0.1;
+    if(fill){
+      fill.style.width = Math.max(0, tLeft/FULL_ROUNDS*100) + '%';
+      if(tLeft <= 5) fill.classList.add('warn');
+    }
+    if(lab) lab.textContent = tLeft > 0 ? `剩余 ${tLeft.toFixed(1)} 秒` : '命运代你做出了选择…';
+    if(tLeft <= 0){
+      clearInterval(timer); timer = null;
+      const pool = VIS.map((o,i)=>o.c.rift?-1:i).filter(i=>i>=0);
+      choose(pool.length ? pool[Math.floor(Math.random()*pool.length)] : 0, true);
+    }
+  }, 100);
+}
+function stopTimer(){
+  if(timer){ clearInterval(timer); timer = null; }
+  if(deepTimer){ clearInterval(deepTimer); deepTimer = null; }
+  deepLeft = 0;
+}
+
+/* 深思：让时间停住，代价是命运 */
+function deepThink(){
+  if(deepUsed || deepLeft > 0) return;
+  const dc = fateDeepCost();
+  if(S.attrs.F < dc + 3) return;
+  deepUsed = true;
+  S.deepCount++;
+  if(dc > 0){ S.attrs.F = clamp(S.attrs.F - dc); refreshHUD([['F', -dc]]); }
+  if(timer){ clearInterval(timer); timer = null; }
+  const lab = $('tLab'), btn = $('deepBtn');
+  if(btn){ btn.disabled = true; btn.textContent = '☾ 深 思 中'; }
+  deepLeft = fateDeepSeconds();
+  checkAch(); save();
+  deepTimer = setInterval(()=>{
+    deepLeft -= 0.1;
+    if(lab) lab.textContent = `深思中 · 还剩 ${deepLeft.toFixed(1)} 秒`;
+    if(deepLeft <= 0){
+      clearInterval(deepTimer); deepTimer = null; deepLeft = 0;
+      if(lab) lab.textContent = '深思结束 · 时间继续';
+      startTimer(true);
+    }
+  }, 100);
+}
+
+function refreshHUD(gains){
+  gains.forEach(([k,v])=>{
+    const el = document.querySelector(`.hud-cell[data-k="${k}"]`);
+    if(!el) return;
+    el.classList.remove('up','down');
+    void el.offsetWidth;
+    el.classList.add(v>0?'up':'down');
+    const vl = el.querySelector('.vl'); if(vl) vl.textContent = S.attrs[k];
+    const bar = el.querySelector('.track i'); if(bar) bar.style.width = S.attrs[k]+'%';
+  });
+}
+
+/* ============================================================
+   抉择
+   ============================================================ */
+function choose(idx, timeout){
+  stopTimer();
+  const ch = cur(), rd = ch.rounds[S.ri];
+  const o = VIS[idx];
+  if(!o) return;
+  const c = o.c, isReal = o.real;
+
+  const usedT = Math.max(0, FULL_ROUNDS - Math.max(0, tLeft));
+  S.times.push(usedT);
+  if(timeout) S.timeouts++;
+  if(!timeout && tLeft <= 1.5) S.lastSecond++;
+
+  S.posHist.push(idx);
+  const n = S.posHist.length;
+  if(n>=3 && S.posHist[n-1]===S.posHist[n-2] && S.posHist[n-2]===S.posHist[n-3]) S.tripledSamePos = true;
+
+  /* 属性增减（含引力倍率、饱和衰减） */
+  const gains = [];
+  if(c.eff){
+    const mul = effMul(isReal, !!c.rift);
+    for(const k of ['C','R','F']){
+      const raw = c.eff[k]||0;
+      if(!raw) continue;
+      let v = raw;
+      if(raw > 0){
+        if(!isReal && !c.rift && mul !== 1) v = Math.max(1, Math.round(v*mul));
+        if(S.attrs[k] >= 92) v = Math.max(1, Math.round(v*0.5));   // 接近饱和，收益减半
+        if(S.fate==='dare'   && k==='C') v = Math.ceil(v*1.3);     // 星命·亡命者
+        if(S.fate==='scribe' && k==='R') v = Math.ceil(v*1.3);     // 星命·史官
+      }
+      S.attrs[k] = clamp(S.attrs[k] + v);
+      gains.push([k, v]);
+    }
+  }
+  /* 倾向连续 */
+  if(c.eff){
+    let dom=null, best=0;
+    for(const k of ['C','R','F']){ const x=Math.abs(c.eff[k]||0); if(x>best){best=x;dom=k;} }
+    if(dom){
+      for(const k of ['C','R','F']) S.curStreak[k] = (k===dom) ? S.curStreak[k]+1 : 0;
+      for(const k of ['C','R','F']) S.bestStreak[k] = Math.max(S.bestStreak[k], S.curStreak[k]);
+    }
+  }
+  /* 史实引力（星命·史官：偏离损耗减半） */
+  if(!c.rift){
+    S.pull = clamp(S.pull + (isReal ? 7 : (S.fate==='scribe' ? -5 : -9)));
+    S.gripMax = Math.max(S.gripMax, S.pull);
+    S.pullMin = Math.min(S.pullMin, S.pull);
+    if(!isReal) S.deviations.push(ch.id);
+  }
+  /* 均衡追踪（星命·执秤人：判定放宽为 50–85） */
+  const bLo = S.fate==='scale' ? 50 : 55, bHi = S.fate==='scale' ? 85 : 80;
+  if(['C','R','F'].every(k=>S.attrs[k]>=bLo && S.attrs[k]<=bHi)) S.balanceCount++;
+
+  /* flag / 隐藏星辉 */
+  if(c.flag && !S.flags.includes(c.flag)) S.flags.push(c.flag);
+  let newRift = null;
+  if(c.rift && !S.secrets.includes(c.rift.id)){
+    S.secrets.push(c.rift.id);
+    S.stars.push({chapter: ch.id, name: c.rift.name, secret: true, title: ch.title, rid: c.rift.id});
+    newRift = c.rift;
+  }
+
+  /* 本章完成 */
+  const isLast = S.ri === ch.rounds.length - 1;
+  let newStar = null, overloaded = [];
+  if(isLast){
+    ['C','R','F'].forEach(k=>{
+      if(S.attrs[k] >= 95 && !S.overloads.includes(k)){
+        S.attrs[k] = clamp(S.attrs[k] - 8);
+        S.overloads.push(k);
+        overloaded.push(k);
+      }
+    });
+    if(overloaded.length) gains.push(...overloaded.map(k=>[k, -8]));
+    if(!S.seen.includes(ch.id)){
+      S.seen.push(ch.id);
+      S.order.push(ch.id);
+    }
+    if(!S.views.includes(ch.id)) S.views.push(ch.id);
+    newStar = {chapter: ch.id, name: ch.star.name, title: ch.title};
+    if(!S.stars.some(x=>x.chapter===ch.id && !x.secret)) S.stars.push(newStar);
+  }
+
+  /* 周目记忆 */
+  META.memory[`${ch.id}-${S.ri}`] = {idx, text: c.text};
+  saveMeta();
+
+  checkResonance();
+  const newAch = checkAch();
+  if(unlockBeyond()) checkAch();
+
+  save();
+  refreshHUD(gains);
+  showResult({ch, rd, c, timeout, gains, newRift, newStar, isLast, newAch, isReal, overloaded});
+}
+
+/* ============================================================
+   结果面板
+   ============================================================ */
+function showResult(o){
+  const {ch, c, timeout, gains, newRift, newStar, isLast, newAch, isReal, overloaded} = o;
+  const gainHtml = gains.length
+    ? gains.map(([k,v])=>`<span class="${v>0?'up':'dn'}">${ANAME[k]} ${v>0?'+':''}${v}</span>`).join('')
+    : '<span>属性无变化</span>';
+
+  let html = `
+    <div class="sheet-kicker">第 ${ch.id} 瞬 · ${ch.title} · 第 ${S.ri+1} 次抉择</div>
+    <h3>${timeout ? '命运替你做出了选择' : '你的选择'}</h3>
+    <div class="res-text">${c.res}</div>
+    <div class="gain">${gainHtml}</div>`;
+
+  if(!isReal && !c.rift){
+    html += `<div class="small" style="margin-top:12px;color:#c8a04a">⊘ 你偏离了史书。史实引力降至 ${S.pull}。</div>`;
+  } else if(isReal && !c.rift){
+    html += `<div class="small" style="margin-top:12px;color:#8a8270">⊙ 这正是他当年的选择。史实引力升至 ${S.pull}。</div>`;
+  }
+  if(overloaded.length){
+    html += `<div class="toast-ach" style="background:linear-gradient(90deg,rgba(212,87,74,.18),rgba(212,87,74,.04));border-color:#d4574a">
+      <div class="t1">属 性 过 载</div>
+      <div class="t2" style="color:#f0a090">${overloaded.map(k=>ANAME[k]).join('、')} 烧到了尽头</div>
+      <div class="t3">它回落了 8 点。太满的东西，会自己溢出来——这是茨威格笔下所有主角的宿命。</div>
+    </div>`;
+  }
+  if(newStar){
+    html += `<div class="starline">
+      <div class="sn">✦ 点亮星辉 · ${newStar.name}</div>
+      <div class="sd">${ch.star.line}　（${S.seen.length} / ${CHAPTERS.length} 瞬已点亮）</div>
+    </div>`;
+  }
+  if(newRift){
+    html += `<div class="starline secret">
+      <div class="sn">✧ 隐藏星辉 · ${newRift.name}</div>
+      <div class="sd">${newRift.note}　（星轨裂缝 ${S.secrets.length} / ${RIFT_TOTAL}）</div>
+    </div>`;
+  }
+  newAch.forEach(a=>{
+    html += `<div class="toast-ach">
+      <div class="t1">成 就 解 锁</div>
+      <div class="t2">${a.icon} ${a.name}</div>
+      <div class="t3">${a.desc}</div>
+    </div>`;
+  });
+
+  if(isLast){
+    html += `<hr class="hr">
+      <div class="small" style="letter-spacing:.2em;color:#8a7326;margin-bottom:8px">史 实 注 脚</div>
+      <div class="small" style="line-height:1.9;color:#a9a396;margin-bottom:16px">${ch.ending.history}</div>
+      <button class="btn-sub" id="btnView" style="width:100%;padding:12px;border-radius:10px">✦ 解锁另一方视角 · ${ch.otherSide.who}</button>
+      <div id="viewSlot"></div>`;
+  }
+
+  let btns = '';
+  if(!isLast){
+    const canRw = S.attrs.F >= REWIND_MIN && !S.rewindChapters.includes(ch.id);
+    btns = `${canRw ? `<button class="btn-sub" id="sheetRw" style="width:100%;margin-top:12px">↺ 星轨回溯 · 重新站到这个路口（−${REWIND_COST} 命运 · 本章一次）</button>` : ''}
+      <button class="sheet-btn" id="sheetNext" style="margin-top:0">继续 · 第 ${S.ri+2} 次抉择</button>`;
+  } else {
+    btns = `<button class="sheet-btn" id="sheetShelf">回 到 档 案 架</button>`;
+  }
+  html += btns;
+
+  $('sheet').innerHTML = html;
+  $('overlay').classList.add('on');
+  $('overlay').dataset.lock = '1';
+  if($('btnView')) $('btnView').onclick = ()=>{
+    $('btnView').style.display = 'none';
+    $('viewSlot').innerHTML = `<div class="viewbox" style="margin-top:12px">
+      <div class="vw">${ch.otherSide.who}</div>
+      <div class="vt">${ch.otherSide.title}</div>
+      <div class="vx">${ch.otherSide.text}</div>
+    </div>`;
+  };
+  if($('sheetNext')) $('sheetNext').onclick = ()=>{
+    $('overlay').classList.remove('on'); delete $('overlay').dataset.lock;
+    S.ri++; save(); renderRound();
+  };
+  if($('sheetRw')) $('sheetRw').onclick = ()=>{
+    S.attrs.F = clamp(S.attrs.F - REWIND_COST);
+    S.rewinds++;
+    if(!S.rewindChapters.includes(ch.id)) S.rewindChapters.push(ch.id);
+    if(S.times.length) S.times.pop();     // 回溯的那次不计入用时
+    save(); checkAch();
+    $('overlay').classList.remove('on'); delete $('overlay').dataset.lock;
+    renderRound();
+  };
+  if($('sheetShelf')) $('sheetShelf').onclick = ()=>{
+    $('overlay').classList.remove('on'); delete $('overlay').dataset.lock;
+    S.ri = 0; save(); renderShelf();
+  };
+}
+
+/* ============================================================
+   另一方视角
+   ============================================================ */
+function openView(chId){
+  const ch = CHAPTERS.find(c=>c.id===chId);
+  if(!ch || !ch.otherSide) return;
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>另 一 方 视 角</h3>
+      <div class="psum">第 ${ch.id} 瞬 · ${ch.title}</div>
+      <div class="viewbox">
+        <div class="vw">${ch.otherSide.who}</div>
+        <div class="vt">${ch.otherSide.title}</div>
+        <div class="vx">${ch.otherSide.text}</div>
+      </div>
+      <button class="sheet-btn" id="vClose">合 上</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('vClose').onclick = ()=> $('overlay').classList.remove('on');
+}
+
+/* ============================================================
+   结局
+   ============================================================ */
+function deviationTop(){
+  if(!S.deviations.length) return null;
+  const cnt = {};
+  S.deviations.forEach(id=>cnt[id]=(cnt[id]||0)+1);
+  let best=null, n=0;
+  for(const k in cnt){ if(cnt[k] > n){ n = cnt[k]; best = Number(k); } }
+  return best ? {id:best, n} : null;
+}
+
+function renderBeyond(){
+  S.screen = 'beyond';
+  document.querySelector('.topbar').style.display = 'flex';
+  $('tbTitle').textContent = '星轨之外';
+  $('app').innerHTML = `
+    <div class="ending">
+      <div class="end-badge" style="color:#a87ac8">S T E R N S T U N D E   B E Y O N D</div>
+      <div class="end-title secret-title">群星之外</div>
+      <div class="end-text">
+        <p>十四扇门都走完了。你本该在这里合上档案。</p>
+        <p>但你手上多了四颗不属于这本书的星。<br>它们不在茨威格的目录里——它们是你在每一个门口，<b>往旁边多看了一眼</b>才捡到的。</p>
+        <div class="q" style="text-align:left;max-width:560px;margin:22px auto">
+          1942 年 2 月 22 日，茨威格在巴西彼得罗波利斯的一间小屋里，和他的妻子一起结束了生命。<br>
+          他在遗书里写：<br>
+          「我向我所有的朋友致意。愿他们在漫长的黑夜之后，还能见到黎明。而我，一个过于性急的人，先走了。」
+        </div>
+        <p>他写完那十四个瞬间之后，没有等到他自己的黎明。</p>
+        <p>所以这最后一页，他不曾写。你替他推开了一扇他没能推开的门——<br>门后面没有英雄，只有一个人，站在天亮之前。</p>
+        <div class="q" style="text-align:left;max-width:560px;margin:22px auto">
+          他把十四颗星留在纸上。<br>你把它们重新点亮了一次。<br>这就够了。
+        </div>
+      </div>
+      <div class="end-btns">
+        <button class="btn-main" id="bGo">看 我 的 星 图</button>
+      </div>
+    </div>`;
+  $('bGo').onclick = ()=> renderEnding();
+}
+
+function renderEnding(){
+  S.screen = 'ending';
+  document.querySelector('.topbar').style.display = 'flex';
+  $('tbTitle').textContent = '群星终章';
+  paintAchBadge();
+  const {C,R,F} = S.attrs;
+  const a = (C+R+F)/3;
+  let title, text;
+
+  if(S.secrets.length >= RIFT_TOTAL){
+    title = '群星之外的记录员';
+    text = `<p>你不只走完了那十四扇门，你还在每一扇门的旁边，找到了一个没有人告诉过你的出口。</p>
+      <p>茨威格写下这些瞬间，是想让人看见：历史的关键一分钟，从来不是由英雄决定的，而是由<b>和你一样会犹豫、会害怕、会侥幸的人</b>决定的。</p>
+      <p>而你比他们多走了一步——你在每一个门口都多看了一眼。<br>这就是记录员和读者的区别。</p>`;
+  } else if(S.balanceCount >= 30 && a >= 58){
+    title = '天平之主';
+    text = `<p>四十二次抉择里，你有三十次让三条刻度同时停在中间。你没有让任何一种天性吃掉另外两种。</p>
+      <p>这在茨威格的书里几乎没有人做到——他笔下的人都是被一种东西烧穿的：偏执、忠贞、野心、爱。<br>而你没有烧穿。你是那个<b>把火留在灶里</b>的人。</p>`;
+  } else if(C>=82 && R<52){
+    title = '亡命之徒的星';
+    text = `<p>你在每一扇历史门口，都选了最野的那条路。你活成了巴尔沃亚、活成了菲尔德、活成了那个在枪口下还在骂人的陀思妥耶夫斯基。</p>
+      <p>历史不会给你立传。但历史会借你的名字，去命名那些「不守规矩」的瞬间。</p>`;
+  } else if(R>=82 && C<52){
+    title = '书记员的星';
+    text = `<p>你在每一个关头都选了最安全、最合乎理性的那条路。你活得比大多数人都长，但你也清楚——你从未真正站进过历史的那一分钟里。</p>
+      <p>你成了档案，不是成了故事。</p>`;
+  } else if(F>=82){
+    title = '被命运选中的星';
+    text = `<p>你很少主动决定什么。你把很多次选择交给了时间、交给了偶然、交给了命运。</p>
+      <p>奇怪的是，你走的那条路，恰好就是茨威格写过的那条。<br>你不是英雄。你是历史本身——它需要你做什么，你就做了什么。</p>`;
+  } else if(a>=72){
+    title = '群星之王';
+    text = `<p>勇气、理智、命运，在你身上达成了罕见的平衡。你既没有被冲动烧死，也没有被谨慎淹死。</p>
+      <p>十四扇门，你都站着走了进去，也都站着走了出来。<br>这是把十四扇门全部推开的人，才配得上的称号。</p>`;
+  } else if(a>=52){
+    title = '普通而伟大的星';
+    text = `<p>你就是茨威格笔下那些「普通人」。你害怕过、犹豫过、侥幸过——但你最后还是站在了每一个门口。</p>
+      <p>这就够了。历史从来不需要一百个人中出一个满分的人，它需要有人愿意站在门口。</p>`;
+  } else {
+    title = '暗星';
+    text = `<p>在太多瞬间里，你选择了退缩。你的星图是暗的。</p>
+      <p>但茨威格会原谅你——因为他写这本书，正是为了让下一个站在门口的人，比你多走一步。</p>`;
+  }
+
+  /* 结局收藏册：跨周目累计 */
+  if(!META.endings.includes(title)){ META.endings.push(title); saveMeta(); }
+
+  const top = deviationTop();
+  let butterfly = '';
+  if(top){
+    butterfly = `<div class="sec-title">另 一 种 可 能</div>
+      <div class="viewbox">
+        <div class="vw">你在第 ${top.id} 瞬 · ${CHAPTERS[top.id-1].title} 偏离史实 ${top.n} 次</div>
+        <div class="vx" style="margin-top:8px">${BUTTERFLY[top.id]}</div>
+      </div>`;
+  }
+
+  $('app').innerHTML = `
+    <div class="ending">
+      <div class="end-badge">S T E R N S T U N D E N</div>
+      <div class="end-title ${S.secrets.length>=RIFT_TOTAL?'secret-title':''}">${title}</div>
+      <div class="end-text">${text}</div>
+
+      <div class="statline">
+        <span data-k="C">勇气<b>${C}</b></span>
+        <span data-k="R">理智<b>${R}</b></span>
+        <span data-k="F">命运<b>${F}</b></span>
+      </div>
+
+      <div class="sec-title">你 的 星 图</div>
+      ${starMapSVG()}
+      <div class="small mt" style="text-align:center">${S.seen.length} / ${CHAPTERS.length} 颗星被点亮　·　按你阅读的顺序连成线</div>
+
+      ${butterfly}
+
+      <div class="sec-title">档 案 结 算</div>
+      <div class="small" style="line-height:2.1">
+        史实引力终值：${S.pull}（最高 ${S.gripMax} / 最低 ${S.pullMin}）<br>
+        发现星轨裂缝：${S.secrets.length} / ${RIFT_TOTAL}　·　解锁成就：${S.achs.length} / ${ACHIEVEMENTS.length}<br>
+        深思 ${S.deepCount} 次　·　均衡抉择 ${S.balanceCount} 次　·　过载 ${S.overloads.length} 次<br>
+        平均决策用时：${S.times.length ? avg(S.times).toFixed(1) : '0'} 秒　·　超时 ${S.timeouts} 次<br>
+        本世星命：${S.fate ? fateOf(S.fate).name : '—'}　·　回溯 ${S.rewinds} 次　·　星间对话 ${S.dialogs.length} / ${DIALOGUES.length}
+      </div>
+
+      <div class="sec-title">现 实 回 响</div>
+      <div class="real-intro">
+        合上档案之前，还有一件事：把书里的一分钟，对到你自己的表上。<br>
+        <b>茨威格写的不是历史，是十四种人在关键时刻的姿势。</b>而每一种姿势，你今天至少会摆出一次。按你的星图，先给你三面镜子。
+      </div>
+      <div class="real-grid">
+        ${realityPicks().map((id,i)=>realityCardHTML(realityOf(id), i===0 && top ? '偏离最深' : '')).join('')}
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn-sub" id="eReal" style="width:100%;padding:11px;border-radius:10px">◈ 读 完 十 四 面 镜 子</button>
+      </div>
+
+      <div class="end-btns">
+        <button class="btn-main" id="eCard">生 成 星 轨 卡 片</button>
+        <button class="btn-sub" id="eAch">✦ 成 就 墙</button>
+        <button class="btn-sub" id="eMap">✧ 星 图 与 视 角</button>
+        <button class="btn-sub" id="eAgain">重 走 星 轨</button>
+      </div>
+    </div>`;
+
+  $('eCard').onclick = ()=> openCard(title);
+  $('eAch').onclick = ()=> openAch();
+  $('eMap').onclick = ()=> openMap();
+  $('eReal').onclick = ()=> openReality();
+  $('eAgain').onclick = ()=>{
+    const keepEggs = S.eggs.slice(), keepAchs = S.achs.slice();
+    try{ localStorage.removeItem(SAVE_KEY); }catch(e){}
+    S = blank();
+    S.eggs = keepEggs; S.achs = keepAchs;
+    META.clears++;
+    saveMeta();
+    renderShelf();
+  };
+}
+
+/* ============================================================
+   分享卡（Canvas）
+   ============================================================ */
+function openCard(title){
+  const W=880, H=1320;
+  const cv = document.createElement('canvas');
+  cv.width=W; cv.height=H;
+  const g = cv.getContext('2d');
+  const FONT = '"Noto Serif SC","Songti SC",serif';
+
+  const bg = g.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#0a0812'); bg.addColorStop(0.45,'#12101e'); bg.addColorStop(1,'#1a130b');
+  g.fillStyle = bg; g.fillRect(0,0,W,H);
+
+  for(let i=0;i<160;i++){
+    const x = Math.random()*W, y = Math.random()*H;
+    const r = Math.random()*1.6 + 0.3;
+    g.globalAlpha = 0.15 + Math.random()*0.6;
+    g.fillStyle = '#ffeab0';
+    g.beginPath(); g.arc(x,y,r,0,Math.PI*2); g.fill();
+  }
+  g.globalAlpha = 1;
+
+  g.textAlign='center';
+  g.fillStyle = '#8a7326';
+  g.font = `500 15px ${FONT}`;
+  g.fillText('S T E R N S T U N D E N   D E R   M E N S C H H E I T', W/2, 92);
+  g.fillStyle = '#f6e9b0';
+  g.font = `400 40px ${FONT}`;
+  g.fillText('人类群星闪耀时', W/2, 152);
+  g.fillStyle = '#6f6a58';
+  g.font = `400 14px ${FONT}`;
+  g.fillText('星 轨 档 案 · 你 的 一 局', W/2, 186);
+
+  g.strokeStyle = 'rgba(212,175,55,.35)';
+  g.beginPath(); g.moveTo(80,222); g.lineTo(W-80,222); g.stroke();
+
+  g.fillStyle = '#d4af37';
+  g.font = `400 17px ${FONT}`;
+  g.fillText('结  局', W/2, 272);
+  g.fillStyle = '#ffffff';
+  g.font = `400 46px ${FONT}`;
+  g.fillText(title, W/2, 336);
+
+  /* 属性 */
+  const attrs = [['勇气', S.attrs.C, '#d4574a'], ['理智', S.attrs.R, '#5a9ac8'], ['命运', S.attrs.F, '#a87ac8']];
+  attrs.forEach((it,i)=>{
+    const cx = W/4*(i*1.34 + 0.66);
+    g.fillStyle = '#8a8270'; g.font = `400 15px ${FONT}`;
+    g.fillText(it[0], cx, 400);
+    g.fillStyle = it[2]; g.font = `400 36px ${FONT}`;
+    g.fillText(String(it[1]), cx, 446);
+  });
+
+  /* 星图 */
+  const ox = 120, oy = 500, sw = W-240, sh = 300;
+  const pts = starPoints().map(p=>({ x: ox + p.x/520*sw, y: oy + p.y/300*sh }));
+  g.lineWidth = 2;
+  for(let i=1;i<S.order.length;i++){
+    const A = pts[S.order[i-1]-1], B = pts[S.order[i]-1];
+    if(!A||!B) continue;
+    g.strokeStyle = 'rgba(212,175,55,.5)';
+    g.beginPath(); g.moveTo(A.x,A.y); g.lineTo(B.x,B.y); g.stroke();
+  }
+  pts.forEach((p,i)=>{
+    const on = S.seen.includes(i+1);
+    g.beginPath(); g.arc(p.x,p.y, on?7:4.5, 0, Math.PI*2);
+    g.fillStyle = on ? '#f6e9b0' : '#2a2740';
+    g.fill();
+    if(on){ g.strokeStyle='rgba(212,175,55,.6)'; g.lineWidth=2; g.stroke(); }
+  });
+
+  /* 统计 */
+  let y = 880;
+  g.textAlign = 'left';
+  g.fillStyle = '#8a8270'; g.font = `400 16px ${FONT}`;
+  const lines = [
+    `已点亮星辉　${S.seen.length} / ${CHAPTERS.length}`,
+    `星轨裂缝　　${S.secrets.length} / ${RIFT_TOTAL}`,
+    `史实引力终值　${S.pull}`,
+    `解锁成就　　${S.achs.length} / ${ACHIEVEMENTS.length}`,
+    `均衡抉择　　${S.balanceCount} 次`,
+    `本世星命　　${S.fate ? fateOf(S.fate).name : '未抽取'}`,
+  ];
+  lines.forEach((t,i)=>{ g.fillText(t, 120, y + i*42); });
+
+  const top = deviationTop();
+  if(top){
+    g.fillStyle = '#a87ac8'; g.font = `400 15px ${FONT}`;
+    g.fillText('偏离史实最深的一瞬', 120, y + 5*42 + 22);
+    g.fillStyle = '#e9e3d6'; g.font = `400 21px ${FONT}`;
+    g.fillText(`第 ${top.id} 瞬 · ${CHAPTERS[top.id-1].title}（偏离 ${top.n} 次）`, 120, y + 5*42 + 58);
+  }
+
+  g.textAlign = 'center';
+  g.strokeStyle = 'rgba(212,175,55,.3)';
+  g.beginPath(); g.moveTo(80,1180); g.lineTo(W-80,1180); g.stroke();
+  g.fillStyle = '#6f6a58'; g.font = `400 14px ${FONT}`;
+  g.fillText('「历史真正的戏剧性，不在于英雄，而在于普通人被推到那一分钟。」', W/2, 1226);
+  g.fillStyle = '#8a7326'; g.font = `400 13px ${FONT}`;
+  g.fillText('星轨档案馆 · 见习记录员', W/2, 1262);
+
+  const url = cv.toDataURL('image/png');
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>星 轨 卡 片</h3>
+      <div class="psum">长按保存，或点下面的按钮下载</div>
+      <img src="${url}" style="width:100%;border-radius:12px;border:1px solid var(--line);display:block">
+      <button class="sheet-btn" id="cDl">下 载 图 片</button>
+      <div class="card-note">尺寸 ${W}×${H}，可直接分享</div>
+      <button class="sheet-btn" id="cClose" style="background:none;color:var(--dim);border:1px solid var(--line2)">关 上</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('cDl').onclick = ()=>{
+    const a2 = document.createElement('a');
+    a2.download = `星轨档案_${title}.png`;
+    a2.href = url; a2.click();
+  };
+  $('cClose').onclick = ()=> $('overlay').classList.remove('on');
+}
+
+/* ============================================================
+   面板
+   ============================================================ */
+function openAch(){
+  const html = `
+    <div class="panel">
+      <h3>成 就 墙</h3>
+      <div class="psum">已解锁 ${S.achs.length} / ${ACHIEVEMENTS.length}　·　隐藏成就不会提前揭示条件</div>
+      <div class="ach-grid">
+        ${ACHIEVEMENTS.map(a=>{
+          const got = S.achs.includes(a.id);
+          const hidden = a.id.startsWith('rift') || ['cipher','resonance','beyond','grip','slip','seer','rewind','dialog3'].includes(a.id);
+          const showDesc = got || !hidden;
+          return `<div class="ach ${got?'got':''}">
+            <div class="an"><span class="mark">${got ? a.icon : '○'}</span>${got ? a.name : (hidden ? '？？？' : a.name)}</div>
+            <div class="ad">${showDesc ? a.desc : '尚未解锁的隐藏成就'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <button class="sheet-btn" id="achClose">返 回</button>
+    </div>`;
+  $('sheet').innerHTML = html;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('achClose').onclick = ()=> $('overlay').classList.remove('on');
+}
+
+function openMap(){
+  const riftHtml = Array.from({length:RIFT_TOTAL},(_,i)=>{
+    const n = i+1;
+    const got = S.stars.find(x=>x.secret && x.rid===n);
+    return `<div class="sm ${got?'lit sec':''}">
+      <div class="s1">裂缝 ${n}</div>
+      <div class="s2">${got ? '✧ ' + got.name : '· 未发现'}</div>
+      <div class="s3">${got ? got.title : '星轨上的空缺'}</div>
+    </div>`;
+  }).join('');
+
+  const viewHtml = CHAPTERS.map(ch=>{
+    const on = S.views.includes(ch.id);
+    return `<button class="box ${on?'lit':''}" data-v="${ch.id}" ${on?'':'disabled'} style="--accent:${ch.accent};opacity:${on?1:.42};cursor:${on?'pointer':'default'}">
+      <div class="b-no">第 ${ch.id} 瞬</div>
+      <div class="b-ti" style="font-size:14px">${ch.otherSide.who}</div>
+      <div class="b-ye">${on ? ch.otherSide.title : '未解锁'}</div>
+    </button>`;
+  }).join('');
+
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>星 图 与 视 角</h3>
+      <div class="psum">正篇星辉 ${S.seen.length} / ${CHAPTERS.length}　·　隐藏星辉 ${S.secrets.length} / ${RIFT_TOTAL}　·　视角 ${S.views.length} / ${CHAPTERS.length}</div>
+      ${starMapSVG()}
+      <div class="sec-title" style="margin-top:20px">星 轨 裂 缝</div>
+      <div class="starmap">${riftHtml}</div>
+      <div class="sec-title" style="margin-top:20px">另 一 方 视 角</div>
+      <div class="starmap">${viewHtml}</div>
+      <button class="sheet-btn" id="mapClose">返 回</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('mapClose').onclick = ()=> $('overlay').classList.remove('on');
+  $('sheet').querySelectorAll('[data-v]').forEach(b=>{
+    if(b.disabled) return;
+    b.onclick = ()=> openView(Number(b.dataset.v));
+  });
+}
+
+/* ============================================================
+   结局收藏册
+   ============================================================ */
+function openEndings(){
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>结 局 收 藏</h3>
+      <div class="psum">已收下 ${META.endings.length} / ${ENDING_SET.length} 种结局　·　跨周目累计，重走不清空</div>
+      ${ENDING_SET.map(e=>{
+        const got = META.endings.includes(e.title);
+        return `<div class="endgal ${got?'got':''}">
+          <div class="e1">${got ? '★ ' : '☆ '}${got ? e.title : '？？？'}</div>
+          <div class="e2">${e.hint}</div>
+        </div>`;
+      }).join('')}
+      <div class="small" style="margin-top:10px;line-height:1.9">每一次抵达的结局，都会留在这本册子里。<br>同一扇门，可以走出八种人生。</div>
+      <button class="sheet-btn" id="egClose">返 回</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('egClose').onclick = ()=> $('overlay').classList.remove('on');
+}
+
+/* ============================================================
+   星间对话
+   ============================================================ */
+function openDialogues(){
+  const avail = DIALOGUES.filter(d=>d.pair.every(id=>S.seen.includes(id)));
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>星 间 对 话</h3>
+      <div class="psum">两个都被点亮过的瞬间，会在档案架的深夜里，彼此说几句话</div>
+      ${avail.length ? avail.map(d=>{
+        const [a,b] = d.pair.map(id=>CHAPTERS[id-1]);
+        const seen = S.dialogs.includes(d.id);
+        return `<button class="dlg" data-d="${d.id}" style="width:100%;text-align:left;cursor:pointer;font-family:inherit">
+          <div class="dw">${a.role} × ${b.role}${seen ? '　· 已听' : ''}</div>
+          <div class="dt">${d.title}</div>
+          <div class="dd">第 ${a.id} 瞬 × 第 ${b.id} 瞬</div>
+        </button>`;
+      }).join('') : `<div class="small" style="line-height:2.1">对话需要两颗星同时亮着。<br>再点亮几个瞬间，这里就会开始有声音。</div>`}
+      <button class="sheet-btn" id="dlgClose" style="margin-top:14px">返 回</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('dlgClose').onclick = ()=> $('overlay').classList.remove('on');
+  $('sheet').querySelectorAll('[data-d]').forEach(b=>{
+    b.onclick = ()=> playDialogue(b.dataset.d);
+  });
+}
+
+function playDialogue(did){
+  const d = DIALOGUES.find(x=>x.id===did);
+  if(!d) return;
+  if(!S.dialogs.includes(d.id)){ S.dialogs.push(d.id); save(); checkAch(); }
+  const [A,B] = d.pair.map(id=>CHAPTERS[id-1]);
+  $('sheet').innerHTML = `
+    <div class="panel">
+      <h3>${d.title}</h3>
+      <div class="psum">${A.title} · ${A.role}　×　${B.title} · ${B.role}</div>
+      <div class="dlg-line">
+        ${d.lines.map((ln,i)=>`<div class="ln ${i%2?'alt':''}"><span class="who">${ln[0]}</span>${ln[1]}</div>`).join('')}
+      </div>
+      ${d.tail ? `<div class="dlg-tail">档案员批注：${d.tail}</div>` : ''}
+      <button class="sheet-btn" id="dlgBack" style="margin-top:16px">回 到 对 话 列 表</button>
+    </div>`;
+  $('overlay').classList.add('on');
+  delete $('overlay').dataset.lock;
+  $('dlgBack').onclick = ()=> openDialogues();
+}
+
+/* ============================================================
+   启动
+   ============================================================ */
+function bindTop(){
+  $('btnHome').onclick = ()=>{
+    stopTimer();
+    $('overlay').classList.remove('on');
+    renderShelf();
+  };
+  $('btnAch').onclick = ()=> openAch();
+  $('btnMap').onclick = ()=> openMap();
+  $('overlay').onclick = e=>{
+    if(e.target === $('overlay') && !$('overlay').dataset.lock) $('overlay').classList.remove('on');
+  };
+}
+
+(function boot(){
+  bindTop();
+  META = loadMeta();
+  const saved = loadSaved();
+  if(saved) S = Object.assign(blank(), saved);
+  S.screen = 'shelf';
+  renderShelf();
+})();
+
+</script>
+</body>
+</html>
